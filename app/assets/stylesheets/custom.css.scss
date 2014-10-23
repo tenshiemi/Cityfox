@@ -1,0 +1,31 @@
+@import "bourbon";
+@import "neat";
+
+$mobile: new-breakpoint(max-width 500px 4);
+
+div.container {
+  @include outer-container;
+  background-color: pink;
+}
+
+nav {
+	height: 100px;
+	background-color: navy;
+}
+
+section {
+  @include outer-container;
+  aside {
+    background-color: orange;
+    @include span-columns(3);
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
+  article {
+    @include span-columns(9);
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
+}

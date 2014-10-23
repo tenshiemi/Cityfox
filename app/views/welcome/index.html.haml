@@ -1,0 +1,23 @@
+%header
+	%h1 Cityfox
+	%section
+		%aside
+			Boop
+		%article
+			Doop
+	%section
+		= form_for :user, url: root_path do |f|
+			%p
+				= f.label :name
+				= f.text_field :name
+			%p
+				= f.label :email
+				= f.text_field :email
+			%p
+				= f.label :password
+				= f.text_field :password
+			%p
+				= f.label :password_confirmation
+				= f.text_field :password_confirmation
+			%p
+				= f.submit 
