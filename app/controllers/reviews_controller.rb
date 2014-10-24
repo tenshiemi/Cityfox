@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def new
+    @company = Company.find(params[:id])
   	@review = Review.new
   end
 
@@ -18,6 +19,6 @@ class ReviewsController < ApplicationController
 
   private
 	def review_params
-    params.require(:review).permit(:user_id, :company_id, :would_work_with, :description)
+    params.require(:review).permit(:user_id, :company_id, :description)
   end
 end

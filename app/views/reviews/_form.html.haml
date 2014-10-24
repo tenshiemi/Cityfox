@@ -1,11 +1,10 @@
-=form_tag user_sessions_path, :method => :post do
+%h1=@company.name
+= form_for @review  do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :company_id, value: @company.id
   .field
-    = label_tag :company 
+    = f.label :description
     %br
-    =text_field_tag :company
-  .field
-    = label_tag :description
-    %br
-    = password_field_tag :description
+    = f.text_field :description
   .actions
-    = submit_tag "Submit"
+    = f.submit "Submit"

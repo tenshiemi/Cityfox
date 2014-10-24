@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+	skip_before_filter :require_login, only: [:index, :show]
+
 	def index
 		@companies = Company.all
 	end
@@ -19,6 +21,10 @@ class CompaniesController < ApplicationController
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
+	end
+
+	def show
+		@company = Company.find(params[:id])
 	end
 
 	private

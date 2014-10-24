@@ -1,0 +1,8 @@
+= render "layouts/header"
+.container
+	%h1= @company.name
+	%h2= @company.city
+	- @company.reviews.each do |review|
+		= review.description
+	= link_to "Review this company", "/reviews/new?id=#{@company.id}"
+		

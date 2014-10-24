@@ -3,16 +3,16 @@
 		%nav
 			.navbar-left
 				%h1
-					#logo=link_to "City Fox", root_path
+					#logo= link_to "City Fox", root_path
 			.navbar-right
 				%ul
 					- if current_user
-						%li.medium-button
-							=link_to "Edit Profile", edit_user_path(current_user.id)
-						%li.medium-button
-							=link_to "Logout", :logout, method: :post
+						%li
+							= link_to "LOG OUT", :logout, method: :post, class: "medium-button"
+							%li
+							= link_to current_user.name, edit_user_path(current_user.id), class: "medium-button"
 					- else
-						%li.medium-button
-							=link_to "Register", new_user_path
-						%li.medium-button
-							=link_to "Login", :login
+						%li
+							= link_to "REGISTER", new_user_path, class: "medium-button"
+						%li
+							= link_to "LOG IN", :login, class: "medium-button"
