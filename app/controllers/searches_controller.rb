@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
-	def create
-		results = []
+	def index
 		@search_term = params[:search_term]
+		@results = Company.where("name like ?", "%#{@search_term}%")
 	end
 end

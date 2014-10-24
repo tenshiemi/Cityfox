@@ -1,0 +1,8 @@
+= render "layouts/header"
+.container
+	- if @results.size > 0
+		%ul
+			- @results.each do |result|
+				%li= link_to result.name, company_path(result.id)
+	- else
+		There are no results for this search.
