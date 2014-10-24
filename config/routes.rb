@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+
   root :to => 'welcome#index'
   resources :user_sessions
   resources :users
+  resources :companies
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

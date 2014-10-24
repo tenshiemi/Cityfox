@@ -1,0 +1,13 @@
+=link_to "Add Company", new_company_path
+%table
+  %thead
+    %tr
+      %th Company Name
+      %th Location
+      %th Options
+  %tbody
+    - @companies.each do |company|
+      %tr
+        - cache(company) do
+          %td= company.name
+          %td= company.city + ", " + company.state 

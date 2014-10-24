@@ -3,14 +3,31 @@
 
 $mobile: new-breakpoint(max-width 500px 4);
 
+* {
+  color: #3B3A35;
+}
+
 div.container {
   @include outer-container;
-  background-color: pink;
+}
+
+header {
+  background-color: hsla(160, 36%, 61%, 1);
+  box-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
+  width: 100%;
+}
+
+body {
+  padding-top: 0px;
 }
 
 nav {
-	height: 100px;
-	background-color: navy;
+	height: 50px;
+  padding: 10px;
+}
+
+nav h1 {
+  margin: 0px;
 }
 
 section {
@@ -28,4 +45,63 @@ section {
       @include span-columns(4);
     }
   }
+}
+
+nav ul {
+  list-style-type: none;
+  overflow: hidden;
+  margin: auto;
+}
+
+nav li {
+  display: inline;
+  margin: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+input:not([type=submit]):not([type=file]) {
+   height: 30px;
+   border-radius: .3em;
+}
+
+#logo {
+  color: white;
+  font-size: 24px;
+}
+
+.hero {
+  background-image: url('newyork.jpg');
+  height: 600px;
+}
+
+.medium-button {
+  border: 1px solid white;
+  border-radius: .5em;
+  float: left;
+  margin: 10px;
+  min-height: 25.6px;
+  min-width: 100px;
+  background-color: hsla(160, 36%, 61%, 1);
+  padding: 10px;
+  text-align: center;
+  // background-color: hsla(3,100%,65%,.9);
+  // box-shadow: 2px 2px 3px hsla(0,0%,0%,.3);
+  // text-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
+}
+
+.navbar-left {
+  padding-top: 5px;
+  float: left;
+}
+
+.navbar-right {
+  float: right;
+}
+
+.footer-wrapper {
+  clear: both;
 }

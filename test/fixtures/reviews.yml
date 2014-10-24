@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  would_work_with: false
+  description: MyText
+  response: MyText
+
+two:
+  would_work_with: false
+  description: MyText
+  response: MyText
