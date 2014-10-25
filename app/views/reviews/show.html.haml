@@ -1,3 +1,11 @@
 = render "layouts/header"
 .container
-	Hi
+	%h2=@review.title
+	%p=@review.description
+	- if @review.would_work_with
+		%h3 I would work with them again
+	- else
+		%h3 I would not work with them again
+	%p="Timeliness of payment: #{@review.rating_payment}"
+	%p="Communication: #{@review.rating_communication}"
+	%p="Expectations: #{@review.rating_expectations}"
