@@ -2,6 +2,7 @@
 @import "neat";
 
 $mobile: new-breakpoint(max-width 500px 4);
+$tablet: new-breakpoint(max-width 800px 4);
 
 * {
   color: #3B3A35;
@@ -19,10 +20,11 @@ header {
 
 body {
   padding-top: 0px;
+  margin:0px;
 }
 
 nav {
-	height: 50px;
+	max-height: 50px;
   padding: 10px;
 }
 
@@ -63,9 +65,21 @@ nav a {
   color: white;
 }
 
-input:not([type=submit]):not([type=file]) {
+input[type=text] {
    height: 30px;
    border-radius: .3em;
+}
+
+input[type=search] {
+   height: 50px;
+   width: 400px;
+   font-size: 30px;
+   border-radius: .3em;
+   background-color: rgba(255, 255, 255, .25)
+}
+
+input[type=search]:focus {
+  border: 0px !important;
 }
 
 #logo {
@@ -75,7 +89,13 @@ input:not([type=submit]):not([type=file]) {
 
 .hero {
   background-image: url('newyork.jpg');
-  height: 600px;
+  height: 754px;
+  @include media($mobile) {
+      background-image: url('newyork_mobile.jpg');
+  }
+  @include media($tablet) {
+      background-image: url('newyork_tablet.jpg');
+  }
 }
 
 .medium-button {
@@ -104,4 +124,6 @@ input:not([type=submit]):not([type=file]) {
 
 .footer-wrapper {
   clear: both;
+  position: absolute;
+  bottom: 0;
 }
