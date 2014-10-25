@@ -9,6 +9,7 @@ class OwnersController < ApplicationController
 
 	def create
 		@user = User.new(owner_params)
+		debugger
     respond_to do |format|
       if @user.save
         auto_login(@user)

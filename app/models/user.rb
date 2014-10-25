@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   validates :name, presence: true
+
+  before_save :default_values
+  
+  def default_values
+    self.role ||= :normal
+  end
 end

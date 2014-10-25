@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025204513) do
+ActiveRecord::Schema.define(version: 20141025212050) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20141025204513) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                                         null: false
-    t.string   "crypted_password",                              null: false
-    t.string   "salt",                                          null: false
+    t.string   "email",                                      null: false
+    t.string   "crypted_password",                           null: false
+    t.string   "salt",                                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20141025204513) do
     t.boolean  "verified",                   default: false
     t.integer  "company_id"
     t.string   "phone"
-    t.string   "role",                       default: "normal"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
