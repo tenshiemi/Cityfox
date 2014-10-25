@@ -1,8 +1,8 @@
 @import "bourbon";
 @import "neat";
 
-$mobile: new-breakpoint(max-width 500px 4);
-$tablet: new-breakpoint(max-width 800px 4);
+$mobile: new-breakpoint(max-width 500px, 4);
+$tablet: new-breakpoint(max-width 800px, 8);
 
 * {
   color: #3B3A35;
@@ -13,8 +13,6 @@ div.container {
 }
 
 header {
-  background-color: hsla(160, 36%, 61%, 1);
-  box-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
   width: 100%;
 }
 
@@ -24,29 +22,12 @@ body {
 }
 
 nav {
-	max-height: 50px;
+	height: 70px;
   padding: 10px;
 }
 
 nav h1 {
   margin: 0px;
-}
-
-section {
-  @include outer-container;
-  aside {
-    background-color: orange;
-    @include span-columns(3);
-    @include media($mobile) {
-      @include span-columns(4);
-    }
-  }
-  article {
-    @include span-columns(9);
-    @include media($mobile) {
-      @include span-columns(4);
-    }
-  }
 }
 
 nav ul {
@@ -61,8 +42,15 @@ nav li {
 }
 
 nav a {
-  text-decoration: none;
   color: white;
+}
+
+nav a:visited {
+  color: white;
+}
+
+nav a:hover {
+  background-color: hsla(160, 36%, 61%, 1); 
 }
 
 input[type=text] {
@@ -71,31 +59,72 @@ input[type=text] {
 }
 
 input[type=search] {
-   height: 50px;
-   width: 400px;
-   font-size: 30px;
-   border-radius: .3em;
-   background-color: rgba(255, 255, 255, .25)
+  height: 50px;
+  width: 400px;
+  font-size: 30px;
+  border-radius: .3em;
+  background-color: rgba(255, 255, 255, .25);
+  margin: auto;
+  @include media($mobile) {
+    height: 30px;
+    width: 300px;
+  }
 }
 
 input[type=search]:focus {
-  border: 0px !important;
+  border: 0px;
+  text-shadow: none;
+  outline: none;
+  border-radius: .3em;
+  box-shadow: 0px 0px 0px 2pt white;
+}
+
+h1, h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero-content h1 {
+  font-size: 5em;
+  line-height: 1em;
+}
+
+.hero-content h2 {
+  font-size: 3em;
+  line-height: 1em;
 }
 
 #logo {
   color: white;
-  font-size: 24px;
+  font-size: 2em;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero {
-  background-image: url('newyork.jpg');
-  height: 754px;
-  @include media($mobile) {
-      background-image: url('newyork_mobile.jpg');
-  }
+  background: url('newyork.jpg') no-repeat center center fixed;
+  max-width: 18000px;
+  height: 1000px;
   @include media($tablet) {
-      background-image: url('newyork_tablet.jpg');
+      background: url('newyork_tablet_alt.jpg') no-repeat center center fixed;
   }
+  @include media($mobile) {
+      background: url('newyork_mobile_alt.jpg') no-repeat center center fixed;
+  }
+}
+
+.hero-content {
+  max-width: 960px;
+  padding: 34px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: hsla(0, 0%, 100%, .35);
+  border-radius: .5em;
+  text-align: center;
 }
 
 .medium-button {
@@ -105,7 +134,7 @@ input[type=search]:focus {
   margin: 10px;
   min-height: 25.6px;
   min-width: 100px;
-  background-color: hsla(160, 36%, 61%, 1);
+  background-color: hsla(160, 36%, 61%, .6);
   padding: 10px;
   text-align: center;
   // background-color: hsla(3,100%,65%,.9);
@@ -116,10 +145,21 @@ input[type=search]:focus {
 .navbar-left {
   padding-top: 5px;
   float: left;
+  @include media($mobile) {
+      @include span-columns(4);
+      text-align: center;
+  }
 }
 
 .navbar-right {
   float: right;
+  @include media($mobile) {
+      @include span-columns(4);
+  }
+}
+
+.search {
+  margin: auto;
 }
 
 .footer-wrapper {

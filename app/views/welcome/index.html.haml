@@ -1,10 +1,15 @@
 %body
-	.hero
+	.fullscreen.background.hero
 		= render "layouts/header"
 		.container
 			%p#notice
 				= flash[:notice]
 			%p#alert
 				= flash[:alert]
-			= form_tag search_path, :method => :post do
-				= search_field_tag :search_term
+			.hero-content
+				%h2 Unsure about a new client?
+				%h2 We've got your back.
+				.search
+					= form_tag search_path, :method => :post do
+						= search_field_tag :search_term
+				%h3 Reviews for freelancers, design and development shops, and anyone who does client work.
