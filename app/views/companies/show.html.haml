@@ -5,4 +5,5 @@
 	- @company.reviews.each do |review|
 		= review.description
 	= link_to "Review this company", "/reviews/new?id=#{@company.id}"
+	= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
 		
