@@ -13,7 +13,7 @@ class OwnersController < ApplicationController
     respond_to do |format|
       if @user.save
         auto_login(@user)
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to owner_landing_path, notice: 'User was successfully created.' }
         format.json { render :owner_landing, status: :created, location: @user }
       else
         format.html { render :new }
@@ -23,6 +23,10 @@ class OwnersController < ApplicationController
  	end
 
 	private
+	def set_user
+      @user = User.find(params[:id])
+  end
+
 	def owner_params
     params.require(:user).permit(:role, :company_id, :name, :email, :phone, :password, :password_confirmation)
   end

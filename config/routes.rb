@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   post 'search' => 'searches#index'
 
   get 'owners/new_owner' => 'owners#new', :as => :new_owner
+  post 'owners/new_owner' => 'owners#create'
+  get 'owner/:id' => 'owners#show', :as => :owner
 
-  get 'owner_landing' => 'owners#landing'
+  get 'owner_landing' => 'owners#landing', :as => :owner_landing
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

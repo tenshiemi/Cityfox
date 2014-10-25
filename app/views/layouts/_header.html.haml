@@ -10,7 +10,10 @@
 						%li
 							= link_to "LOG OUT", :logout, method: :post, class: "medium-button"
 							%li
-							= link_to current_user.name, user_path(current_user.id), class: "medium-button"
+							- if current_user.role == "owner"
+								= link_to current_user.name, owner_path(current_user.id), class: "medium-button"
+							- else
+								= link_to current_user.name, user_path(current_user.id), class: "medium-button"
 					- else
 						%li
 							= link_to "REGISTER", new_user_path, class: "medium-button"
