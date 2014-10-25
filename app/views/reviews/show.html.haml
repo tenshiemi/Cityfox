@@ -1,5 +1,6 @@
 = render "layouts/header"
 .container
+	%h1=Company.find(@review.company).name
 	%h2=@review.title
 	%p=@review.description
 	- if @review.would_work_with

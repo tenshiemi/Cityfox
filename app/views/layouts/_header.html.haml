@@ -10,7 +10,7 @@
 						%li
 							= link_to "LOG OUT", :logout, method: :post, class: "medium-button"
 							%li
-							= link_to current_user.name, edit_user_path(current_user.id), class: "medium-button"
+							= link_to current_user.name, user_path(current_user.id), class: "medium-button"
 					- else
 						%li
 							= link_to "REGISTER", new_user_path, class: "medium-button"

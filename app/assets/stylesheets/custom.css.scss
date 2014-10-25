@@ -5,7 +5,7 @@ $mobile: new-breakpoint(max-width 500px, 4);
 $tablet: new-breakpoint(max-width 800px, 8);
 
 * {
-  color: #3B3A35;
+  color: hsla(50, 5%, 22%, 1);
 }
 
 div.container {
@@ -32,7 +32,6 @@ nav h1 {
 }
 
 nav ul {
-  list-style-type: none;
   overflow: hidden;
   margin: auto;
 }
@@ -87,6 +86,10 @@ h1, h2 {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .hero-content h1 {
@@ -167,4 +170,24 @@ a {
   clear: both;
   position: absolute;
   bottom: 0;
+}
+
+::-webkit-input-placeholder {
+   color: white;
+   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;
+   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
+}
+
+:-ms-input-placeholder {  
+   color: white; 
+   text-shadow: 1px 1px hsla(50, 5%, 22%, 1); 
 }
