@@ -6,4 +6,5 @@
 				%li
 					= link_to result.name, company_path(result.id)
 	- else
-		There are no results for this search.
+		%h2 There are no results for this search.
+	=link_to "Add a company", new_company_path
