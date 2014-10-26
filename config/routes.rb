@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'owner_landing' => 'owners#landing', :as => :owner_landing
 
+  get 'manage_owners' => 'admins#owners', :as => :manage_owners
+  get 'manage_companies' => 'admins#companies', :as => :manage_companies
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,10 @@
 = form_tag user_sessions_path, :method => :post do
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
   .field
     = label_tag :email 
     %br

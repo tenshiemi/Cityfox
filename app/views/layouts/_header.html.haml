@@ -9,11 +9,16 @@
 					- if current_user
 						%li
 							= link_to "LOG OUT", :logout, method: :post, class: "medium-button"
-							%li
+						%li
 							- if current_user.role == "owner"
 								= link_to current_user.name, owner_path(current_user.id), class: "medium-button"
 							- else
 								= link_to current_user.name, user_path(current_user.id), class: "medium-button"
+						- if is_admin?
+							%li
+								= link_to "Companies", :manage_companies, class: "medium-button"
+							%li
+								= link_to "Owners", :manage_owners, class: "medium-button"
 					- else
 						%li
 							= link_to "REGISTER", new_user_path, class: "medium-button"

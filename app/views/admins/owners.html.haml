@@ -1,0 +1,14 @@
+= render "layouts/header"
+.container
+	%table
+		%thead
+			%tr
+				%th Owner Name
+				%th Email
+				%th Phone
+		%tbody
+			- @owners.each do |owner|
+				%tr
+					- cache(owner) do
+						%td
+							= link_to owner.name, owner_path(owner)
