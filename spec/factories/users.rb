@@ -1,5 +1,3 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 require 'faker'
 
 FactoryGirl.define do
@@ -7,5 +5,6 @@ FactoryGirl.define do
     name     { Faker::Name.name } # Why using lamdba here?
     email     { Faker::Internet.email }
     password "aSuPeRsEcUrEpAsSwOrd"
+    password_confirmation "aSuPeRsEcUrEpAsSwOrd"
   end
 end
