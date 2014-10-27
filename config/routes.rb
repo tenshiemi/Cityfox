@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get 'manage_owners' => 'admins#owners', :as => :manage_owners
   get 'manage_companies' => 'admins#companies', :as => :manage_companies
+  get 'verify_owner/:id' => 'admins#verify', :as => :verify_owner
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

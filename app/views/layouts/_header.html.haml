@@ -8,19 +8,19 @@
 				%ul
 					- if current_user
 						%li
-							= link_to "LOG OUT", :logout, method: :post, class: "medium-button"
+							= link_to "LOG OUT", :logout, method: :post, class: "button--medium"
 						%li
 							- if current_user.role == "owner"
-								= link_to current_user.name, owner_path(current_user.id), class: "medium-button"
+								= link_to current_user.name, owner_path(current_user.id), class: "button--medium"
 							- else
-								= link_to current_user.name, user_path(current_user.id), class: "medium-button"
+								= link_to current_user.name, user_path(current_user.id), class: "button--medium"
 						- if is_admin?
 							%li
-								= link_to "Companies", :manage_companies, class: "medium-button"
+								= link_to "Companies", :manage_companies, class: "button--medium"
 							%li
-								= link_to "Owners", :manage_owners, class: "medium-button"
+								= link_to "Owners", :manage_owners, class: "button--medium"
 					- else
 						%li
-							= link_to "REGISTER", new_user_path, class: "medium-button"
+							= link_to "REGISTER", new_user_path, class: "button--medium"
 						%li
-							= link_to "LOG IN", :login, class: "medium-button"
+							= link_to "LOG IN", :login, class: "button--medium"

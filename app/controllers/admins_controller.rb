@@ -8,4 +8,11 @@ class AdminsController < ApplicationController
 	def companies
 		@companies = Company.all
 	end
+
+	def verify
+		@owner = User.find(params[:id])
+		@owner.verified = true
+		@owner.save
+		redirect_to manage_owners_path
+	end
 end

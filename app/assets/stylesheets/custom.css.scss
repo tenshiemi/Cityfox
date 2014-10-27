@@ -37,7 +37,7 @@ nav ul {
 }
 
 nav li {
-  display: inline;
+  display: inline-block;
   margin: 10px;
 }
 
@@ -63,7 +63,7 @@ input[type=search] {
   width: 400px;
   font-size: 2em;
   border-radius: .3em;
-  background-color: rgba(255, 255, 255, .25);
+  background-color: rgba(255, 255, 255, .75);
   margin: auto;
   @include media($mobile) {
     height: 20px;
@@ -91,6 +91,10 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+article {
+  border-bottom: 1px solid darkgray;
 }
 
 .hero-content h1 {
@@ -127,7 +131,7 @@ ul {
   }
 }
 
-.hero-content {
+.content--hero {
   max-width: 960px;
   padding: 34px;
   margin-top: 50px;
@@ -142,7 +146,7 @@ ul {
   }
 }
 
-.medium-button {
+.button--medium {
   border: 1px solid white;
   border-radius: .5em;
   float: left;
@@ -184,21 +188,17 @@ ul {
 }
 
 ::-webkit-input-placeholder {
-   color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
+   color: gray;
 }
 
 :-moz-placeholder { /* Firefox 18- */
    color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
 }
 
 :-ms-input-placeholder {  
    color: white; 
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1); 
 }
