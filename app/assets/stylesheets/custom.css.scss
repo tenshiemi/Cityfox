@@ -177,6 +177,12 @@ article {
   }
 }
 
+.flash-messages {
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .search {
   margin: auto;
 }
@@ -202,3 +208,47 @@ article {
 :-ms-input-placeholder {  
    color: white; 
 }
+
+.messages--flash {
+  max-width: 200px;
+  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+    #notice {
+      background-color: hsla(82, 66%, 85%, .50);
+      text-align: center;
+      height: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #alert {
+      background-color: hsla(0, 100%, 86%, 1);
+      text-align: center;
+      height: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #warning {
+      background-color: hsla(48, 97%, 85%, 1);
+      text-align: center;
+      height: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    p#notice, p#alert, p#warning {
+      font-size: 1em;
+    }
