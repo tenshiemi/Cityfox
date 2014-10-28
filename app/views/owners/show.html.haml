@@ -11,6 +11,13 @@
 		%b Company:
 		= link_to @user.company.name, company_path(@user.company.id)
 
+	%p
+		%b Status:
+		- if @user.role = :owner
+			Verified
+		- else
+			Unverified
+
 	%h3 Company reviews
 	- if @user.company.reviews 
 		%ul

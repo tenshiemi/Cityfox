@@ -7,7 +7,7 @@
 				%th Contact Name
 				%th Email
 				%th Phone
-				%th Verified
+				%th Status
 		%tbody
 			- @owners.each do |owner|
 				%tr
@@ -15,9 +15,10 @@
 						%td= link_to owner.company.name, company_path(owner.company.id)
 						%td= link_to owner.name, owner_path(owner)
 						%td= owner.email
-						- if owner.phone
-							%td= owner.phone
-						- if owner.verified == false
+						%td
+							- if owner.phone
+								= owner.phone
+						- if owner.role == :unverified_owner
 							%td= link_to "Unverified", verify_owner_path(owner)
 						- else
 							%td Verified
