@@ -3,11 +3,16 @@
 
 $mobile: new-breakpoint(max-width 500px, 4);
 $tablet: new-breakpoint(max-width 800px, 8);
-$primary-color: hsla(160, 36%, 61%, 1);
-$font-primary-color: hsla(50, 5%, 22%, 1);
+
+$color-page-primary: hsla(160, 36%, 61%, 1);
+$color-font-primary: hsla(50, 5%, 22%, 1);
+$color-font-alert: hsla(359, 63%, 55%, 1);
+$color-font-notice: hsla(110, 32%, 46%, 1);
+$color-font-warning: hsla(40, 56%, 60%, 1);
+
 
 * {
-  color: $font-primary-color;
+  color: $color-font-primary;
 }
 
 div.container {
@@ -15,7 +20,7 @@ div.container {
 }
 
 header {
-  background-color: $primary-color;
+  background-color: $color-page-primary;
   width: 100%;
 }
 
@@ -24,10 +29,39 @@ body {
   margin:0px;
 }
 
-.nav--site nav {
-	height: 70px;
+// Header styles
+
+nav.nav--site {
+	@include clearfix;
+  min-height: 70px;
   padding: 10px;
+  position: relative;
+  width: 100%
 }
+
+    .navbar-left {
+      float: left;
+      @include media($mobile) {
+          @include span-columns(4);
+          text-align: center;
+      }
+    }
+
+    .navbar-right {
+      float: right;
+      @include media($mobile) {
+          @include span-columns(4);
+      }
+    }
+
+    .messages--flash {
+      position: absolute;
+      max-width: 200px;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
 
     .nav--site h1 {
       margin: 0px;
@@ -52,7 +86,7 @@ body {
     }
 
     .nav--site a:hover {
-      background-color: $primary-color; 
+      background-color: $color-page-primary; 
     }
 
 input[type=text] {
@@ -156,31 +190,9 @@ article {
   margin: 10px;
   min-height: 25.6px;
   min-width: 100px;
-  background-color: $primary-color;
+  background-color: $color-page-primary;
   padding: 10px;
   text-align: center;
-}
-
-.navbar-left {
-  padding-top: 5px;
-  float: left;
-  @include media($mobile) {
-      @include span-columns(4);
-      text-align: center;
-  }
-}
-
-.navbar-right {
-  float: right;
-  @include media($mobile) {
-      @include span-columns(4);
-  }
-}
-
-.flash-messages {
-  width: 200px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .search {
@@ -209,46 +221,46 @@ article {
    color: white; 
 }
 
-.messages--flash {
-  max-width: 200px;
-  display: inline-block;
-  margin-right: auto;
-  margin-left: auto;
+// Alerts, notices, warnings
+
+#notice {
+  background-color: hsla(82, 66%, 85%, .50);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
 }
 
-    #notice {
-      background-color: hsla(82, 66%, 85%, .50);
-      text-align: center;
-      height: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
+#alert {
+  background-color: hsla(0, 100%, 86%, 1);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
 
-    #alert {
-      background-color: hsla(0, 100%, 86%, 1);
-      text-align: center;
-      height: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
+#warning {
+  background-color: hsla(48, 97%, 85%, 1);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
 
-    #warning {
-      background-color: hsla(48, 97%, 85%, 1);
-      text-align: center;
-      height: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
+p#notice {
+  font-size: 1em;
+  color: $color-font-notice;
+}
 
-    p#notice, p#alert, p#warning {
-      font-size: 1em;
-    }
+p#alert {
+  font-size: 1em;
+  color: $color-font-alert;
+}
+
+p#warning {
+  font-size: 1em;
+  color: $color-font-warning;
+}
