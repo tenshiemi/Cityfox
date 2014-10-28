@@ -120,14 +120,14 @@ article {
 }
 
 .hero {
-  background: url('newyork.jpg') no-repeat center center fixed;
+  background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
   max-width: 18000px;
   height: 1000px;
   @include media($tablet) {
-      background: url('newyork_tablet_alt.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
   @include media($mobile) {
-      background: url('newyork_mobile_alt.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
   }
 }
 
