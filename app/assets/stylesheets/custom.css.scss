@@ -153,10 +153,16 @@ nav.nav--site {
 }
 
     input:not([type=submit]):not([type=file]):not([type=radio]) {
-       font-size: 1em;
-       height: 40px;
-       width: 300px;
-       border-radius: .3em;
+      font-size: 1em;
+      height: 40px;
+      width: 300px;
+      border-radius: .3em;
+      margin-bottom: 20px;
+      @include media($mobile) {
+        height: 25px;
+        width: 200px;
+        font-size: .8em;
+      }
     }
 
     input[type=search] {
@@ -183,12 +189,18 @@ nav.nav--site {
 
     input[type=submit] {
       border: 0px;
+      font-size: .8em;
       text-shadow: none;
       outline: none;
       height: 40px;
       width: 300px;
       border-radius: .3em;
       box-shadow: 0px 0px 0px 2pt white;
+      @include media($mobile) {
+        height: 25px;
+        width: 100px;
+        font-size: .6em;
+      }
     }
 
     ::-webkit-input-placeholder {
