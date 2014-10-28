@@ -36,7 +36,6 @@ body {
 nav.nav--site {
 	@include clearfix;
   min-height: 70px;
-  padding: 10px;
   position: relative;
   width: 100%
 }
@@ -58,7 +57,7 @@ nav.nav--site {
 
     .messages--flash {
       position: absolute;
-      max-width: 200px;
+      max-width: 300px;
       margin: auto;
       left: 0;
       right: 0;
@@ -89,6 +88,13 @@ nav.nav--site {
 
     .nav--site a:hover {
       background-color: $color-page-primary; 
+    }
+
+    #logo {
+      margin-top: 15px;
+      color: white;
+      font-size: 2em;
+      font-family: 'Roboto Condensed', sans-serif;
     }
 
 // Form styles
@@ -153,13 +159,6 @@ article {
   // @include media($mobile) {
   //   font-size: 1.6em;
   // }
-}
-
-#logo {
-  margin-top: 25px;
-  color: white;
-  font-size: 2em;
-  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero {
@@ -233,7 +232,8 @@ article {
   background-color: hsla(82, 66%, 85%, .50);
   text-align: center;
   height: 30px;
-  border-radius: .3em;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;
   padding: 5px;
   margin: 0px;
 }
@@ -242,8 +242,8 @@ article {
   background-color: hsla(0, 100%, 86%, 1);
   text-align: center;
   height: 30px;
-  border-radius: .3em;
-  padding: 5px;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;  padding: 5px;
   margin: 0px;
 }
 
@@ -251,8 +251,8 @@ article {
   background-color: hsla(48, 97%, 85%, 1);
   text-align: center;
   height: 30px;
-  border-radius: .3em;
-  padding: 5px;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;  padding: 5px;
   margin: 0px;
 }
 
