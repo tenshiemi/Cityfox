@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   get 'owners/new_owner' => 'owners#new', :as => :new_owner
   post 'owners/new_owner' => 'owners#create'
   get 'owner/:id' => 'owners#show', :as => :owner
+  get 'owners/claim_company' => 'owners#claim', :as => :claim_company
 
   get 'owner_landing' => 'owners#landing', :as => :owner_landing
 
   get 'manage_owners' => 'admins#owners', :as => :manage_owners
   get 'manage_companies' => 'admins#companies', :as => :manage_companies
   get 'verify_owner/:id' => 'admins#verify', :as => :verify_owner
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

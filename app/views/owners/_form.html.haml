@@ -9,18 +9,23 @@
   = f.hidden_field :role, value: :owner
   .field
     = f.label :name
+    %br
     = f.text_field :name
   .field
     = f.label :email
+    %br
     = f.email_field :email
   .field
     = f.label :phone
+    %br
     = f.telephone_field :phone
   .field
     = f.label :password
+    %br
     = f.password_field :password
   .field
     = f.label :password_confirmation
+    %br
     = f.password_field :password_confirmation
   .actions
     = f.submit 'Save'

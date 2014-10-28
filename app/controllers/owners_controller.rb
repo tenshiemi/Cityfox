@@ -23,6 +23,18 @@ class OwnersController < ApplicationController
     end
  	end
 
+  def claim
+    @user = current_user
+    @user.company_id = params[:id]
+    if @user.save
+      format.html { redirect_to owner_landing_path, notice: 'Claim submitted.' }
+      # format.json { render :owner_landing, status: :updated location: @user }
+    else
+      format.html { render :new }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
+  end
+
 	private
 	def set_user
       @user = User.find(params[:id])
