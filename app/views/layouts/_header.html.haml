@@ -1,10 +1,18 @@
 %header
 	.container
-		%nav
-			.navbar--left
+		%nav.nav--site
+			.navbar-left
 				%h1
 					#logo= link_to "City Fox", root_path
-			.navbar--right
+			- if !flash[:notice].nil?
+				.messages--flash
+					%p#notice
+						= flash[:notice]
+			- if !flash[:alert].nil?
+				.messages--flash
+					%p#alert
+						= flash[:alert]
+			.navbar-right
 				%ul
 					- if current_user
 						%li

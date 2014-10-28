@@ -1,13 +1,20 @@
 @import "bourbon";
 @import "neat";
 
-// $mobile: new-breakpoint(max-width 500px, 4);
+$mobile: new-breakpoint(max-width 500px, 4);
 // $tablet: new-breakpoint(max-width 800px, 8);
 $tablet: new-breakpoint(min-width 500px, 8);
 $desktop: new-breakpoint(min-width 800px, 12);
 
+$color-page-primary: hsla(160, 36%, 61%, 1);
+$color-font-primary: hsla(50, 5%, 22%, 1);
+$color-font-alert: hsla(359, 63%, 55%, 1);
+$color-font-notice: hsla(110, 32%, 46%, 1);
+$color-font-warning: hsla(40, 56%, 60%, 1);
+
+
 * {
-  color: hsla(50, 5%, 22%, 1);
+  color: $color-font-primary;
 }
 
 div.container {
@@ -15,7 +22,7 @@ div.container {
 }
 
 header {
-  background-color: hsla(160, 36%, 61%, 1);
+  background-color: $color-page-primary;
   width: 100%;
 }
 
@@ -24,36 +31,67 @@ body {
   margin:0px;
 }
 
-nav {
-	height: 70px;
+// Header styles
+
+nav.nav--site {
+	@include clearfix;
+  min-height: 70px;
   padding: 10px;
+  position: relative;
+  width: 100%
 }
 
-nav h1 {
-  margin: 0px;
-}
+    .navbar-left {
+      float: left;
+      @include media($mobile) {
+          @include span-columns(4);
+          text-align: center;
+      }
+    }
 
-nav ul {
-  overflow: hidden;
-  margin: auto;
-}
+    .navbar-right {
+      float: right;
+      @include media($mobile) {
+          @include span-columns(4);
+      }
+    }
 
-nav li {
-  display: inline-block;
-  margin: 10px;
-}
+    .messages--flash {
+      position: absolute;
+      max-width: 200px;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
 
-nav a {
-  color: white;
-}
+    .nav--site h1 {
+      margin: 0px;
+    }
 
-nav a:visited {
-  color: white;
-}
+    .nav--site ul {
+      overflow: hidden;
+      margin: auto;
+    }
 
-nav a:hover {
-  background-color: hsla(160, 36%, 61%, 1); 
-}
+    .nav--site li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .nav--site a {
+      color: white;
+    }
+
+    .nav--site a:visited {
+      color: white;
+    }
+
+    .nav--site a:hover {
+      background-color: $color-page-primary; 
+    }
+
+// Form styles
 
 input[type=text] {
    height: 30px;
@@ -81,6 +119,8 @@ input[type=search]:focus {
   border-radius: .3em;
   box-shadow: 0px 0px 0px 2pt white;
 }
+
+// Typography styles
 
 h1, h2 {
   font-family: 'Open Sans', sans-serif;
@@ -116,18 +156,19 @@ article {
 }
 
 #logo {
+  margin-top: 25px;
   color: white;
   font-size: 2em;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero {
-  background: url('newyork_mobile_alt.jpg') no-repeat center center fixed;
+  background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
   @include media($tablet) {
-      background: url('newyork_tablet_alt.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
   @include media($desktop) {
-      background: url('newyork.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
       max-width: 18000px;
       height: 1000px;
   }
@@ -155,28 +196,9 @@ article {
   margin: 10px;
   min-height: 25.6px;
   min-width: 100px;
-  background-color: hsla(160, 36%, 61%, .6);
+  background-color: $color-page-primary;
   padding: 10px;
   text-align: center;
-  // background-color: hsla(3,100%,65%,.9);
-  // box-shadow: 2px 2px 3px hsla(0,0%,0%,.3);
-  // text-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
-}
-
-.navbar--left {
-  padding-top: 5px;
-  float: left;
-  // @include media($mobile) {
-  //     @include span-columns(4);
-  //     text-align: center;
-  // }
-}
-
-.navbar--right {
-  float: right;
-  // @include media($mobile) {
-  //     @include span-columns(4);
-  // }
 }
 
 .search {
@@ -203,4 +225,48 @@ article {
 
 :-ms-input-placeholder {  
    color: white; 
+}
+
+// Alerts, notices, warnings
+
+#notice {
+  background-color: hsla(82, 66%, 85%, .50);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+#alert {
+  background-color: hsla(0, 100%, 86%, 1);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+#warning {
+  background-color: hsla(48, 97%, 85%, 1);
+  text-align: center;
+  height: 30px;
+  border-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+p#notice {
+  font-size: 1em;
+  color: $color-font-notice;
+}
+
+p#alert {
+  font-size: 1em;
+  color: $color-font-alert;
+}
+
+p#warning {
+  font-size: 1em;
+  color: $color-font-warning;
 }

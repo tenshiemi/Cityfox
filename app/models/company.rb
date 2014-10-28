@@ -7,8 +7,8 @@ class Company < ActiveRecord::Base
 	validates :city, presence: true
 
 	def rating
-		total = self.reviews.count
-		positive_reviews = self.reviews.where(would_work_with: true).count
-		(positive_reviews.to_f / total * 100).to_i
+		rating_count = self.reviews.count
+		positive_ratings = self.reviews.where(would_work_with: true).count
+		(positive_ratings.to_f / rating_count * 100).to_i
 	end
 end
