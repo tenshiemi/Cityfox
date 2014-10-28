@@ -1,0 +1,38 @@
+$color-success :      rgb(91,183,91);
+$baselineheight :     1.5em;
+$baseline :           $baselineheight;
+$gutterwidth :        24px;
+$basecolor  :         #f88b2d;
+@import url("http://fonts.googleapis.com/css?family=Alegreya:700, 400");
+
+.rating-box {
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+		padding: ($baseline / 2) $gutterwidth * 2;
+	}
+	input[type="radio"] {
+    display:none;
+		&:checked ~ label::before {
+			color:orange;
+		}
+	}
+	label {
+		display: inline-block;
+		background-color: transparent;
+     cursor:pointer;
+		&::before {
+			content: "\2605";
+			font-family: traductorium;
+			font-size:28px;
+			color:grey;
+     
+		}
+		&:hover::before {
+			color:green;
+		}
+		&:hover ~ label::before {
+			color:green;
+		}
+	}
+}
