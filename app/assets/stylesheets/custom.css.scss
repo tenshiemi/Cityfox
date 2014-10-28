@@ -3,9 +3,11 @@
 
 $mobile: new-breakpoint(max-width 500px, 4);
 $tablet: new-breakpoint(max-width 800px, 8);
+$primary-color: hsla(160, 36%, 61%, 1);
+$font-primary-color: hsla(50, 5%, 22%, 1);
 
 * {
-  color: hsla(50, 5%, 22%, 1);
+  color: $font-primary-color;
 }
 
 div.container {
@@ -13,7 +15,7 @@ div.container {
 }
 
 header {
-  background-color: hsla(160, 36%, 61%, 1);
+  background-color: $primary-color;
   width: 100%;
 }
 
@@ -50,7 +52,7 @@ body {
     }
 
     .nav--site a:hover {
-      background-color: hsla(160, 36%, 61%, 1); 
+      background-color: $primary-color; 
     }
 
 input[type=text] {
@@ -154,12 +156,9 @@ article {
   margin: 10px;
   min-height: 25.6px;
   min-width: 100px;
-  background-color: hsla(160, 36%, 61%, .6);
+  background-color: $primary-color;
   padding: 10px;
   text-align: center;
-  // background-color: hsla(3,100%,65%,.9);
-  // box-shadow: 2px 2px 3px hsla(0,0%,0%,.3);
-  // text-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
 }
 
 .navbar-left {

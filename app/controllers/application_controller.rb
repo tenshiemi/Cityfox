@@ -17,5 +17,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def not_authenticated
+    redirect_to login_url, :alert => "First log in to view ↵
+    this page."
+  end
+
   helper_method :is_admin?, :require_admin
 end
