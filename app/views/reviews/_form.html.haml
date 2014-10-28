@@ -10,15 +10,18 @@
 		= f.label :description
 		%br
 		= f.text_field :description
-	.field
+	.field.rating-box
 		%h3 Are payments delivered in accordance with the contract?
-		= f.label "Nope"
-		= f.radio_button :rating_payment, 1
-		= f.radio_button :rating_payment, 2
-		= f.radio_button :rating_payment, 3
-		= f.radio_button :rating_payment, 4
-		= f.radio_button :rating_payment, 5
-		= f.label "Yep"
+		= f.radio_button :rating_payment, 1, id: "rating_payment_1"
+		= f.label :rating_payment, for: "rating_payment_1"
+		= f.radio_button :rating_payment, 2, id: "rating_payment_2"
+		= f.label :rating_payment, for: "rating_payment_2"
+		= f.radio_button :rating_payment, 3, id: "rating_payment_3"
+		= f.label :rating_payment, for: "rating_payment_3"
+		= f.radio_button :rating_payment, 4, id: "rating_payment_4"
+		= f.label :rating_payment, for: "rating_payment_4"
+		= f.radio_button :rating_payment, 5, id: "rating_payment_5"
+		= f.label :rating_payment, for: "rating_payment_5"
 	.field
 		%h3 Do they communicate well?
 		= f.label "Nope"
