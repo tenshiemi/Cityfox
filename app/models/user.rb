@@ -4,15 +4,15 @@ class User < ActiveRecord::Base
   has_many :reviews
   belongs_to :company
 
-  validates :password, length: { minimum: 3 }
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, confirmation: true, presence: true, 
+            length: { minimum: 3 }, :on => :create
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
 
   before_save :default_values
   
+  private
   def default_values
     self.role ||= :normal
   end

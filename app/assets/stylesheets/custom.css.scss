@@ -4,8 +4,15 @@
 $mobile: new-breakpoint(max-width 500px, 4);
 $tablet: new-breakpoint(max-width 800px, 8);
 
+$color-page-primary: hsla(160, 36%, 61%, 1);
+$color-font-primary: hsla(50, 5%, 22%, 1);
+$color-font-alert: hsla(359, 63%, 55%, 1);
+$color-font-notice: hsla(110, 32%, 46%, 1);
+$color-font-warning: hsla(40, 56%, 60%, 1);
+
+
 * {
-  color: hsla(50, 5%, 22%, 1);
+  color: $color-font-primary;
 }
 
 div.container {
@@ -13,7 +20,7 @@ div.container {
 }
 
 header {
-  background-color: hsla(160, 36%, 61%, 1);
+  background-color: $color-page-primary;
   width: 100%;
 }
 
@@ -22,62 +29,195 @@ body {
   margin:0px;
 }
 
-nav {
-	height: 70px;
-  padding: 10px;
+// Header styles
+
+nav.nav--site {
+	@include clearfix;
+  position: relative;
+  width: 100%
 }
 
-nav h1 {
-  margin: 0px;
-}
+    .navbar-left {
+      float: left;
+      @include media($mobile) {
+          @include span-columns(4);
+          text-align: center;
+      }
+    }
 
-nav ul {
-  overflow: hidden;
+    .navbar-right {
+      float: right;
+      @include media($mobile) {
+          @include span-columns(4);
+      }
+    }
+
+    .nav--site h1 {
+      margin: 0px;
+    }
+
+    .nav--site ul {
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .nav--site li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .nav--site a {
+      color: white;
+    }
+
+    .nav--site a:visited {
+      color: white;
+    }
+
+    .nav--site a:hover {
+      background-color: $color-page-primary; 
+    }
+
+    #logo {
+      margin-top: 15px;
+      color: white;
+      font-size: 2em;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+
+// Alerts, notices, warnings
+
+.messages--flash {
+  position: absolute;
+  max-width: 300px;
   margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
-nav li {
-  display: inline;
-  margin: 10px;
+    #notice {
+      background-color: hsla(82, 66%, 85%, .50);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #alert {
+      background-color: hsla(0, 100%, 86%, 1);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #warning {
+      background-color: hsla(48, 97%, 85%, 1);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    p#notice {
+      font-size: 1em;
+      color: $color-font-notice;
+    }
+
+    p#alert {
+      font-size: 1em;
+      color: $color-font-alert;
+    }
+
+    p#warning {
+      font-size: 1em;
+      color: $color-font-warning;
+    }
+
+// Form styles
+.form--login {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 25px;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-nav a {
-  color: white;
-}
+    input:not([type=submit]):not([type=file]):not([type=radio]) {
+      font-size: 1em;
+      height: 40px;
+      width: 300px;
+      border-radius: .3em;
+      margin-bottom: 20px;
+      @include media($mobile) {
+        height: 25px;
+        width: 200px;
+        font-size: .8em;
+      }
+    }
 
-nav a:visited {
-  color: white;
-}
+    input[type=search] {
+      height: 50px;
+      width: 400px;
+      font-size: 2em;
+      border-radius: .3em;
+      background-color: rgba(255, 255, 255, .75);
+      margin: auto;
+      @include media($mobile) {
+        height: 20px;
+        width: 200px;
+        font-size: 1em;
+      }
+    }
 
-nav a:hover {
-  background-color: hsla(160, 36%, 61%, 1); 
-}
+    input[type=search]:focus {
+      border: 0px;
+      text-shadow: none;
+      outline: none;
+      border-radius: .3em;
+      box-shadow: 0px 0px 0px 2pt white;
+    }
 
-input[type=text] {
-   height: 30px;
-   border-radius: .3em;
-}
+    input[type=submit] {
+      border: 0px;
+      font-size: .8em;
+      text-shadow: none;
+      outline: none;
+      height: 40px;
+      width: 300px;
+      border-radius: .3em;
+      box-shadow: 0px 0px 0px 2pt white;
+      @include media($mobile) {
+        height: 25px;
+        width: 100px;
+        font-size: .6em;
+      }
+    }
 
-input[type=search] {
-  height: 50px;
-  width: 400px;
-  font-size: 30px;
-  border-radius: .3em;
-  background-color: rgba(255, 255, 255, .25);
-  margin: auto;
-  @include media($mobile) {
-    height: 30px;
-    width: 300px;
-  }
-}
+    ::-webkit-input-placeholder {
+       color: gray;
+    }
 
-input[type=search]:focus {
-  border: 0px;
-  text-shadow: none;
-  outline: none;
-  border-radius: .3em;
-  box-shadow: 0px 0px 0px 2pt white;
-}
+    :-moz-placeholder { /* Firefox 18- */
+       color: white;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: white;
+    }
+
+    :-ms-input-placeholder {  
+       color: white; 
+    }
 
 h1, h2 {
   font-family: 'Open Sans', sans-serif;
@@ -92,35 +232,39 @@ ul {
   list-style-type: none;
 }
 
-.hero-content h1 {
+article {
+  border-bottom: 1px solid darkgray;
+}
+
+.content--hero h1 {
   font-size: 5em;
   line-height: 1em;
+  @include media($mobile) {
+    font-size: 3em;
+  }
 }
 
-.hero-content h2 {
+.content--hero h2 {
   font-size: 3em;
   line-height: 1em;
-}
-
-#logo {
-  color: white;
-  font-size: 2em;
-  font-family: 'Roboto Condensed', sans-serif;
+  @include media($mobile) {
+    font-size: 1.6em;
+  }
 }
 
 .hero {
-  background: url('newyork.jpg') no-repeat center center fixed;
+  background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
   max-width: 18000px;
   height: 1000px;
   @include media($tablet) {
-      background: url('newyork_tablet_alt.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
   @include media($mobile) {
-      background: url('newyork_mobile_alt.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
   }
 }
 
-.hero-content {
+.content--hero {
   max-width: 960px;
   padding: 34px;
   margin-top: 50px;
@@ -129,37 +273,22 @@ ul {
   background-color: hsla(0, 0%, 100%, .35);
   border-radius: .5em;
   text-align: center;
+  @include media($mobile) {
+    padding: 20px;
+    margin-top: 30px;
+  }
 }
 
-.medium-button {
+.button--medium {
   border: 1px solid white;
   border-radius: .5em;
   float: left;
   margin: 10px;
   min-height: 25.6px;
   min-width: 100px;
-  background-color: hsla(160, 36%, 61%, .6);
+  background-color: $color-page-primary;
   padding: 10px;
   text-align: center;
-  // background-color: hsla(3,100%,65%,.9);
-  // box-shadow: 2px 2px 3px hsla(0,0%,0%,.3);
-  // text-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
-}
-
-.navbar-left {
-  padding-top: 5px;
-  float: left;
-  @include media($mobile) {
-      @include span-columns(4);
-      text-align: center;
-  }
-}
-
-.navbar-right {
-  float: right;
-  @include media($mobile) {
-      @include span-columns(4);
-  }
 }
 
 .search {
@@ -172,22 +301,3 @@ ul {
   bottom: 0;
 }
 
-::-webkit-input-placeholder {
-   color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1);
-}
-
-:-ms-input-placeholder {  
-   color: white; 
-   text-shadow: 1px 1px hsla(50, 5%, 22%, 1); 
-}
