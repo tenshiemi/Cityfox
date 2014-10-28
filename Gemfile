@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 gem 'neat'
 gem 'sorcery'
@@ -55,4 +56,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
