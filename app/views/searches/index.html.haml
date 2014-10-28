@@ -9,10 +9,12 @@
 						%h2
 							= link_to result.name, company_path(result.id)
 							= "#{result.city}, #{result.country}"
-						- if result.reviews.count > 1
-							%h3= "#{result.reviews.count} reviews"
-						- elsif result.reviews.count == 1
-							= "#{result.reviews.count} review"
+						- if result.reviews.count >= 1
+							- if result.reviews.count > 1
+								%h3= "#{result.reviews.count} reviews"
+							- elsif result.reviews.count == 1
+								%h3= "#{result.reviews.count} review"
+							%h3= "#{result.rating}% would work with this company again."
 	- else
 		%h2 There are no results for this search.
 	=link_to "Add a company", new_company_path
