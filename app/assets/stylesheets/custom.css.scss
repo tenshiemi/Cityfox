@@ -90,7 +90,7 @@ nav.nav--site {
 
 .messages--flash {
   position: absolute;
-  max-width: 200px;
+  max-width: 300px;
   margin: auto;
   left: 0;
   right: 0;
@@ -143,33 +143,69 @@ nav.nav--site {
     }
 
 // Form styles
-
-input[type=text] {
-   height: 30px;
-   border-radius: .3em;
+.form--login {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 25px;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-input[type=search] {
-  height: 50px;
-  width: 400px;
-  font-size: 2em;
-  border-radius: .3em;
-  background-color: rgba(255, 255, 255, .75);
-  margin: auto;
-  @include media($mobile) {
-    height: 20px;
-    width: 200px;
-    font-size: 1em;
-  }
-}
+    input:not([type=submit]):not([type=file]):not([type=radio]) {
+       font-size: 1em;
+       height: 40px;
+       width: 300px;
+       border-radius: .3em;
+    }
 
-input[type=search]:focus {
-  border: 0px;
-  text-shadow: none;
-  outline: none;
-  border-radius: .3em;
-  box-shadow: 0px 0px 0px 2pt white;
-}
+    input[type=search] {
+      height: 50px;
+      width: 400px;
+      font-size: 2em;
+      border-radius: .3em;
+      background-color: rgba(255, 255, 255, .75);
+      margin: auto;
+      @include media($mobile) {
+        height: 20px;
+        width: 200px;
+        font-size: 1em;
+      }
+    }
+
+    input[type=search]:focus {
+      border: 0px;
+      text-shadow: none;
+      outline: none;
+      border-radius: .3em;
+      box-shadow: 0px 0px 0px 2pt white;
+    }
+
+    input[type=submit] {
+      border: 0px;
+      text-shadow: none;
+      outline: none;
+      height: 40px;
+      width: 300px;
+      border-radius: .3em;
+      box-shadow: 0px 0px 0px 2pt white;
+    }
+
+    ::-webkit-input-placeholder {
+       color: gray;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: white;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: white;
+    }
+
+    :-ms-input-placeholder {  
+       color: white; 
+    }
 
 h1, h2 {
   font-family: 'Open Sans', sans-serif;
@@ -251,21 +287,5 @@ article {
   clear: both;
   position: absolute;
   bottom: 0;
-}
-
-::-webkit-input-placeholder {
-   color: gray;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: white;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: white;
-}
-
-:-ms-input-placeholder {  
-   color: white; 
 }
 

@@ -1,7 +1,6 @@
 = render "layouts/header"
 .container
-	%h1 New owner
-
-	= render 'form'
-
-	= link_to 'Back', root_path
+	.form--login
+		%h1 New owner
+			= render 'form'
+		= link_to 'Back', root_path
