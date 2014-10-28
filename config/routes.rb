@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'reviews/index'
 
   root :to => 'welcome#index'
-  resources :user_sessions
+  resources :user_sessions, only: :create
   resources :users
   resources :companies
   resources :reviews
