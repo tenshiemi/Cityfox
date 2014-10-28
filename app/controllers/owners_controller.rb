@@ -25,7 +25,7 @@ class OwnersController < ApplicationController
   def claim
     @user = current_user
     @user.company_id = params[:id]
-    @user.role = :owner
+    @user.role = :unverified_owner
     respond_to do |format|
       if @user.save
         format.html { redirect_to owner_landing_path, notice: 'Claim submitted.' }
