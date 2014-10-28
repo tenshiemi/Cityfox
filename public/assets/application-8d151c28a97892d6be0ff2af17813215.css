@@ -1,0 +1,382 @@
+/* line 2, /Users/tenshiemi/.rvm/gems/ruby-2.1.2/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 7, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+* {
+  color: #3b3a35;
+}
+
+/* line 11, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+div.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/tenshiemi/.rvm/gems/ruby-2.1.2/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+div.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 15, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+header {
+  background-color: #78bfa7;
+  width: 100%;
+}
+
+/* line 20, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+body {
+  padding-top: 0px;
+  margin: 0px;
+}
+
+/* line 25, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav {
+  height: 70px;
+  padding: 10px;
+}
+
+/* line 30, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav h1 {
+  margin: 0px;
+}
+
+/* line 34, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav ul {
+  overflow: hidden;
+  margin: auto;
+}
+
+/* line 39, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav li {
+  display: inline-block;
+  margin: 10px;
+}
+
+/* line 44, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav a {
+  color: white;
+}
+
+/* line 48, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav a:visited {
+  color: white;
+}
+
+/* line 52, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+nav a:hover {
+  background-color: #78bfa7;
+}
+
+/* line 56, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+input[type=text] {
+  height: 30px;
+  border-radius: .3em;
+}
+
+/* line 61, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+input[type=search] {
+  height: 50px;
+  width: 400px;
+  font-size: 2em;
+  border-radius: .3em;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: auto;
+}
+@media screen and (max-width: 500px) {
+  /* line 61, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  input[type=search] {
+    height: 20px;
+    width: 200px;
+    font-size: 1em;
+  }
+}
+
+/* line 75, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+input[type=search]:focus {
+  border: 0px;
+  text-shadow: none;
+  outline: none;
+  border-radius: .3em;
+  box-shadow: 0px 0px 0px 2pt white;
+}
+
+/* line 83, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+h1, h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+/* line 88, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 92, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+ul {
+  list-style-type: none;
+}
+
+/* line 96, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+article {
+  border-bottom: 1px solid darkgray;
+}
+
+/* line 100, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.content--hero h1 {
+  font-size: 5em;
+  line-height: 1em;
+}
+@media screen and (max-width: 500px) {
+  /* line 100, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .content--hero h1 {
+    font-size: 3em;
+  }
+}
+
+/* line 108, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.content--hero h2 {
+  font-size: 3em;
+  line-height: 1em;
+}
+@media screen and (max-width: 500px) {
+  /* line 108, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .content--hero h2 {
+    font-size: 1.6em;
+  }
+}
+
+/* line 116, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+#logo {
+  color: white;
+  font-size: 2em;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* line 122, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.hero {
+  background: url("http://emilychen.co/images/newyork.jpg") no-repeat center center fixed;
+  max-width: 18000px;
+  height: 1000px;
+}
+@media screen and (max-width: 800px) {
+  /* line 122, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .hero {
+    background: url("http://emilychen.co/images/newyork_tablet.jpg") no-repeat center center fixed;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 122, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .hero {
+    background: url("http://emilychen.co/images/newyork_mobile.jpg") no-repeat center center fixed;
+  }
+}
+
+/* line 134, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.content--hero {
+  max-width: 960px;
+  padding: 34px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: .5em;
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  /* line 134, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .content--hero {
+    padding: 20px;
+    margin-top: 30px;
+  }
+}
+
+/* line 149, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.button--medium {
+  border: 1px solid white;
+  border-radius: .5em;
+  float: left;
+  margin: 10px;
+  min-height: 25.6px;
+  min-width: 100px;
+  background-color: rgba(120, 191, 167, 0.6);
+  padding: 10px;
+  text-align: center;
+}
+
+/* line 164, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.navbar-left {
+  padding-top: 5px;
+  float: left;
+}
+@media screen and (max-width: 500px) {
+  /* line 164, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .navbar-left {
+    float: left;
+    display: block;
+    margin-right: 7.42297%;
+    width: 100%;
+    text-align: center;
+  }
+  /* line 38, /Users/tenshiemi/.rvm/gems/ruby-2.1.2/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .navbar-left:last-child {
+    margin-right: 0;
+  }
+}
+
+/* line 173, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.navbar-right {
+  float: right;
+}
+@media screen and (max-width: 500px) {
+  /* line 173, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+  .navbar-right {
+    float: left;
+    display: block;
+    margin-right: 7.42297%;
+    width: 100%;
+  }
+  /* line 38, /Users/tenshiemi/.rvm/gems/ruby-2.1.2/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+  .navbar-right:last-child {
+    margin-right: 0;
+  }
+}
+
+/* line 180, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.search {
+  margin: auto;
+}
+
+/* line 184, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+.footer-wrapper {
+  clear: both;
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 190, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+::-webkit-input-placeholder {
+  color: gray;
+}
+
+/* line 194, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+}
+
+/* line 198, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
+}
+
+/* line 202, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/custom.css.scss */
+:-ms-input-placeholder {
+  color: white;
+}
+/* line 1, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /Users/tenshiemi/Code/FinalProject/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ * 
+
+
+ */
+/* line 2, /Users/tenshiemi/.rvm/gems/ruby-2.1.2/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

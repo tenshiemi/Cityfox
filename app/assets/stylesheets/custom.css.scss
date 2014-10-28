@@ -22,36 +22,36 @@ body {
   margin:0px;
 }
 
-nav {
+.nav--site nav {
 	height: 70px;
   padding: 10px;
 }
 
-nav h1 {
-  margin: 0px;
-}
+    .nav--site h1 {
+      margin: 0px;
+    }
 
-nav ul {
-  overflow: hidden;
-  margin: auto;
-}
+    .nav--site ul {
+      overflow: hidden;
+      margin: auto;
+    }
 
-nav li {
-  display: inline-block;
-  margin: 10px;
-}
+    .nav--site li {
+      display: inline-block;
+      margin: 10px;
+    }
 
-nav a {
-  color: white;
-}
+    .nav--site a {
+      color: white;
+    }
 
-nav a:visited {
-  color: white;
-}
+    .nav--site a:visited {
+      color: white;
+    }
 
-nav a:hover {
-  background-color: hsla(160, 36%, 61%, 1); 
-}
+    .nav--site a:hover {
+      background-color: hsla(160, 36%, 61%, 1); 
+    }
 
 input[type=text] {
    height: 30px;
@@ -114,6 +114,7 @@ article {
 }
 
 #logo {
+  margin-top: 25px;
   color: white;
   font-size: 2em;
   font-family: 'Roboto Condensed', sans-serif;
