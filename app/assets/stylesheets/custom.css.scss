@@ -97,7 +97,7 @@ article {
   border-bottom: 1px solid darkgray;
 }
 
-.hero-content h1 {
+.content--hero h1 {
   font-size: 5em;
   line-height: 1em;
   @include media($mobile) {
@@ -105,7 +105,7 @@ article {
   }
 }
 
-.hero-content h2 {
+.content--hero h2 {
   font-size: 3em;
   line-height: 1em;
   @include media($mobile) {
