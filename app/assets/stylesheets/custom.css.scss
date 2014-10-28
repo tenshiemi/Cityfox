@@ -33,7 +33,6 @@ body {
 
 nav.nav--site {
 	@include clearfix;
-  min-height: 70px;
   padding: 10px;
   position: relative;
   width: 100%
@@ -52,15 +51,6 @@ nav.nav--site {
       @include media($mobile) {
           @include span-columns(4);
       }
-    }
-
-    .messages--flash {
-      position: absolute;
-      max-width: 200px;
-      margin: auto;
-      left: 0;
-      right: 0;
-      top: 0;
     }
 
     .nav--site h1 {
@@ -88,6 +78,72 @@ nav.nav--site {
     .nav--site a:hover {
       background-color: $color-page-primary; 
     }
+
+    #logo {
+      margin-top: 15px;
+      color: white;
+      font-size: 2em;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+
+// Alerts, notices, warnings
+
+.messages--flash {
+  position: absolute;
+  max-width: 200px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+    #notice {
+      background-color: hsla(82, 66%, 85%, .50);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #alert {
+      background-color: hsla(0, 100%, 86%, 1);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    #warning {
+      background-color: hsla(48, 97%, 85%, 1);
+      text-align: center;
+      height: 30px;
+      border-bottom-left-radius: .3em;
+      border-bottom-right-radius: .3em;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    p#notice {
+      font-size: 1em;
+      color: $color-font-notice;
+    }
+
+    p#alert {
+      font-size: 1em;
+      color: $color-font-alert;
+    }
+
+    p#warning {
+      font-size: 1em;
+      color: $color-font-warning;
+    }
+
+// Form styles
 
 input[type=text] {
    height: 30px;
@@ -147,13 +203,6 @@ article {
   @include media($mobile) {
     font-size: 1.6em;
   }
-}
-
-#logo {
-  margin-top: 25px;
-  color: white;
-  font-size: 2em;
-  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero {
@@ -221,46 +270,3 @@ article {
    color: white; 
 }
 
-// Alerts, notices, warnings
-
-#notice {
-  background-color: hsla(82, 66%, 85%, .50);
-  text-align: center;
-  height: 30px;
-  border-radius: .3em;
-  padding: 5px;
-  margin: 0px;
-}
-
-#alert {
-  background-color: hsla(0, 100%, 86%, 1);
-  text-align: center;
-  height: 30px;
-  border-radius: .3em;
-  padding: 5px;
-  margin: 0px;
-}
-
-#warning {
-  background-color: hsla(48, 97%, 85%, 1);
-  text-align: center;
-  height: 30px;
-  border-radius: .3em;
-  padding: 5px;
-  margin: 0px;
-}
-
-p#notice {
-  font-size: 1em;
-  color: $color-font-notice;
-}
-
-p#alert {
-  font-size: 1em;
-  color: $color-font-alert;
-}
-
-p#warning {
-  font-size: 1em;
-  color: $color-font-warning;
-}
