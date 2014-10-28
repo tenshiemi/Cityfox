@@ -10,7 +10,6 @@ class OwnersController < ApplicationController
 
 	def create
 		@user = User.new(owner_params)
-		debugger
     respond_to do |format|
       if @user.save
         auto_login(@user)
@@ -26,12 +25,15 @@ class OwnersController < ApplicationController
   def claim
     @user = current_user
     @user.company_id = params[:id]
-    if @user.save
-      format.html { redirect_to owner_landing_path, notice: 'Claim submitted.' }
-      # format.json { render :owner_landing, status: :updated location: @user }
-    else
-      format.html { render :new }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+    @user.role = :owner
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to owner_landing_path, notice: 'Claim submitted.' }
+        format.json { render :owner_landing, status: :updated, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
