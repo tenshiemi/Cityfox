@@ -13,7 +13,7 @@
 					%p#alert
 						= flash[:alert]
 			.navbar-right
-				%ul.right
+				%ul
 					- if current_user
 						%li
 							- if current_user.role == "owner"

@@ -1,14 +1,21 @@
 @import "bourbon";
 @import "neat";
 
-$tablet: new-breakpoint(min-width 500px, 12);
-$desktop: new-breakpoint(min-width 800px, 12);
+$mobile: new-breakpoint(max-width 500px);
+$tablet: new-breakpoint(min-width 500px);
+$desktop: new-breakpoint(min-width 800px);
 
 $color-page-primary: hsla(160, 36%, 61%, 1);
 $color-font-primary: hsla(50, 5%, 22%, 1);
 $color-font-alert: hsla(359, 63%, 55%, 1);
 $color-font-notice: hsla(110, 32%, 46%, 1);
 $color-font-warning: hsla(40, 56%, 60%, 1);
+
+@mixin center {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
 
 // Generic styles
 
@@ -71,6 +78,7 @@ nav.nav--site {
 }
 
     .navbar-left {
+      @include span-columns(12);
       text-align: center;
       @include media($tablet) {
         @include span-columns(4 of 12);
@@ -81,12 +89,13 @@ nav.nav--site {
     }
 
     .navbar-right {
+      @include span-columns(12);
       @include media($tablet) {
         @include span-columns(8 of 12);
       }
-      @include media($tablet) {
+      @include media($desktop) {
         @include span-columns(6 of 12);
-        @include shift(3)
+        @include shift(3);
       }
     }
 
@@ -97,6 +106,12 @@ nav.nav--site {
     .nav--site ul {
       overflow: hidden;
       margin: auto;
+      @include media($tablet) {
+        float: right;
+      }
+      @include media($mobile) {
+        @include center;
+      }
     }
 
     .nav--site li {
@@ -186,7 +201,7 @@ nav.nav--site {
 
 // Form styles
 
-    input:not([type=submit]):not([type=file]):not([type=radio]) {
+    input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]) {
       height: 25px;
       width: 200px;
       font-size: 1em;
@@ -199,9 +214,9 @@ nav.nav--site {
     }
 
     input[type=search] {
-      height: 20px;
+      height: 2em;
       width: 200px;
-      font-size: 2em;
+      font-size: 1.6em;
       border-radius: .3em;
       background-color: rgba(255, 255, 255, .75);
       margin: auto;
