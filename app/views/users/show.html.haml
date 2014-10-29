@@ -10,5 +10,7 @@
 		- if @user.reviews 
 			%ul
 				- @user.reviews.each do |review|
-					%li=review.title
+					%article
+						%li= review.title
+						%li= review.description
 		= link_to 'Edit', edit_user_path(@user)

@@ -14,17 +14,24 @@
 				- if company.reviews 
 					%ul
 						- company.reviews.each do |review|
-							%li=review.title
+							%li
+								%article
+									%h4= review.title
+									%h5= review.description
+									- if review.response
+										%h5 Respond
+									- else
+										%h5 Respond
 		%p
 			%b Status:
 			- if @user.role = :owner
 				Verified
 			- else
 				Unverified
-
-		%h3 My reviews
-		- if @user.reviews 
+		- if @user.reviews.count > 0
+			%h3 My reviews
 			%ul
 				- @user.reviews.each do |review|
-					%li=review.title
+					%article
+						%li=review.title
 		= link_to 'Edit', edit_user_path(@user)

@@ -59,7 +59,11 @@ ul {
 }
 
 article {
-  border-bottom: 1px solid darkgray;
+  border-top: 1px solid darkgray;
+}
+
+li:first-child article{
+  border-top: none;
 }
 
 table {
