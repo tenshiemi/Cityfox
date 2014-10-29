@@ -18,8 +18,8 @@ gem 'turbolinks'
 
 group :development, :test do
 	gem 'spring'
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails'
+	gem 'rspec-rails', '~> 3.0.0'
+	gem 'factory_girl_rails'
 end
 
 gem 'pry'
@@ -31,5 +31,5 @@ group :test do
 end
 
 group :production do
-  gem 'rails_12factor'
+	gem 'rails_12factor'
 end
