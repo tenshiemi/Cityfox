@@ -89,7 +89,8 @@ nav.nav--site {
 
     .nav--site li {
       display: inline-block;
-      margin: 10px;
+      margin: 0.625em;
+      padding: 10px;
     }
 
     .nav--site a {
@@ -105,7 +106,7 @@ nav.nav--site {
     }
 
     #logo {
-      margin-top: 15px;
+      margin: 10px;
       padding-left: 20px;
       color: white;
       font-size: 2em;
@@ -122,6 +123,7 @@ nav.nav--site {
 .messages--flash {
   position: absolute;
   max-width: 300px;
+  height: 1.4em;
   margin: auto;
   left: 0;
   right: 0;
@@ -131,7 +133,6 @@ nav.nav--site {
     #notice {
       background-color: hsla(82, 66%, 85%, .50);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -141,7 +142,6 @@ nav.nav--site {
     #alert {
       background-color: hsla(0, 100%, 86%, 1);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -151,7 +151,6 @@ nav.nav--site {
     #warning {
       background-color: hsla(48, 97%, 85%, 1);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -215,8 +214,6 @@ nav.nav--site {
       font-size: .8em;
       text-shadow: none;
       outline: none;
-      height: 40px;
-      width: 300px;
       border-radius: .3em;
       box-shadow: 0px 0px 0px 2pt white;
       @include media($tablet) {
@@ -258,15 +255,7 @@ article {
   border-bottom: 1px solid darkgray;
 }
 
-.content--hero h1 {
-  font-size: 5em;
-  line-height: 1em;
-}
-
-.content--hero h2 {
-  font-size: 3em;
-  line-height: 1em;
-}
+// Hero styles
 
 .hero {
   background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
@@ -280,31 +269,39 @@ article {
   }
 }
 
-.content--hero {
-  max-width: 960px;
-  padding: 20px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: hsla(0, 0%, 100%, .35);
-  border-radius: .5em;
-  text-align: center;
-  @include media($tablet) {
-    padding: 34px;
-    margin-top: 50px;
-  }
-}
+    .content--hero {
+      @include span-columns(10);
+      @include shift(1);
+      padding: 20px;
+      margin-top: 30px;
+      background-color: hsla(0, 0%, 100%, .35);
+      border-radius: .5em;
+      text-align: center;
+      @include media($tablet) {
+        padding: 34px;
+        margin-top: 50px;
+      }
+    }
+
+    .content--hero h1 {
+      font-size: 5em;
+      line-height: 1em;
+    }
+
+    .content--hero h2 {
+      font-size: 3em;
+      line-height: 1em;
+    }
 
 .button--medium {
   border: 1px solid white;
   border-radius: .5em;
-  float: left;
-  margin: 10px;
   min-height: 25.6px;
-  min-width: 100px;
+  width: 100px;
   background-color: $color-page-primary;
   padding: 10px;
   text-align: center;
+  display: inline-block;
 }
 
 .search {
@@ -315,4 +312,12 @@ article {
   clear: both;
   position: absolute;
   bottom: 0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
