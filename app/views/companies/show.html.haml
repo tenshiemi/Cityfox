@@ -1,6 +1,5 @@
 = render "layouts/header"
 .container
-<<<<<<< HEAD
 	.content--center
 		%h1= @company.name
 		%h2= @company.city
@@ -14,24 +13,7 @@
 		- else
 			%h2 There are no reviews for this company.
 		= link_to "Review this company", "/reviews/new?id=#{@company.id}"
-		= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
-			
-=======
-	%h1= @company.name
-	%h2= @company.city
-	- if @company.reviews.count > 0
-		%ul
-			- @company.reviews.each do |review|
-				%li
-					%article
-						%h2
-							= review.description
-	- else
-		%h2 There are no reviews for this company.
-	= link_to "Review this company", "/reviews/new?id=#{@company.id}"
-	- if current_user
-		= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
-	- else
-		= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
-		
->>>>>>> master
+		- if current_user
+			= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
+		- else
+			= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
