@@ -61,11 +61,35 @@ article {
   border-bottom: 1px solid darkgray;
 }
 
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+td, th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
 .content--center {
   margin-top: 30px;
   padding: 25px;
   @include span-columns(6);
   @include shift(3);
+}
+
+.content--center--large {
+  @include span-columns(10);
+  @include shift(1);
+  padding: 20px;
+  @include media($tablet) {
+    padding: 34px;
+  }
 }
 
 // Header styles
