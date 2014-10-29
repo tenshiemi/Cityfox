@@ -6,7 +6,7 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   = f.hidden_field :company_id, value: @company.id
-  = f.hidden_field :role, value: :owner
+  = f.hidden_field :role, value: :unverified_owner
   .field
     = f.label :name
     %br

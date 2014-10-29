@@ -22,6 +22,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
+gem 'pry'
 group :test do
 	gem 'faker'
 	gem 'capybara'

@@ -10,9 +10,12 @@ class OwnersController < ApplicationController
 
 	def create
 		@user = User.new(owner_params)
+    @company_id = params[:user][:company_id]
     respond_to do |format|
       if @user.save
         auto_login(@user)
+        new_relation = UserCompanyRelation.new(user_id: @user.id, company_id: @company_id)
+        new_relation.save
         format.html { redirect_to owner_landing_path, notice: 'User was successfully created.' }
         format.json { render :owner_landing, status: :created, location: @user }
       else
@@ -21,6 +24,11 @@ class OwnersController < ApplicationController
       end
     end
  	end
+
+  def show
+    @user = User.find(params[:id])
+    @companies = @user.companies
+  end
 
   def claim
     @user = current_user

@@ -9,7 +9,12 @@
 
 	%p
 		%b Company:
-		= link_to @user.company.name, company_path(@user.company.id)
+		- @companies.each do |company|
+			= link_to @user.company.name, company_path(@user.company.id)
+			- if @company.reviews 
+				%ul
+					- @user.company.reviews.each do |review|
+						%li=review.title
 
 	%p
 		%b Status:
@@ -17,12 +22,6 @@
 			Verified
 		- else
 			Unverified
-
-	%h3 Company reviews
-	- if @user.company.reviews 
-		%ul
-			- @user.company.reviews.each do |review|
-				%li=review.title
 
 	%h3 My reviews
 	- if @user.reviews 
