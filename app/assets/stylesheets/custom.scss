@@ -1,12 +1,8 @@
 @import "bourbon";
 @import "neat";
-$visual-grid: true;
-$visual-grid-color: red;
-$visual-grid-index: front;
-$visual-grid-opacity: 0.1;
 
-$tablet: new-breakpoint(min-width 500px);
-$desktop: new-breakpoint(min-width 800px);
+$tablet: new-breakpoint(min-width 500px, 12);
+$desktop: new-breakpoint(min-width 800px, 12);
 
 $color-page-primary: hsla(160, 36%, 61%, 1);
 $color-font-primary: hsla(50, 5%, 22%, 1);
@@ -14,6 +10,7 @@ $color-font-alert: hsla(359, 63%, 55%, 1);
 $color-font-notice: hsla(110, 32%, 46%, 1);
 $color-font-warning: hsla(40, 56%, 60%, 1);
 
+// Generic styles
 
 html {
   color: $color-font-primary;
@@ -40,6 +37,23 @@ body {
   margin:0px;
 }
 
+h1, h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article {
+  border-bottom: 1px solid darkgray;
+}
+
 .content--center {
   margin-top: 30px;
   padding: 25px;
@@ -50,6 +64,7 @@ body {
 // Header styles
 
 nav.nav--site {
+  @include span-columns(12);
   @include clearfix;
   position: relative;
   width: 100%;
@@ -58,22 +73,22 @@ nav.nav--site {
     .navbar-left {
       text-align: center;
       @include media($tablet) {
-          @include span-columns(4);
-          float: left;
+        @include span-columns(4 of 12);
+        float: left;
       }
       @include media($desktop) {
-        @include span-columns(3);
+        @include span-columns(3 of 12);
         float: left;
       }
     }
 
     .navbar-right {
       @include media($tablet) {
-          @include span-columns(8);
-          float: right;
+        @include span-columns(8 of 12);
+        float: right;
       }
       @include media($tablet) {
-        @include span-columns(6);
+        @include span-columns(6 of 12);
         float: right;
       }
     }
@@ -238,23 +253,6 @@ nav.nav--site {
        color: white; 
     }
 
-h1, h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
-article {
-  border-bottom: 1px solid darkgray;
-}
-
 // Hero styles
 
 .hero {
@@ -289,7 +287,7 @@ article {
     }
 
     .content--hero h2 {
-      font-size: 3em;
+      font-size: 3.5em;
       line-height: 1em;
     }
 
@@ -309,7 +307,7 @@ article {
 }
 
 .footer-wrapper {
-  clear: both;
+  @include row();
   position: absolute;
   bottom: 0;
 }
