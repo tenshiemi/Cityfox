@@ -1,8 +1,8 @@
 @import "bourbon";
 @import "neat";
 
-$mobile: new-breakpoint(max-width 500px, 4);
-$tablet: new-breakpoint(max-width 800px, 8);
+$tablet: new-breakpoint(min-width 500px, 12);
+$desktop: new-breakpoint(min-width 800px, 12);
 
 $color-page-primary: hsla(160, 36%, 61%, 1);
 $color-font-primary: hsla(50, 5%, 22%, 1);
@@ -10,9 +10,17 @@ $color-font-alert: hsla(359, 63%, 55%, 1);
 $color-font-notice: hsla(110, 32%, 46%, 1);
 $color-font-warning: hsla(40, 56%, 60%, 1);
 
+// Generic styles
 
-* {
+html {
   color: $color-font-primary;
+  font-size: 75%;
+  @include media($tablet) {
+    font-size: 90%;
+  }
+  @include media($desktop) {
+    font-size: 100%;
+  }
 }
 
 div.container {
@@ -29,26 +37,59 @@ body {
   margin:0px;
 }
 
+h1, h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article {
+  border-bottom: 1px solid darkgray;
+}
+
+.content--center {
+  margin-top: 30px;
+  padding: 25px;
+  @include span-columns(6);
+  @include shift(3);
+}
+
 // Header styles
 
 nav.nav--site {
-	@include clearfix;
+  @include span-columns(12);
+  @include clearfix;
   position: relative;
-  width: 100%
+  width: 100%;
 }
 
     .navbar-left {
-      float: left;
-      @include media($mobile) {
-          @include span-columns(4);
-          text-align: center;
+      text-align: center;
+      @include media($tablet) {
+        @include span-columns(4 of 12);
+        float: left;
+      }
+      @include media($desktop) {
+        @include span-columns(3 of 12);
+        float: left;
       }
     }
 
     .navbar-right {
-      float: right;
-      @include media($mobile) {
-          @include span-columns(4);
+      @include media($tablet) {
+        @include span-columns(8 of 12);
+        float: right;
+      }
+      @include media($tablet) {
+        @include span-columns(6 of 12);
+        float: right;
       }
     }
 
@@ -63,7 +104,8 @@ nav.nav--site {
 
     .nav--site li {
       display: inline-block;
-      margin: 10px;
+      margin: 0.625em;
+      padding: 10px;
     }
 
     .nav--site a {
@@ -79,10 +121,15 @@ nav.nav--site {
     }
 
     #logo {
-      margin-top: 15px;
+      margin: 10px;
+      padding-left: 20px;
       color: white;
       font-size: 2em;
       font-family: 'Roboto Condensed', sans-serif;
+      @include media($tablet) {
+        font-size: 1.6em;
+        text-align: center;
+      }
     }
 
 
@@ -91,6 +138,7 @@ nav.nav--site {
 .messages--flash {
   position: absolute;
   max-width: 300px;
+  height: 1.4em;
   margin: auto;
   left: 0;
   right: 0;
@@ -100,7 +148,6 @@ nav.nav--site {
     #notice {
       background-color: hsla(82, 66%, 85%, .50);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -110,7 +157,6 @@ nav.nav--site {
     #alert {
       background-color: hsla(0, 100%, 86%, 1);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -120,7 +166,6 @@ nav.nav--site {
     #warning {
       background-color: hsla(48, 97%, 85%, 1);
       text-align: center;
-      height: 30px;
       border-bottom-left-radius: .3em;
       border-bottom-right-radius: .3em;
       padding: 5px;
@@ -143,39 +188,29 @@ nav.nav--site {
     }
 
 // Form styles
-.form--login {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  padding: 25px;
-  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
-}
 
     input:not([type=submit]):not([type=file]):not([type=radio]) {
+      height: 25px;
+      width: 200px;
       font-size: 1em;
-      height: 40px;
-      width: 300px;
       border-radius: .3em;
       margin-bottom: 20px;
-      @include media($mobile) {
-        height: 25px;
-        width: 200px;
-        font-size: .8em;
+      @include media($tablet) {
+        height: 40px;
+        width: 300px;
       }
     }
 
     input[type=search] {
-      height: 50px;
-      width: 400px;
+      height: 20px;
+      width: 200px;
       font-size: 2em;
       border-radius: .3em;
       background-color: rgba(255, 255, 255, .75);
       margin: auto;
-      @include media($mobile) {
-        height: 20px;
-        width: 200px;
-        font-size: 1em;
+      @include media($tablet) {
+        height: 50px;
+        width: 400px;
       }
     }
 
@@ -188,18 +223,17 @@ nav.nav--site {
     }
 
     input[type=submit] {
+      height: 25px;
+      width: 100px;
       border: 0px;
       font-size: .8em;
       text-shadow: none;
       outline: none;
-      height: 40px;
-      width: 300px;
       border-radius: .3em;
       box-shadow: 0px 0px 0px 2pt white;
-      @include media($mobile) {
-        height: 25px;
-        width: 100px;
-        font-size: .6em;
+      @include media($tablet) {
+        height: 40px;
+        width: 300px;
       }
     }
 
@@ -219,76 +253,53 @@ nav.nav--site {
        color: white; 
     }
 
-h1, h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-}
-
-article {
-  border-bottom: 1px solid darkgray;
-}
-
-.content--hero h1 {
-  font-size: 5em;
-  line-height: 1em;
-  @include media($mobile) {
-    font-size: 3em;
-  }
-}
-
-.content--hero h2 {
-  font-size: 3em;
-  line-height: 1em;
-  @include media($mobile) {
-    font-size: 1.6em;
-  }
-}
+// Hero styles
 
 .hero {
-  background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
-  max-width: 18000px;
-  height: 1000px;
+  background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
   @include media($tablet) {
       background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
-  @include media($mobile) {
-      background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
+  @include media($desktop) {
+      background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
+      max-width: 18000px;
+      height: 1000px;
   }
 }
 
-.content--hero {
-  max-width: 960px;
-  padding: 34px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: hsla(0, 0%, 100%, .35);
-  border-radius: .5em;
-  text-align: center;
-  @include media($mobile) {
-    padding: 20px;
-    margin-top: 30px;
-  }
-}
+    .content--hero {
+      @include span-columns(10);
+      @include shift(1);
+      padding: 20px;
+      margin-top: 30px;
+      background-color: hsla(0, 0%, 100%, .35);
+      border-radius: .5em;
+      text-align: center;
+      @include media($tablet) {
+        padding: 34px;
+        margin-top: 50px;
+      }
+    }
+
+    .content--hero h1 {
+      font-size: 5em;
+      line-height: 1em;
+    }
+
+    .content--hero h2 {
+      font-size: 3.5em;
+      line-height: 1em;
+    }
 
 .button--medium {
   border: 1px solid white;
   border-radius: .5em;
-  float: left;
-  margin: 10px;
   min-height: 25.6px;
-  min-width: 100px;
+  width: 100px;
   background-color: $color-page-primary;
   padding: 10px;
   text-align: center;
+  display: inline-block;
 }
 
 .search {
@@ -296,8 +307,15 @@ article {
 }
 
 .footer-wrapper {
-  clear: both;
+  @include row();
   position: absolute;
   bottom: 0;
 }
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

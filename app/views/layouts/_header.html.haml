@@ -13,7 +13,7 @@
 					%p#alert
 						= flash[:alert]
 			.navbar-right
-				%ul
+				%ul.right
 					- if current_user
 						%li
 							- if current_user.role == "owner"
@@ -24,9 +24,9 @@
 							= link_to "Log out", :logout, method: :post, class: "button--medium"
 						- if is_admin?
 							%li
-								= link_to "Companies", :manage_companies, class: "button--medium"
-							%li
-								= link_to "Owners", :manage_owners, class: "button--medium"
+								= link_to "Companies", :manage_companies
+								\|
+								= link_to "Owners", :manage_owners
 					- else
 						%li
 							= link_to "Register", new_user_path, class: "button--medium"
