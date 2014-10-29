@@ -65,31 +65,28 @@ article {
 
 nav.nav--site {
   @include span-columns(12);
-  @include clearfix;
   position: relative;
   width: 100%;
+  color: white;
 }
 
     .navbar-left {
       text-align: center;
       @include media($tablet) {
         @include span-columns(4 of 12);
-        float: left;
       }
       @include media($desktop) {
         @include span-columns(3 of 12);
-        float: left;
       }
     }
 
     .navbar-right {
       @include media($tablet) {
         @include span-columns(8 of 12);
-        float: right;
       }
       @include media($tablet) {
         @include span-columns(6 of 12);
-        float: right;
+        @include shift(3)
       }
     }
 
