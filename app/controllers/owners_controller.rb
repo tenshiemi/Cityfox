@@ -32,10 +32,12 @@ class OwnersController < ApplicationController
 
   def claim
     @user = current_user
-    @user.company_id = params[:id]
+    company_id = params[:id]
     @user.role = :unverified_owner
     respond_to do |format|
       if @user.save
+        new_relation = UserCompanyRelation.new(user_id: @user.id, company_id: company_id)
+        new_relation.save
         format.html { redirect_to owner_landing_path, notice: 'Claim submitted.' }
         format.json { render :owner_landing, status: :updated, location: @user }
       else
