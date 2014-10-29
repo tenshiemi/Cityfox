@@ -2,7 +2,7 @@ class AdminsController < ApplicationController
 	before_action :require_admin
 
 	def owners
-		@owners = User.all.where("role = ? OR role = ?", :unverified_owner, :owner)
+		@owner_relations = UserCompanyRelation.all
 	end
 
 	def companies
@@ -10,9 +10,9 @@ class AdminsController < ApplicationController
 	end
 
 	def verify
-		@owner = User.find(params[:id])
-		@owner.role = :owner
-		@owner.save
+		@relation = UserCompanyRelation.find(params[:id])
+		@relation.verified = true
+		@relation.save
 		redirect_to manage_owners_path
 	end
 end
