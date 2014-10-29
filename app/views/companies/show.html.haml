@@ -8,8 +8,15 @@
 				- @company.reviews.each do |review|
 					%li
 						%article
-							%h2
-								= review.description
+							%h2= review.title
+							- if review.would_work_with
+								%h3 I would work with this company again.
+							- else
+								%h3 I would not work with this company again.
+							%p= review.description
+							%p= "Communication: #{review.rating_communication}"
+							%p= "Reason: #{review.rating_expectations}"
+							%p= "Payment: #{review.rating_payment}"
 		- else
 			%h2 There are no reviews for this company.
 		= link_to "Review this company", "/reviews/new?id=#{@company.id}"

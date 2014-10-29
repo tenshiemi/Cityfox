@@ -7,21 +7,27 @@
           %li= msg
   .field
     = f.label :name
-    = f.text_field :name
+    %br
+    = f.text_field :name, required: true
   .field
     = f.label :industry
+    %br
     = f.text_field :industry
   .field
     = f.label :country
+    %br
     = f.text_field :country
   .field
     = f.label :city
+    %br
     = f.text_field :city
   .field
     = f.label :state
+    %br
     = f.text_field :state
   .field
     = f.label :postal_code
+    %br
     = f.text_field :postal_code
   .actions
     = f.submit 'Save'

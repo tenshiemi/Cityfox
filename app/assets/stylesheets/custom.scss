@@ -20,6 +20,7 @@ $color-font-warning: hsla(40, 56%, 60%, 1);
 // Generic styles
 
 html {
+  font-family: 'Roboto Condensed', sans-serif;
   color: $color-font-primary;
   font-size: 75%;
   @include media($tablet) {
@@ -44,7 +45,7 @@ body {
   margin:0px;
 }
 
-h1, h2 {
+h1, h2, h3, h4, h5 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
@@ -161,7 +162,6 @@ nav.nav--site {
       padding-left: 20px;
       color: white;
       font-size: 2em;
-      font-family: 'Roboto Condensed', sans-serif;
       @include media($tablet) {
         font-size: 1.6em;
         text-align: center;
