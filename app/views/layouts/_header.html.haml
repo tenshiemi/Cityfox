@@ -24,9 +24,9 @@
 								= link_to current_user.name, user_path(current_user.id), class: "button--medium"
 						- if is_admin?
 							%li
-								= link_to "Companies", :manage_companies, class: "button--medium"
+								= link_to "Companies", :manage_companies
 							%li
-								= link_to "Owners", :manage_owners, class: "button--medium"
+								= link_to "Owners", :manage_owners
 					- else
 						%li
 							= link_to "REGISTER", new_user_path, class: "button--medium"

@@ -1,30 +1,24 @@
 = render "layouts/header"
 .container
-	%p#notice= notice
-
-	%p
-		%b Name:
-		= @user.name
-	%p
-		%b Email:
-		= @user.email
-
-	%p
-		%b Company:
-		= link_to @user.company.name, company_path(@user.company.id)
-
-	%h3 Company reviews
-	- if @user.company.reviews 
-		%ul
-			- @user.company.reviews.each do |review|
-				%li=review.title
-
-	%h3 My reviews
-	- if @user.reviews 
-		%ul
-			- @user.reviews.each do |review|
-				%li=review.title
-
-	= link_to 'Edit', edit_user_path(@user)
-	\|
-	= link_to 'Back', users_path
+	.content--center
+		%p#notice= notice
+		%p
+			%b Name:
+			= @user.name
+		%p
+			%b Email:
+			= @user.email
+		%p
+			%b Company:
+			= link_to @user.company.name, company_path(@user.company.id)
+		%h3 Company reviews
+		- if @user.company.reviews 
+			%ul
+				- @user.company.reviews.each do |review|
+					%li=review.title
+		%h3 My reviews
+		- if @user.reviews 
+			%ul
+				- @user.reviews.each do |review|
+					%li=review.title
+		= link_to 'Edit', edit_user_path(@user)

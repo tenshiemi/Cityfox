@@ -1,17 +1,18 @@
 = render "layouts/header"
 .container
-	= link_to "Add Company", new_company_path
-	%table
-		%thead
-			%tr
-				%th Company Name
-				%th Location
-				%th Options
-		%tbody
-			- @companies.each do |company|
+	.content--center
+		= link_to "Add Company", new_company_path
+		%table
+			%thead
 				%tr
-					- cache(company) do
-						%td
-							= link_to company.name, company_path(company)
-						%td= company.city
+					%th Company Name
+					%th Location
+					%th Options
+			%tbody
+				- @companies.each do |company|
+					%tr
+						- cache(company) do
+							%td
+								= link_to company.name, company_path(company)
+							%td= company.city
 	
