@@ -10,10 +10,10 @@
 	%p
 		%b Company:
 		- @companies.each do |company|
-			= link_to @user.company.name, company_path(@user.company.id)
-			- if @company.reviews 
+			= link_to company.name, company_path(company.id)
+			- if company.reviews 
 				%ul
-					- @user.company.reviews.each do |review|
+					- company.reviews.each do |review|
 						%li=review.title
 
 	%p
