@@ -1,7 +1,6 @@
 = render "layouts/header"
 .container
 	.content--center
-		%p#notice= notice
 		%p
 			%b Name:
 			= @user.name
@@ -10,12 +9,19 @@
 			= @user.email
 		%p
 			%b Company:
-			= link_to @user.company.name, company_path(@user.company.id)
-		%h3 Company reviews
-		- if @user.company.reviews 
-			%ul
-				- @user.company.reviews.each do |review|
-					%li=review.title
+			- @companies.each do |company|
+				= link_to company.name, company_path(company.id)
+				- if company.reviews 
+					%ul
+						- company.reviews.each do |review|
+							%li=review.title
+		%p
+			%b Status:
+			- if @user.role = :owner
+				Verified
+			- else
+				Unverified
+
 		%h3 My reviews
 		- if @user.reviews 
 			%ul

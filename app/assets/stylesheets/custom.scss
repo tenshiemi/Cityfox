@@ -43,10 +43,17 @@ body {
   margin:0px;
 }
 
+.content--center {
+  margin-top: 30px;
+  padding: 25px;
+  @include span-columns(6);
+  @include shift(3);
+}
+
 // Header styles
 
 nav.nav--site {
-	@include clearfix;
+  @include clearfix;
   position: relative;
   width: 100%
 }
@@ -164,12 +171,6 @@ nav.nav--site {
     }
 
 // Form styles
-.content--center {
-  margin-top: 30px;
-  padding: 25px;
-  @include span-columns(6);
-  @include shift(3);
-}
 
     input:not([type=submit]):not([type=file]):not([type=radio]) {
       font-size: 1em;
@@ -319,4 +320,3 @@ article {
   position: absolute;
   bottom: 0;
 }
-

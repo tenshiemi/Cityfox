@@ -16,12 +16,12 @@
 				%ul
 					- if current_user
 						%li
-							= link_to "LOG OUT", :logout, method: :post, class: "button--medium"
-						%li
 							- if current_user.role == "owner"
 								= link_to current_user.name, owner_path(current_user.id), class: "button--medium"
 							- else
 								= link_to current_user.name, user_path(current_user.id), class: "button--medium"
+						%li
+							= link_to "Log out", :logout, method: :post, class: "button--medium"
 						- if is_admin?
 							%li
 								= link_to "Companies", :manage_companies
@@ -29,6 +29,6 @@
 								= link_to "Owners", :manage_owners
 					- else
 						%li
-							= link_to "REGISTER", new_user_path, class: "button--medium"
+							= link_to "Register", new_user_path, class: "button--medium"
 						%li
-							= link_to "LOG IN", :login, class: "button--medium"
+							= link_to "Log in", :login, class: "button--medium"

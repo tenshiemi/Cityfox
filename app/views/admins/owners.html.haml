@@ -1,5 +1,6 @@
 = render "layouts/header"
 .container
+<<<<<<< HEAD
 	.content--center
 		%table
 			%thead
@@ -22,3 +23,29 @@
 								%td= link_to "Unverified", verify_owner_path(owner)
 							- else
 								%td Verified
+=======
+	%table
+		%thead
+			%tr
+				%th Company
+				%th Contact Name
+				%th Email
+				%th Phone
+				%th Status
+		%tbody
+			- @owner_relations.each do |relation|
+				- owner = User.find(relation.user_id)
+				- company = Company.find(relation.company_id)
+				%tr
+					- cache(owner) do
+						%td= link_to company.name, company_path(company.id)
+						%td= link_to owner.name, owner_path(owner)
+						%td= owner.email
+						%td
+							- if owner.phone
+								= owner.phone
+						- if relation.verified == false
+							%td= link_to "Unverified", verify_relation_path(relation.id)
+						- else
+							%td Verified
+>>>>>>> master
