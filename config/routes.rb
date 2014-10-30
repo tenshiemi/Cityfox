@@ -23,5 +23,5 @@ Rails.application.routes.draw do
   get 'manage_companies' => 'admins#companies', :as => :manage_companies
   get 'verify_relation/:id' => 'admins#verify', :as => :verify_relation
 
-  get 'review/add_response' => 'reviews#add_response', :as => :add_response
+  post 'reviews/add_response' => 'reviews#add_response', :as => :add_response
 end

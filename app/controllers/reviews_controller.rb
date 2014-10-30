@@ -22,12 +22,10 @@ class ReviewsController < ApplicationController
   end
 
   def add_response
-    @review = Review.find(params[:id])
-    respond_to do |format|
-      if !@review.update_attributes(params[:response])
-        @error='Could not submit response.'
-      end
-      format.js
+    @review = Review.find(params[:review][:id])
+    if request.xhr?
+      @review.update(response: params[:review][:response])
+      render json: {res: @review.response}
     end
   end
 
