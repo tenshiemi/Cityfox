@@ -1,28 +1,45 @@
 = render "layouts/header"
 .container
-	%p
-		%b Name:
-		= @user.name
-	%p
-		%b Email:
-		= @user.email
-
-	%p
-		%b Company:
-		= link_to @user.company.name, company_path(@user.company.id)
-
-	%h3 Company reviews
-	- if @user.company.reviews 
-		%ul
-			- @user.company.reviews.each do |review|
-				%li=review.title
-
-	%h3 My reviews
-	- if @user.reviews 
-		%ul
-			- @user.reviews.each do |review|
-				%li=review.title
-
-	= link_to 'Edit', edit_user_path(@user)
-	\|
-	= link_to 'Back', users_path
+	.content--center
+		%p
+			%b Name:
+			= @user.name
+		%p
+			%b Email:
+			= @user.email
+		%p
+			%b Company:
+			- @companies.each do |company|
+				= link_to company.name, company_path(company.id)
+				%p
+				%b Status:
+				- if @user.role = :owner
+					Verified
+				- else
+					Unverified
+				- if company.reviews 
+					%ul
+						- company.reviews.each do |review|
+							%li
+								%article
+									%h4 
+										= link_to review.title, review_path(review.id)
+									%h5= review.description
+									- if review.response
+										%p.response= review.response
+										%h5.trigger--form Update response
+									- else
+										%h5.trigger--form Write a response
+									.form--response
+										= form_for review, url: add_response_path, method: :post, remote: true do |f|
+											.field
+												= f.hidden_field :id, value: review.id
+												= f.text_field :response
+												= f.submit "Save"
+		- if @user.reviews.count > 0
+			%h3 My reviews
+			%ul
+				- @user.reviews.each do |review|
+					%article
+						%li=review.title
+		= link_to 'Edit', edit_user_path(@user)

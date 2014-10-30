@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
   has_many :reviews
-  belongs_to :company
+  has_many :companies, :through => :user_company_relations
+  has_many :user_company_relations
 
   validates :password, confirmation: true, presence: true, 
             length: { minimum: 3 }, :on => :create

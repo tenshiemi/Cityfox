@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	before_action :require_admin, only: [:index]
+	# before_action :require_admin, only: [:index]
 	skip_before_filter :require_login, only: [:index, :show]
 
 	def index

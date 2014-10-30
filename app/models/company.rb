@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
 	has_many :reviews
-	has_many :users
+	has_many :users, :through => :user_company_relations
+	has_many :user_company_relations
 
 	validates :name, presence: true
 	validates :country, presence: true

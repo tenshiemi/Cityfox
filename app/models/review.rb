@@ -7,4 +7,8 @@ class Review < ActiveRecord::Base
 	validates :would_work_with, presence: true
 	validates :user_id, presence: true
 	validates :company_id, presence: true
+	validates :rating_payment, presence: true
+	validates :rating_communication, presence: true
+	validates :rating_expectations, presence: true
+
 end

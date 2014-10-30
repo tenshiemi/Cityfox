@@ -3,7 +3,7 @@
 		%nav.nav--site
 			.navbar-left
 				%h1
-					#logo= link_to "City Fox", root_path
+					#logo= link_to "FourthWall", root_path
 			- if !flash[:notice].nil?
 				.messages--flash
 					%p#notice
@@ -24,9 +24,9 @@
 							= link_to "Log out", :logout, method: :post, class: "button--medium"
 						- if is_admin?
 							%li
-								= link_to "Companies", :manage_companies, class: "button--medium"
-							%li
-								= link_to "Owners", :manage_owners, class: "button--medium"
+								= link_to "Companies", :manage_companies
+								\|
+								= link_to "Owners", :manage_owners
 					- else
 						%li
 							= link_to "Register", new_user_path, class: "button--medium"

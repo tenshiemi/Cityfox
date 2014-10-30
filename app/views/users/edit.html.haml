@@ -1,8 +1,7 @@
 = render "layouts/header"
 .container
-	.form--login
+	.content--center
 		%h1 Editing user
-			= render 'form'
+		= render 'form'
 		= link_to 'Show', @user
-		\|
-		= link_to 'Back', users_path
+
