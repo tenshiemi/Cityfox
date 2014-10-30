@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'reviews/index'
 
   root :to => 'welcome#index'
-  get 'companies/get_all', to: 'companies#get_all', as: :get_all
+  get '/get_all', to: 'companies#get_all', as: :get_all
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

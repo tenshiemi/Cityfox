@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5 {
 
 a {
   text-decoration: none;
+  color: hsla(160, 36%, 35%, 1);
 }
 
 ul {
@@ -78,7 +79,7 @@ td, th {
   line-height: 1.42857143;
   vertical-align: top;
   text-align: left;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
 }
 
 .content--center {
@@ -254,7 +255,7 @@ nav.nav--site {
       width: 200px;
       font-size: 1.6em;
       color: $color-font-primary;
-      background-color: rgba(255, 255, 255, .75);
+      background-color: hsla(0, 100%, 100%, .75);
       margin: auto;
       border: 1px solid lightgray;
       @include media($tablet) {
