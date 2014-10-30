@@ -28,6 +28,10 @@ class CompaniesController < ApplicationController
 		@company = Company.find(params[:id])
 	end
 
+	def get_all
+		render json: Company.all
+	end
+
 	private
 	def company_params
     params.require(:company).permit(:name, :industry, :country, :city, :state, :postalcode)
