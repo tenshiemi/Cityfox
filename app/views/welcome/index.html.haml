@@ -1,11 +1,45 @@
-%body
-	.fullscreen.background.hero
-		= render "layouts/header"
+= stylesheet_link_tag params[:controller]
+.fullscreen.background.hero
+	%header.header--welcome
 		.container
-			.content--hero
-				%h2 Unsure about a new client?
-				%h2 We've got your back.
-				.search
-					= form_tag search_path, :method => :post do
-						= search_field_tag :search_term, nil, :placeholder => 'Find a company...'
-				%h3 Reviews for freelancers, design and development shops, and anyone who does client work.
+			%nav.nav--site
+				.navbar-left
+					%h1
+						#logo= link_to "FourthWall", root_path
+				- if !flash[:notice].nil?
+					.messages--flash
+						%p#notice
+							= flash[:notice]
+				- if !flash[:alert].nil?
+					.messages--flash
+						%p#alert
+							= flash[:alert]
+				.navbar-right
+					%ul
+						- if current_user
+							%li
+								- if current_user.role == "owner"
+									= link_to current_user.name, owner_path(current_user.id), class: "button--medium"
+								- else
+									= link_to current_user.name, user_path(current_user.id), class: "button--medium"
+							%li
+								= link_to "Log out", :logout, method: :post, class: "button--medium"
+							- if is_admin?
+								%li
+									= link_to "Companies", :manage_companies
+									\|
+									= link_to "Owners", :manage_owners
+						- else
+							%li
+								= link_to "Register", new_user_path, class: "button--medium"
+							%li
+								= link_to "Log in", :login, class: "button--medium"
+	.container
+		.content--hero
+			%h2 Unsure about a new client?
+			%h2 We've got your back.
+			.search
+				= form_tag search_path, :method => :post do
+					= search_field_tag :search_term, nil, :placeholder => 'Find a company...'
+			%h3 Reviews for freelancers, design and development shops, 
+			%h3 and anyone who does client work.

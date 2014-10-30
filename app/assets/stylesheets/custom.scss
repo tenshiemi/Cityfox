@@ -46,8 +46,8 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
 }
 
 a {
@@ -167,9 +167,17 @@ nav.nav--site {
       color: white;
       font-size: 2em;
       @include media($tablet) {
-        font-size: 1.6em;
+        font-size: 2em;
         text-align: center;
       }
+    }
+
+    a#logo:hover {
+      background-color: none;
+    }
+
+    header.header--welcome {
+      background-color: rgba(0,0,0,0);
     }
 
 
@@ -245,9 +253,11 @@ nav.nav--site {
       height: 2em;
       width: 200px;
       font-size: 1.6em;
-      border-radius: .3em;
+      border-radius: 1em;
+      color: $color-font-primary;
       background-color: rgba(255, 255, 255, .75);
       margin: auto;
+      border: 1px solid lightgray;
       @include media($tablet) {
         height: 50px;
         width: 400px;
@@ -258,7 +268,7 @@ nav.nav--site {
       border: 0px;
       text-shadow: none;
       outline: none;
-      border-radius: .3em;
+      border-radius: 1em;
       box-shadow: 0px 0px 0px 2pt white;
     }
 
@@ -309,9 +319,8 @@ nav.nav--site {
       background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
   @include media($desktop) {
-      background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork.jpg') no-repeat fixed;
       max-width: 18000px;
-      height: 1000px;
   }
 }
 
@@ -320,28 +329,40 @@ nav.nav--site {
       @include shift(1);
       padding: 20px;
       margin-top: 30px;
-      background-color: hsla(0, 0%, 100%, .35);
-      border-radius: .5em;
+      background-color: hsla(50, 5%, 22%, .35);
       text-align: center;
       @include media($tablet) {
         padding: 34px;
         margin-top: 50px;
       }
+      @include media($desktop) {
+        padding: 34px;
+        margin-top: 100px;
+        margin-bottom: 180px;
+      }
     }
 
     .content--hero h1 {
-      font-size: 5em;
+      font-size: 4em;
       line-height: 1em;
+      color: white;
     }
 
     .content--hero h2 {
-      font-size: 3.5em;
-      line-height: 1em;
+      font-size: 3em;
+      line-height: .6em;
+      color: white;
+    }
+
+    .content--hero h3 {
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      line-height: .5em;
     }
 
 .button--medium {
   border: 1px solid white;
-  border-radius: .5em;
   min-height: 25.6px;
   width: 100px;
   background-color: $color-page-primary;
