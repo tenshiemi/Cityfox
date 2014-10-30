@@ -11,12 +11,19 @@
 			%b Company:
 			- @companies.each do |company|
 				= link_to company.name, company_path(company.id)
+				%p
+				%b Status:
+				- if @user.role = :owner
+					Verified
+				- else
+					Unverified
 				- if company.reviews 
 					%ul
 						- company.reviews.each do |review|
 							%li
 								%article
-									%h4= review.title
+									%h4 
+										= link_to review.title, review_path(review.id)
 									%h5= review.description
 									- if review.response
 										%p.response= review.response
@@ -29,12 +36,6 @@
 												= f.hidden_field :id, value: review.id
 												= f.text_field :response
 												= f.submit "Save"
-		%p
-			%b Status:
-			- if @user.role = :owner
-				Verified
-			- else
-				Unverified
 		- if @user.reviews.count > 0
 			%h3 My reviews
 			%ul
