@@ -36,7 +36,7 @@ div.container {
 }
 
 header {
-  background-color: $color-page-primary;
+  background-color: none;
   width: 100%;
 }
 
@@ -309,9 +309,8 @@ nav.nav--site {
       background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
   }
   @include media($desktop) {
-      background: url('http://emilychen.co/images/newyork.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork.jpg') no-repeat fixed;
       max-width: 18000px;
-      height: 1000px;
   }
 }
 
@@ -337,6 +336,7 @@ nav.nav--site {
       @include media($desktop) {
         padding: 34px;
         margin-top: 100px;
+        margin-bottom: 180px;
       }
     }
 
