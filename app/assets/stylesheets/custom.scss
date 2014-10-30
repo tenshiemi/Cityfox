@@ -285,6 +285,17 @@ nav.nav--site {
       }
     }
 
+    #search_auto {
+      background-color: white;
+      width: 200px;
+      height: auto;
+      margin: 0 auto;
+      text-align: left;
+      @include media($tablet) {
+        width: 400px;
+      }
+    }
+
     ::-webkit-input-placeholder {
        color: gray;
     }
@@ -327,7 +338,7 @@ nav.nav--site {
       @include shift(1);
       padding: 20px;
       margin-top: 30px;
-      background-color: hsla(50, 5%, 22%, .35);
+      background-color: hsla(50, 5%, 22%, .45);
       text-align: center;
       @include media($tablet) {
         padding: 34px;
