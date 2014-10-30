@@ -19,9 +19,16 @@
 									%h4= review.title
 									%h5= review.description
 									- if review.response
-										%h5 Respond
+										%p.response= review.response
+										%h5.trigger--form Update response
 									- else
-										%h5 Respond
+										%h5.trigger--form Write a response
+									.form--response
+										= form_for review, url: add_response_path, method: :post, remote: true do |f|
+											.field
+												= f.hidden_field :id, value: review.id
+												= f.text_field :response
+												= f.submit "Save"
 		%p
 			%b Status:
 			- if @user.role = :owner
