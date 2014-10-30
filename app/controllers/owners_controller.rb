@@ -33,7 +33,7 @@ class OwnersController < ApplicationController
   def claim
     @user = current_user
     company_id = params[:id]
-    @user.role = :unverified_owner
+    @user.role = :owner
     respond_to do |format|
       if @user.save
         new_relation = UserCompanyRelation.new(user_id: @user.id, company_id: company_id)
