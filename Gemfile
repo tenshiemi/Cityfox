@@ -5,6 +5,7 @@ ruby '2.1.2'
 gem 'rails', '4.1.6'
 gem 'pg'
 gem 'sorcery'
+gem 'underscore-rails'
 
 # Asset gems
 gem 'neat'
