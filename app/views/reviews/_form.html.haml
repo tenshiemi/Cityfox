@@ -9,7 +9,7 @@
 	.field
 		= f.label :description
 		%br
-		= f.text_field :description
+		= f.text_area :description
 	.field.rating-box
 		%h3 Are payments delivered in accordance with the contract?
 		= f.radio_button :rating_payment, 1, id: "rating_payment_1"
