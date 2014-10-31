@@ -1,17 +1,17 @@
 = render "layouts/header"
 .container
-	.content--center
-		.profile--header
-			.info--logo
-				= image_tag @company.logo.url(:thumb)
-			.info--company
-				%h1= @company.name
-				.info--location
-					= @company.city
-					- if @company.state
-						= ", #{@company.state}"
-					- if @company.country
-						= ", #{@company.country}"
+	.profile--header
+		.info--logo
+			= image_tag @company.logo.url(:thumb)
+		.info--company
+			%h1= @company.name
+			.info--location
+				= @company.city
+				- if @company.state
+					= ", #{@company.state}"
+				- if @company.country
+					= ", #{@company.country}"
+	.content--center--large
 		- if @company.reviews.count > 0
 			%ul
 				- @company.reviews.each do |review|
@@ -29,6 +29,7 @@
 		- else
 			%h2 There are no reviews for this company.
 		= link_to "Review this company", "/reviews/new?id=#{@company.id}"
+		\|
 		- if current_user
 			= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
 		- else
