@@ -10,36 +10,42 @@
 		= f.label :description
 		%br
 		= f.text_area :description
-	.field.rating-box
-		%h3 Are payments delivered in accordance with the contract?
+	%h3 Are payments delivered in accordance with the contract?
+	.span.star-rating
 		= f.radio_button :rating_payment, 1, id: "rating_payment_1"
-		= f.label :rating_payment, for: "rating_payment_1"
+		%i
 		= f.radio_button :rating_payment, 2, id: "rating_payment_2"
-		= f.label :rating_payment, for: "rating_payment_2"
+		%i
 		= f.radio_button :rating_payment, 3, id: "rating_payment_3"
-		= f.label :rating_payment, for: "rating_payment_3"
+		%i
 		= f.radio_button :rating_payment, 4, id: "rating_payment_4"
-		= f.label :rating_payment, for: "rating_payment_4"
+		%i
 		= f.radio_button :rating_payment, 5, id: "rating_payment_5"
-		= f.label :rating_payment, for: "rating_payment_5"
-	.field
-		%h3 Communication
-		= f.label "Nope"
-		= f.radio_button :rating_communication, 1
-		= f.radio_button :rating_communication, 2
-		= f.radio_button :rating_communication, 3
-		= f.radio_button :rating_communication, 4
-		= f.radio_button :rating_communication, 5
-		= f.label "Yep"
-	.field
-		%h3 Realistic expectations
-		= f.label "Nope"
-		= f.radio_button :rating_expectations, 1
-		= f.radio_button :rating_expectations, 2
-		= f.radio_button :rating_expectations, 3
-		= f.radio_button :rating_expectations, 4
-		= f.radio_button :rating_expectations, 5
-		= f.label "Yep"
+		%i
+	%h3 Communication
+	.span.star-rating
+		= f.radio_button :rating_communication, 1, id: "rating_communication_1"
+		%i
+		= f.radio_button :rating_communication, 2, id: "rating_communication_2"
+		%i
+		= f.radio_button :rating_communication, 3, id: "rating_communication_3"
+		%i
+		= f.radio_button :rating_communication, 4, id: "rating_communication_4"
+		%i
+		= f.radio_button :rating_communication, 5, id: "rating_communication_5"
+		%i
+	%h3 Expectations
+	.span.star-rating
+		= f.radio_button :rating_expectations, 1, id: "rating_expectations_1"
+		%i
+		= f.radio_button :rating_expectations, 2, id: "rating_expectations_2"
+		%i
+		= f.radio_button :rating_expectations, 3, id: "rating_expectations_3"
+		%i
+		= f.radio_button :rating_expectations, 4, id: "rating_expectations_4"
+		%i
+		= f.radio_button :rating_expectations, 5, id: "rating_expectations_5"
+		%i
 	.field
 		%h3 Would you work with them again?
 		= f.label "Yes"
