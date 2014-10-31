@@ -88,12 +88,7 @@ td, th {
   @include shift(3);
   @include media($tablet) {
     padding: 34px;
-    margin-top: 50px;
-  }
-  @include media($desktop) {
-    padding: 34px;
-    margin-top: 100px;
-    margin-bottom: 180px;
+    margin-top: 30px;
   }
 }
 
@@ -105,11 +100,6 @@ td, th {
   @include media($tablet) {
     padding: 34px;
     margin-top: 50px;
-  }
-  @include media($desktop) {
-    padding: 34px;
-    margin-top: 100px;
-    margin-bottom: 180px;
   }
 }
 
