@@ -86,14 +86,6 @@ td, th {
   padding: 25px;
   @include span-columns(6);
   @include shift(3);
-}
-
-.content--center--large {
-  @include span-columns(10);
-  @include shift(1);
-  padding: 20px;
-  margin-top: 30px;
-  text-align: center;
   @include media($tablet) {
     padding: 34px;
     margin-top: 50px;
@@ -103,6 +95,26 @@ td, th {
     margin-top: 100px;
     margin-bottom: 180px;
   }
+}
+
+.content--center--large {
+  @include span-columns(10);
+  @include shift(1);
+  padding: 20px;
+  margin-top: 30px;
+  @include media($tablet) {
+    padding: 34px;
+    margin-top: 50px;
+  }
+  @include media($desktop) {
+    padding: 34px;
+    margin-top: 100px;
+    margin-bottom: 180px;
+  }
+}
+
+#text-landing {
+  text-align: center;
 }
 
 
