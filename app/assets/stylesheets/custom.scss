@@ -429,6 +429,42 @@ nav.nav--site {
       line-height: .5em;
     }
 
+// Page styles
+
+.profile--header {
+  @include span-columns(6 of 6);
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+}
+
+  .profile--header img {
+    @include span-columns(12);
+    border: 1px solid lightgray;
+    @include media($tablet) {
+      @include span-columns(4);
+    }
+  }
+
+  .info--company {
+    @include span-columns(12);
+    @include media($tablet) {
+      @include span-columns(8);
+    }
+  }
+
+  .info--location {
+    font-size: 1.4em;
+  }
+
+  .info--company h1 {
+    @include media($tablet) {
+      margin-top: .6em;
+      margin-bottom: .6em;
+    }
+  }
+
+// Global useful styles
+
 .button--medium {
   border: 1px solid white;
   min-height: 25.6px;

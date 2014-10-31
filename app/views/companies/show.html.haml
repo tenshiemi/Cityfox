@@ -1,9 +1,16 @@
 = render "layouts/header"
 .container
 	.content--center
-		= image_tag @company.logo.url(:thumb)
-		%h1= @company.name
-		%h2= @company.city
+		.profile--header
+			= image_tag @company.logo.url(:thumb)
+			.info--company
+				%h1= @company.name
+				.info--location
+					= @company.city
+					- if @company.state
+						= ", #{@company.state}"
+					- if @company.country
+						= ", #{@company.country}"
 		- if @company.reviews.count > 0
 			%ul
 				- @company.reviews.each do |review|
