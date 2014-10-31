@@ -1,0 +1,55 @@
+@import "bourbon";
+@import "neat";
+@import "common";
+
+.messages--flash {
+  position: absolute;
+  max-width: 300px;
+  height: 1.4em;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+#notice {
+  background-color: hsla(82, 66%, 85%, .50);
+  text-align: center;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+#alert {
+  background-color: hsla(0, 100%, 86%, 1);
+  text-align: center;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+#warning {
+  background-color: hsla(48, 97%, 85%, 1);
+  text-align: center;
+  border-bottom-left-radius: .3em;
+  border-bottom-right-radius: .3em;
+  padding: 5px;
+  margin: 0px;
+}
+
+p#notice {
+  font-size: 1em;
+  color: $color-font-notice;
+}
+
+p#alert {
+  font-size: 1em;
+  color: $color-font-alert;
+}
+
+p#warning {
+  font-size: 1em;
+  color: $color-font-warning;
+}

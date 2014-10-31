@@ -9,9 +9,9 @@
 	.field
 		= f.label :description
 		%br
-		= f.text_field :description
+		= f.text_area :description
 	.field
-		%h3 Are payments delivered in accordance with the contract?
+		%h3 Payment
 		= f.label "Nope"
 		= f.radio_button :rating_payment, 1
 		= f.radio_button :rating_payment, 2
@@ -20,7 +20,7 @@
 		= f.radio_button :rating_payment, 5
 		= f.label "Yep"
 	.field
-		%h3 Do they communicate well?
+		%h3 Communication
 		= f.label "Nope"
 		= f.radio_button :rating_communication, 1
 		= f.radio_button :rating_communication, 2
@@ -29,7 +29,7 @@
 		= f.radio_button :rating_communication, 5
 		= f.label "Yep"
 	.field
-		%h3 Do they have realistic expectations?
+		%h3 Realistic expectations
 		= f.label "Nope"
 		= f.radio_button :rating_expectations, 1
 		= f.radio_button :rating_expectations, 2

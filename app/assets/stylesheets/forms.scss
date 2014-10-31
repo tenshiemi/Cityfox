@@ -1,0 +1,146 @@
+@import "bourbon";
+@import "neat";
+@import "common";
+
+input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]) {
+  height: 25px;
+  width: 200px;
+  font-size: 1em;
+  border-radius: .3em;
+  margin-bottom: 10px;
+  @include media($tablet) {
+    margin-bottom: 20px;
+    height: 40px;
+    width: 300px;
+  }
+}
+
+input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]).small {
+  width: 100px;
+  margin-bottom: 10px;
+  @include media($tablet) {
+    margin-bottom: 20px;
+    height: 40px;
+    width: 130px;
+  }
+}
+
+input[type=search] {
+  height: 2em;
+  width: 200px;
+  font-size: 1.6em;
+  color: $color-font-primary;
+  background-color: rgba(255, 255, 255, .75);
+  margin: auto;
+  border: 1px solid lightgray;
+  @include media($tablet) {
+    height: 50px;
+    width: 400px;
+  }
+}
+
+input[type=search]:focus {
+  border: 0px;
+  text-shadow: none;
+  outline: none;
+  box-shadow: 0px 0px 0px 2pt white;
+}
+
+input[type=submit] {
+  height: 25px;
+  width: 200px;
+  border: 0px;
+  font-size: 1em;
+  text-shadow: none;
+  outline: none;
+  border-radius: .3em;
+  margin-top: 10px;
+  box-shadow: 0px 0px 0px 2pt white;
+  @include media($tablet) {
+    margin-top: 20px;
+    height: 40px;
+    width: 300px;
+  }
+}
+
+textarea {
+  height: 50px;
+  width: 200px;
+  font-size: 1em;
+  border-radius: .3em;
+  margin-bottom: 10px;
+  border: 2px solid lightgray;
+  @include media($tablet) {
+    height: 75px;
+    width: 300px;
+  }
+}
+
+select#company_country {
+  height: 25px;
+  width: 200px;
+  border: 0px;
+  font-size: 1em;
+  box-shadow: 0px 0px 0px 2pt lightgray;
+  margin-bottom: 10px;
+  @include media($tablet) {
+    margin-bottom: 20px;
+    height: 40px;
+    width: 300px;
+  }
+}
+
+select#state {
+  height: 25px;
+  width: 60px;
+  border: 0px;
+  font-size: 1em;
+  box-shadow: 0px 0px 0px 2pt lightgray;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  @include media($tablet) {
+    margin-bottom: 20px;
+    height: 40px;
+  }
+}
+
+.form-inline {
+  display: inline-block;
+  float: left;
+}
+
+
+#search_auto {
+  background-color: white;
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+  text-align: left;
+  @include media($tablet) {
+    width: 400px;
+  }
+}
+
+::-webkit-input-placeholder {
+   color: gray;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+}
+
+:-ms-input-placeholder {  
+   color: white; 
+}
+
+.trigger--form {
+  cursor: pointer;
+}
+
+.form--response {
+  display: none;
+}

@@ -2,7 +2,8 @@
 .container
 	.content--center
 		.profile--header
-			= image_tag @company.logo.url(:thumb)
+			.info--logo
+				= image_tag @company.logo.url(:thumb)
 			.info--company
 				%h1= @company.name
 				.info--location
