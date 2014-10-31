@@ -41,6 +41,12 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
 
+h1, h2 {
+  @include media($mobile) {
+    font-size: 60%;
+  }
+}
+
 a {
   text-decoration: none;
 }

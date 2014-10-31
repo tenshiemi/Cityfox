@@ -35,8 +35,8 @@
 								= link_to "Log in", :login, class: "button--medium"
 	.container
 		.content--hero
-			%h2 Unsure about a new client?
-			%h2 We've got your back.
+			%h1 Unsure about a new client?
+			%h1 We've got your back.
 			.search
 				= form_tag search_path, :method => :post do
 					= search_field_tag :search_term, nil, :placeholder => 'Find a company...', :autocomplete => "off"

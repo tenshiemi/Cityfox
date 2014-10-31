@@ -43,9 +43,9 @@ li:first-child article{
 // Hero styles
 
 .hero {
-  background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
+  background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat fixed;
   @include media($tablet) {
-      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat fixed;
   }
   @include media($desktop) {
       background: url('http://emilychen.co/images/newyork.jpg') no-repeat fixed;
@@ -58,6 +58,7 @@ li:first-child article{
       @include shift(1);
       padding: 20px;
       margin-top: 30px;
+      margin-bottom: 30px;
       background-color: hsla(50, 5%, 22%, .45);
       text-align: center;
       position: relative;
@@ -66,29 +67,26 @@ li:first-child article{
         margin-top: 50px;
       }
       @include media($desktop) {
-        padding: 34px;
+        padding: 70px 0 50px 0;
         margin-top: 100px;
         margin-bottom: 180px;
       }
     }
 
     .content--hero h1 {
-      font-size: 4em;
-      line-height: 1em;
+      font-size: 2em;
       color: white;
-    }
-
-    .content--hero h2 {
-      font-size: 3em;
-      line-height: .6em;
-      color: white;
+      margin: -20px 0 20px 0;
+      @include media($tablet) {
+        font-size: 3em;
+      }
     }
 
     .content--hero h3 {
       color: white;
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
-      line-height: .5em;
+      margin: 20px 0 -10px 0;
     }
 
 // Page styles
