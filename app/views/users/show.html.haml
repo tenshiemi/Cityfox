@@ -1,16 +1,32 @@
 = render "layouts/header"
 .container
-	.content--center
-		%p
-			%b Name:
-			= @user.name
-		%p
-			%b Email:
+	.profile--header
+		%h1= @user.name
+		%p 
+			Email:
 			= @user.email
+		= link_to 'Edit Details', edit_user_path(@user)
+		%p.trigger--password Change Password
+		.form--password-change
+			= form_for @user, url: change_password_path, method: :post, remote: true do |f|
+				= f.hidden_field :id, value: @user.id
+				.field
+					= f.label :password
+					%br
+					= f.password_field :password
+				.field
+					= f.label :password_confirmation
+					%br
+					= f.password_field :password_confirmation
+					%br
+				.actions
+					= f.submit 'Save'
+	.content--center
 		- if @user.reviews 
 			%ul
 				- @user.reviews.each do |review|
-					%article
-						%li= review.title
-						%li= review.description
-		= link_to 'Edit', edit_user_path(@user)
+					%li
+						%article
+						%h3= link_to review.company.name, company_path(review.company.id)
+						%h4= "\"#{review.title}\""
+						= review.description

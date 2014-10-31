@@ -36,9 +36,8 @@
 					- company.reviews.each do |review|
 						%li
 							%article
-								%h4 
-									= link_to review.title, review_path(review.id)
-								%h5= review.description
+								%h4= "\"#{review.title}\""
+								%p= review.description
 								- if review.response
 									%p.response= review.response
 									%h5.trigger--form Update response
@@ -51,8 +50,12 @@
 											= f.text_field :response
 											= f.submit "Save"
 		- if @user.reviews.count > 0
-			%h3 My reviews
-			%ul
-				- @user.reviews.each do |review|
-					%article
-						%li=review.title
+			%h3 My reviews:
+			- if @user.reviews 
+				%ul
+					- @user.reviews.each do |review|
+						%li
+							%article
+								%h3= link_to review.company.name, company_path(review.company.id)
+								%h4= "\"#{review.title}\""
+								%p= review.description

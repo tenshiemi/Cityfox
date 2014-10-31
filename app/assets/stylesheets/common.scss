@@ -16,10 +16,33 @@ $color-font-warning: hsla(40, 56%, 60%, 1);
   text-align: center;
 }
 
+@mixin sticky-footer($footer-height, $wrapper-selector: unquote("#wrapper"), $container-selector: unquote("#container"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+  #{$wrapper-selector} {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$container-selector} {
+      padding: 0 0 $footer-height 0;
+    } 
+  }
+  #{$footer-selector} {
+    height: $footer-height; 
+  }
+}
+
 html {
   font-family: 'Roboto Condensed', sans-serif;
   color: $color-font-primary;
   font-size: 75%;
+  height: 100%;
   @include media($tablet) {
     font-size: 90%;
   }
@@ -34,7 +57,8 @@ div.container {
 
 body {
   padding-top: 0px;
-  margin:0px;
+  margin: 0px;
+  height: 100vh;
 }
 
 h1, h2, h3, h4, h5 {

@@ -23,7 +23,7 @@
 						%li
 							= link_to "Log out", :logout, method: :post, class: "button--medium"
 						- if is_admin?
-							%li
+							%li.links--admin
 								= link_to "Companies", :manage_companies
 								\|
 								= link_to "Owners", :manage_owners
