@@ -17,10 +17,7 @@
 					%ul
 						- if current_user
 							%li
-								- if current_user.role == "owner"
-									= link_to current_user.name, owner_path(current_user.id), class: "button--medium"
-								- else
-									= link_to current_user.name, user_path(current_user.id), class: "button--medium"
+								= link_to current_user.name, user_path(current_user.id), class: "button--medium"
 							%li
 								= link_to "Log out", :logout, method: :post, class: "button--medium"
 							- if is_admin?
@@ -43,10 +40,12 @@
 				%ul#search_auto
 			%h3 Reviews for freelancers, design and development shops, 
 			%h3 and anyone who does client work.
-	.container
 		.content--center--large
 			.center
 				%h1 What is FourthWall?
 				%h2 It has probably happened to you. You take on a project from a client you've never worked for before. You work your ass off, meet your deadline, but your client can't pay you just yet. 
 
 				%h2 FourthWall is a safe place to share your personal experiences working with clients. Your personal information is confidential.
+		.content--center--large
+			.content--sections
+			.content--sections

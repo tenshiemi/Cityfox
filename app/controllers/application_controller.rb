@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     current_user.role == "admin"
   end
 
+  def is_owner?
+    current_user.role == "owner"
+  end
+
   def require_admin
   	unless is_admin?
       session[:return_to_url] = request.url if Config.save_return_to_url && request.get?
@@ -21,5 +25,5 @@ class ApplicationController < ActionController::Base
     redirect_to login_url, :alert => "First log in to view this page."
   end
 
-  helper_method :is_admin?, :require_admin
+  helper_method :is_admin?, :require_admin, :is_owner?
 end

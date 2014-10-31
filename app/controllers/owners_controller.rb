@@ -25,11 +25,6 @@ class OwnersController < ApplicationController
     end
  	end
 
-  def show
-    @user = User.find(params[:id])
-    @companies = @user.companies
-  end
-
   def claim
     @user = current_user
     company_id = params[:id]

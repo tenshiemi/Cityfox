@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   get 'owners/new_owner' => 'owners#new', :as => :new_owner
   post 'owners/new_owner' => 'owners#create'
-  get 'owner/:id' => 'owners#show', :as => :owner
   get 'owners/claim_company' => 'owners#claim', :as => :claim_company
   get 'owner_landing' => 'owners#landing', :as => :owner_landing
 

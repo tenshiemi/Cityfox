@@ -43,6 +43,11 @@ li:first-child article{
   padding: 0 20px 0 20px;
 }
 
+.content--sections {
+  @include span-columns(5);
+  background-color: #F9F5DD;
+}
+
 #text-landing {
   text-align: center;
 }
