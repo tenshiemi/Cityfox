@@ -20,6 +20,9 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem 'turbolinks'
 gem "figaro"
 
+# Feature gems
+gem 'country_select', github: 'stefanpenner/country_select'
+
 group :development, :test do
 	gem 'spring'
 	gem 'rspec-rails', '~> 3.0.0'

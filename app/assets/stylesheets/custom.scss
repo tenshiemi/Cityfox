@@ -260,6 +260,13 @@ nav.nav--site {
       }
     }
 
+    input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]).small {
+      @include media($tablet) {
+        height: 40px;
+        width: 130px;
+      }
+    }
+
     input[type=search] {
       height: 2em;
       width: 200px;
@@ -295,6 +302,20 @@ nav.nav--site {
         width: 300px;
       }
     }
+
+    select#company_country {
+      height: 25px;
+      width: 100px;
+      border: 0px;
+      font-size: 1em;
+      box-shadow: 0px 0px 0px 2pt lightgray;
+      margin-bottom: 20px;
+      @include media($tablet) {
+        height: 40px;
+        width: 300px;
+      }
+    }
+
 
     #search_auto {
       background-color: white;

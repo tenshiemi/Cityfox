@@ -16,21 +16,22 @@
   .field
     = f.label :country
     %br
-    = f.text_field :country
+    = f.country_select :country, ["United States", "Spain"]
   .field
     = f.label :city
     %br
     = f.text_field :city
   .field
     = f.label :state
-    %br
-    = f.text_field :state
-  .field
     = f.label :postal_code
     %br
-    = f.text_field :postal_code
+    = f.text_field :state, class: "small"
+    = f.text_field :postal_code, class: "small"
   .field
+    %p For best results, logo should be 100px by 100px
     = f.label :logo
     = f.file_field :logo
   .actions
     = f.submit 'Save'
+
+
