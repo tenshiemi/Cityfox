@@ -1,20 +1,6 @@
-<<<<<<< HEAD
-$(function() {
-	$('#search_term').focus();
-});
-
-$(function() {
-	var company_list, names;
-	$.ajax({
-	  type: "GET",
-	  url: "http://localhost:3000/get_all",
-	}).done(function(json) {
-		company_list = json;
-=======
 var pageJS = function() {
 	$(function() {
 		$('#search_term').focus();
->>>>>>> master
 	});
 
 	$(function() {

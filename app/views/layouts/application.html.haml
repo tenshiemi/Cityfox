@@ -5,9 +5,11 @@
 		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
 		= javascript_include_tag 'application', 'data-turbolinks-track' => true
 		= csrf_meta_tags
-	= yield
-	.container
-		=render "layouts/footer"
+	#wrapper
+		#content
+			= yield
+		.container
+			=render "layouts/footer"
 	%stylesheet_link_tag 'application', 
 		'http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'
 	%stylesheet_link_tag 'application', 
