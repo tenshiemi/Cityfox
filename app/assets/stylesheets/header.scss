@@ -1,0 +1,85 @@
+@import "bourbon";
+@import "neat";
+@import "common";
+
+header {
+  background-color: $color-page-primary;
+  width: 100%;
+}
+
+nav.nav--site {
+  @include span-columns(12);
+  position: relative;
+  width: 100%;
+  color: white;
+}
+
+.navbar-left {
+  @include span-columns(12);
+  text-align: center;
+  @include media($tablet) {
+    @include span-columns(4 of 12);
+  }
+  @include media($desktop) {
+    @include span-columns(3 of 12);
+  }
+}
+
+.navbar-right {
+  @include span-columns(12);
+  @include media($tablet) {
+    @include span-columns(8 of 12);
+  }
+  @include media($desktop) {
+    @include span-columns(6 of 12);
+    @include shift(3);
+  }
+}
+
+.nav--site h1 {
+  margin: 0px;
+}
+
+.nav--site ul {
+  overflow: hidden;
+  margin: auto;
+  @include media($tablet) {
+    float: right;
+  }
+  @include media($mobile) {
+    @include center;
+  }
+}
+
+.nav--site li {
+  display: inline-block;
+  margin: 0.625em;
+  padding: 10px;
+}
+
+.nav--site a {
+  color: white;
+}
+
+.nav--site a:visited {
+  color: white;
+}
+
+#logo {
+  margin: 10px;
+  padding-left: 20px;
+  color: white;
+  font-size: 4.5em;
+  @include media($tablet) {
+    font-size: 2em;
+    text-align: center;
+  }
+}
+
+a#logo:hover {
+  background-color: none;
+}
+
+header.header--welcome {
+  background-color: rgba(0,0,0,0);
+}

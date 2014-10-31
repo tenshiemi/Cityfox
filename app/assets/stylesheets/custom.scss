@@ -1,343 +1,54 @@
 @import "bourbon";
 @import "neat";
-
-$mobile: new-breakpoint(max-width 500px);
-$tablet: new-breakpoint(min-width 500px);
-$desktop: new-breakpoint(min-width 800px);
-
-$color-page-primary: hsla(160, 36%, 61%, 1);
-$color-font-primary: hsla(50, 5%, 22%, 1);
-$color-font-alert: hsla(359, 63%, 55%, 1);
-$color-font-notice: hsla(110, 32%, 46%, 1);
-$color-font-warning: hsla(40, 56%, 60%, 1);
-
-@mixin center {
-  display: table;
-  margin: 0 auto;
-  text-align: center;
-}
+@import "common";
 
 // Generic styles
-
-html {
-  font-family: 'Roboto Condensed', sans-serif;
-  color: $color-font-primary;
-  font-size: 75%;
-  @include media($tablet) {
-    font-size: 90%;
-  }
-  @include media($desktop) {
-    font-size: 100%;
-  }
-}
-
-div.container {
-  @include outer-container;
-}
-
-header {
-  background-color: $color-page-primary;
-  width: 100%;
-}
-
-body {
-  padding-top: 0px;
-  margin:0px;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-}
-
-a {
-  text-decoration: none;
-  color: hsla(160, 36%, 35%, 1);
-}
-
-ul {
-  list-style-type: none;
-}
-
-article {
-  border-top: 1px solid darkgray;
-}
 
 li:first-child article{
   border-top: none;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-td, th {
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
-  text-align: left;
-  border-bottom: 1px solid hsla(0, 0%, 87%, 1);
-}
-
 .content--center {
-  margin-top: 30px;
-  padding: 25px;
-  @include span-columns(6);
-  @include shift(3);
+  margin-top: 20px;
+  padding: 25px 0 25px 0;
+  @include span-columns(10);
+  @include shift(1);
+  @include media($tablet) {
+    @include span-columns(8);
+    @include shift(2);
+    padding: 34px 0 34px 0;
+    margin-top: 30px;
+  }
+  @include media($desktop) {
+    @include span-columns(6);
+    @include shift(3);
+  }
 }
 
 .content--center--large {
   @include span-columns(10);
   @include shift(1);
   padding: 20px;
-  margin-top: 30px;
-  text-align: center;
+  margin-top: 20px;
   @include media($tablet) {
     padding: 34px;
-    margin-top: 50px;
-  }
-  @include media($desktop) {
-    padding: 34px;
-    margin-top: 100px;
-    margin-bottom: 180px;
+    margin-top: 30px;
   }
 }
 
-// Header styles
-
-nav.nav--site {
-  @include span-columns(12);
-  position: relative;
-  width: 100%;
-  color: white;
+#text-landing {
+  text-align: center;
 }
-
-    .navbar-left {
-      @include span-columns(12);
-      text-align: center;
-      @include media($tablet) {
-        @include span-columns(4 of 12);
-      }
-      @include media($desktop) {
-        @include span-columns(3 of 12);
-      }
-    }
-
-    .navbar-right {
-      @include span-columns(12);
-      @include media($tablet) {
-        @include span-columns(8 of 12);
-      }
-      @include media($desktop) {
-        @include span-columns(6 of 12);
-        @include shift(3);
-      }
-    }
-
-    .nav--site h1 {
-      margin: 0px;
-    }
-
-    .nav--site ul {
-      overflow: hidden;
-      margin: auto;
-      @include media($tablet) {
-        float: right;
-      }
-      @include media($mobile) {
-        @include center;
-      }
-    }
-
-    .nav--site li {
-      display: inline-block;
-      margin: 0.625em;
-      padding: 10px;
-    }
-
-    .nav--site a {
-      color: white;
-    }
-
-    .nav--site a:visited {
-      color: white;
-    }
-
-    .nav--site a:hover {
-      background-color: $color-page-primary; 
-    }
-
-    #logo {
-      margin: 10px;
-      padding-left: 20px;
-      color: white;
-      font-size: 2em;
-      @include media($tablet) {
-        font-size: 2em;
-        text-align: center;
-      }
-    }
-
-    a#logo:hover {
-      background-color: none;
-    }
-
-    header.header--welcome {
-      background-color: rgba(0,0,0,0);
-    }
-
-
-// Alerts, notices, warnings
-
-.messages--flash {
-  position: absolute;
-  max-width: 300px;
-  height: 1.4em;
-  margin: auto;
-  left: 0;
-  right: 0;
-  top: 0;
-}
-
-    #notice {
-      background-color: hsla(82, 66%, 85%, .50);
-      text-align: center;
-      border-bottom-left-radius: .3em;
-      border-bottom-right-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
-
-    #alert {
-      background-color: hsla(0, 100%, 86%, 1);
-      text-align: center;
-      border-bottom-left-radius: .3em;
-      border-bottom-right-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
-
-    #warning {
-      background-color: hsla(48, 97%, 85%, 1);
-      text-align: center;
-      border-bottom-left-radius: .3em;
-      border-bottom-right-radius: .3em;
-      padding: 5px;
-      margin: 0px;
-    }
-
-    p#notice {
-      font-size: 1em;
-      color: $color-font-notice;
-    }
-
-    p#alert {
-      font-size: 1em;
-      color: $color-font-alert;
-    }
-
-    p#warning {
-      font-size: 1em;
-      color: $color-font-warning;
-    }
-
-// Form styles
-
-    input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]) {
-      height: 25px;
-      width: 200px;
-      font-size: 1em;
-      border-radius: .3em;
-      margin-bottom: 20px;
-      @include media($tablet) {
-        height: 40px;
-        width: 300px;
-      }
-    }
-
-    input[type=search] {
-      height: 2em;
-      width: 200px;
-      font-size: 1.6em;
-      color: $color-font-primary;
-      background-color: hsla(0, 100%, 100%, .75);
-      margin: auto;
-      border: 1px solid lightgray;
-      @include media($tablet) {
-        height: 50px;
-        width: 400px;
-      }
-    }
-
-    input[type=search]:focus {
-      border: 0px;
-      text-shadow: none;
-      outline: none;
-      box-shadow: 0px 0px 0px 2pt white;
-    }
-
-    input[type=submit] {
-      height: 25px;
-      width: 100px;
-      border: 0px;
-      font-size: .8em;
-      text-shadow: none;
-      outline: none;
-      border-radius: .3em;
-      box-shadow: 0px 0px 0px 2pt white;
-      @include media($tablet) {
-        height: 40px;
-        width: 300px;
-      }
-    }
-
-    #search_auto {
-      background-color: white;
-      width: 200px;
-      height: auto;
-      margin: 0 auto;
-      text-align: left;
-      @include media($tablet) {
-        width: 400px;
-      }
-    }
-
-    ::-webkit-input-placeholder {
-       color: gray;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-       color: white;
-    }
-
-    ::-moz-placeholder {  /* Firefox 19+ */
-       color: white;
-    }
-
-    :-ms-input-placeholder {  
-       color: white; 
-    }
-
-    .trigger--form {
-      cursor: pointer;
-    }
-
-    .form--response {
-      display: none;
-    }
 
 // Hero styles
 
 .hero {
-  background: url('http://emilychen.co/images/newyork_mobile.jpg') no-repeat center center fixed;
+  background: url('http://emilychen.co/images/newyork_mobile.jpg') top center no-repeat;
   @include media($tablet) {
-      background: url('http://emilychen.co/images/newyork_tablet.jpg') no-repeat center center fixed;
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') top center no-repeat;
   }
   @include media($desktop) {
-      background: url('http://emilychen.co/images/newyork.jpg') no-repeat fixed;
+      background: url('http://emilychen.co/images/newyork.jpg') top center no-repeat;
       max-width: 18000px;
   }
 }
@@ -347,6 +58,7 @@ nav.nav--site {
       @include shift(1);
       padding: 20px;
       margin-top: 30px;
+      margin-bottom: 30px;
       background-color: hsla(50, 5%, 22%, .45);
       text-align: center;
       position: relative;
@@ -355,30 +67,76 @@ nav.nav--site {
         margin-top: 50px;
       }
       @include media($desktop) {
-        padding: 34px;
+        padding: 70px 0 50px 0;
         margin-top: 100px;
         margin-bottom: 180px;
       }
     }
 
     .content--hero h1 {
-      font-size: 4em;
-      line-height: 1em;
-      color: white;
-    }
-
-    .content--hero h2 {
       font-size: 3em;
-      line-height: .6em;
       color: white;
+      margin: -20px 0 20px 0;
     }
 
     .content--hero h3 {
       color: white;
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
-      line-height: .5em;
+      margin: 20px 0 -10px 0;
     }
+
+// Page styles
+
+.profile--header {
+  @include span-columns(10 of 12);
+  @include shift(1);  
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  @include media($tablet) {
+    @include span-columns(8 of 12);
+    @include shift(3);
+    margin-top: 30px;
+  }
+  @include media($desktop) {
+    @include span-columns(6 of 12);
+    @include shift(3);
+  }
+}
+
+  .info--logo {
+    @include span-columns(12);
+    @include media($tablet) {
+      @include span-columns(4 of 12);
+    }
+  }
+
+  .profile--header img {
+    margin: auto;
+    border: 1px solid lightgray;
+  }
+
+  .info--company {
+    @include span-columns(12);
+    @include media($tablet) {
+      @include span-columns(8 of 12);
+    }
+  }
+
+  .info--location {
+    font-size: 1.4em;
+  }
+
+  .info--company h1 {
+    @include media($tablet) {
+      margin-top: .6em;
+      margin-bottom: .6em;
+    }
+  }
+
+// Global useful styles
 
 .button--medium {
   border: 1px solid white;
@@ -390,20 +148,19 @@ nav.nav--site {
   display: inline-block;
 }
 
+.button--medium:hover {
+  background-color: $color-page-dark;
+}
+
 .search {
   margin: auto;
 }
 
-.footer-wrapper {
+#footer {
   @include row();
-  position: absolute;
+  position: fixed;
   bottom: 0;
+  @include clearfix;
 }
 
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
+@include sticky-footer(30px);

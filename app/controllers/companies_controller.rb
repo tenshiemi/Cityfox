@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 	# before_action :require_admin, only: [:index]
-	skip_before_filter :require_login, only: [:index, :show]
+	skip_before_filter :require_login, only: [:index, :show, :get_all]
 
 	def index
 		@companies = Company.all
@@ -34,6 +34,6 @@ class CompaniesController < ApplicationController
 
 	private
 	def company_params
-    params.require(:company).permit(:name, :industry, :country, :city, :state, :postalcode)
+    params.require(:company).permit(:name, :industry, :country, :city, :state, :postalcode, :logo)
   end
 end

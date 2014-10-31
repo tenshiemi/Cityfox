@@ -35,11 +35,18 @@
 								= link_to "Log in", :login, class: "button--medium"
 	.container
 		.content--hero
-			%h2 Unsure about a new client?
-			%h2 We've got your back.
+			%h1 Unsure about a new client?
+			%h1 We've got your back.
 			.search
 				= form_tag search_path, :method => :post do
 					= search_field_tag :search_term, nil, :placeholder => 'Find a company...', :autocomplete => "off"
 				%ul#search_auto
 			%h3 Reviews for freelancers, design and development shops, 
 			%h3 and anyone who does client work.
+	.container
+		.content--center--large
+			.center
+				%h1 What is FourthWall?
+				%h2 It has probably happened to you. You take on a project from a client you've never worked for before. You work your ass off, meet your deadline, but your client can't pay you just yet. 
+
+				%h2 FourthWall is a safe place to share your personal experiences working with clients. Your personal information is confidential.

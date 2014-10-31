@@ -16,18 +16,25 @@
   .field
     = f.label :country
     %br
-    = f.text_field :country
+    = f.country_select :country, ["United States", "Spain"]
   .field
     = f.label :city
     %br
     = f.text_field :city
   .field
-    = f.label :state
-    %br
-    = f.text_field :state
+    .form-inline
+      = f.label :state
+      %br
+      = select_tag(:state, options_for_select(us_states), :include_blank => true)
+    .form-inline
+      = f.label :postal_code
+      %br
+      = f.text_field :postal_code, class: "small"
   .field
-    = f.label :postal_code
-    %br
-    = f.text_field :postal_code
+    %p For best results, logo should be 100px by 100px
+    = f.label :logo
+    = f.file_field :logo
   .actions
     = f.submit 'Save'
+
+

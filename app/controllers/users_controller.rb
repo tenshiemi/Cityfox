@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_admin, only: [:index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :require_login, only: [:new, :create]
+  skip_before_filter :require_login, only: [:new, :create, :change_password]
 
 
   # GET /users
@@ -51,6 +51,14 @@ class UsersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def change_password
+    @user = User.find(params[:user][:id])
+    if request.xhr?
+      @user.update(password: params[:user][:password])
+      render json: {res: @user.name}
     end
   end
 

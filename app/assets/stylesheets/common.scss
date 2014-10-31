@@ -1,0 +1,112 @@
+$mobile: new-breakpoint(max-width 500px);
+$tablet: new-breakpoint(min-width 500px);
+$desktop: new-breakpoint(min-width 800px);
+
+$color-page-primary: hsla(160, 36%, 61%, 1);
+$color-font-primary: hsla(50, 5%, 22%, 1);
+$color-font-secondary: hsla(271, 68%, 32%, 1);
+$color-page-dark: hsla(160, 36%, 45%, 1);
+$color-font-alert: hsla(359, 63%, 55%, 1);
+$color-font-notice: hsla(110, 32%, 46%, 1);
+$color-font-warning: hsla(40, 56%, 60%, 1);
+
+@mixin center {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@mixin sticky-footer($footer-height, $wrapper-selector: unquote("#wrapper"), $container-selector: unquote("#container"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+  #{$wrapper-selector} {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$container-selector} {
+      padding: 0 0 $footer-height 0;
+    } 
+  }
+  #{$footer-selector} {
+    height: $footer-height; 
+  }
+}
+
+html {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: $color-font-primary;
+  font-size: 75%;
+  height: 100%;
+  @include media($tablet) {
+    font-size: 90%;
+  }
+  @include media($desktop) {
+    font-size: 100%;
+  }
+}
+
+div.container {
+  @include outer-container;
+}
+
+body {
+  padding-top: 0px;
+  margin: 0px;
+  height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+}
+
+h1, h2 {
+  @include media($mobile) {
+    font-size: 60%;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article {
+  border-top: 1px solid darkgray;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+td, th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.field {
+  @include clearfix;
+}

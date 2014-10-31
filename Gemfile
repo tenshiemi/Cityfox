@@ -14,8 +14,14 @@ gem 'normalize-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem "paperclip", "~> 4.2"
+gem "paperclip-dropbox", ">= 1.1.7"
 
 gem 'turbolinks'
+gem "figaro"
+
+# Feature gems
+gem 'country_select', github: 'stefanpenner/country_select'
 
 group :development, :test do
 	gem 'spring'

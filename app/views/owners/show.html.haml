@@ -1,45 +1,61 @@
 = render "layouts/header"
 .container
-	.content--center
-		%p
-			%b Name:
-			= @user.name
-		%p
-			%b Email:
+	.profile--header
+		%h1= @user.name
+		%p 
+			Email:
 			= @user.email
-		%p
-			%b Company:
-			- @companies.each do |company|
-				= link_to company.name, company_path(company.id)
-				%p
-				%b Status:
-				- if @user.role = :owner
-					Verified
-				- else
-					Unverified
-				- if company.reviews 
-					%ul
-						- company.reviews.each do |review|
-							%li
-								%article
-									%h4 
-										= link_to review.title, review_path(review.id)
-									%h5= review.description
-									- if review.response
-										%p.response= review.response
-										%h5.trigger--form Update response
-									- else
-										%h5.trigger--form Write a response
-									.form--response
-										= form_for review, url: add_response_path, method: :post, remote: true do |f|
-											.field
-												= f.hidden_field :id, value: review.id
-												= f.text_field :response
-												= f.submit "Save"
+		= link_to 'Edit Details', edit_user_path(@user)
+		%p.trigger--password Change Password
+		.form--password-change
+			= form_for @user, url: change_password_path, method: :post, remote: true do |f|
+				= f.hidden_field :id, value: @user.id
+				.field
+					= f.label :password
+					%br
+					= f.password_field :password
+				.field
+					= f.label :password_confirmation
+					%br
+					= f.password_field :password_confirmation
+					%br
+				.actions
+					= f.submit 'Save'
+	.content--center
+		%h3 My Companies:
+		- @companies.each do |company|
+			= link_to company.name, company_path(company.id)
+			%p
+			Status:
+			- if @user.role = :owner
+				Verified
+			- else
+				Unverified
+			- if company.reviews 
+				%ul
+					- company.reviews.each do |review|
+						%li
+							%article
+								%h4= "\"#{review.title}\""
+								%p= review.description
+								- if review.response
+									%p.response= review.response
+									%h5.trigger--form Update response
+								- else
+									%h5.trigger--form Write a response
+								.form--response
+									= form_for review, url: add_response_path, method: :post, remote: true do |f|
+										.field
+											= f.hidden_field :id, value: review.id
+											= f.text_field :response
+											= f.submit "Save"
 		- if @user.reviews.count > 0
-			%h3 My reviews
-			%ul
-				- @user.reviews.each do |review|
-					%article
-						%li=review.title
-		= link_to 'Edit', edit_user_path(@user)
+			%h3 My reviews:
+			- if @user.reviews 
+				%ul
+					- @user.reviews.each do |review|
+						%li
+							%article
+								%h3= link_to review.company.name, company_path(review.company.id)
+								%h4= "\"#{review.title}\""
+								%p= review.description
