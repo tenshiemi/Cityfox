@@ -2,11 +2,25 @@
 .container
 	.content--center
 		%p
-			%b Name:
-			= @user.name
+			%h1= @user.name
 		%p
 			%b Email:
 			= @user.email
+		%p.trigger--password Change Password
+		.form--password-change
+			= form_for @user, url: change_password_path, method: :post, remote: true do |f|
+				= f.hidden_field :id, value: @user.id
+				.field
+					= f.label :password
+					%br
+					= f.password_field :password
+				.field
+					= f.label :password_confirmation
+					%br
+					= f.password_field :password_confirmation
+					%br
+				.actions
+					= f.submit 'Save'
 		%p
 			%b Company:
 			- @companies.each do |company|

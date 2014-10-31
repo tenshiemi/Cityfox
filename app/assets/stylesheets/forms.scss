@@ -138,9 +138,19 @@ select#state {
 }
 
 .trigger--form {
+  color: $color-font-secondary;
+  cursor: pointer;
+}
+
+.trigger--password {
+  color: $color-font-secondary;
   cursor: pointer;
 }
 
 .form--response {
+  display: none;
+}
+
+.form--password-change {
   display: none;
 }
