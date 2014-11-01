@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin
   	unless is_admin?
-      session[:return_to_url] = request.url if Config.save_return_to_url && request.get?
-      self.send(Config.not_authenticated_action)
+      redirect_to root_url
     end
   end
 

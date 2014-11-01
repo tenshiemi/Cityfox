@@ -30,10 +30,9 @@ class ReviewsController < ApplicationController
   end
 
   def flag_review
-    @review = Review.find(params[:review][:id])
+    @review = Review.find(params[:id])
     if request.xhr?
-      @review.update(response: params[:review][:response])
-      render json: {res: @review.response}
+      render json: {res: @review.flagged}
     end
   end
 

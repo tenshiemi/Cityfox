@@ -17,5 +17,5 @@
 								= link_to company.name, company_path(company)
 							%td= company.city
 							- if is_admin?
-								%td
+								%td= link_to "Edit", edit_company_path(company)
 	

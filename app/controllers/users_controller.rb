@@ -59,6 +59,7 @@ class UsersController < ApplicationController
     if request.xhr?
       @user.update(password: params[:user][:password])
       render json: {res: @user.name}
+      flash[:notice] = "Review has been flagged"
     end
   end
 

@@ -26,7 +26,8 @@
 							%p= "Communication: #{review.rating_communication}"
 							%p= "Reason: #{review.rating_expectations}"
 							%p= "Payment: #{review.rating_payment}"
-							= link_to "Flag this review", flag_review_path(review), remote: true, method: :post
+							= link_to "Flag this review", flag_review_path(review), remote: true, method: :post, class: "flag"
+							%p#notice--flag This review has been flagged.
 		- else
 			%h2 There are no reviews for this company.
 		= link_to "Review this company", "/reviews/new?id=#{@company.id}"
