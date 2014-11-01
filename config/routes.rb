@@ -15,10 +15,9 @@ Rails.application.routes.draw do
   get 'owner_landing' => 'owners#landing', :as => :owner_landing
 
   get 'manage_owners' => 'admins#owners', :as => :manage_owners
-  get 'manage_companies' => 'admins#companies', :as => :manage_companies
   get 'verify_relation/:id' => 'admins#verify', :as => :verify_relation
 
-  get 'flagged_reviews' => 'admins#flagged', :as => :flagged_reviews
+  get 'reviews/flagged_reviews' => 'admins#flagged', :as => :flagged_reviews
   post 'reviews/add_response' => 'reviews#add_response', :as => :add_response
   post 'reviews/flag_review/:id' => 'reviews#flag_review', :as => :flag_review
   post 'users/change_password' => 'users#change_password', :as => :change_password

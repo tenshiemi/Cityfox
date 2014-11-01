@@ -32,6 +32,7 @@ class ReviewsController < ApplicationController
   def flag_review
     @review = Review.find(params[:id])
     if request.xhr?
+      @review.update(flagged: true)
       render json: {res: @review.flagged}
     end
   end
@@ -39,7 +40,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    render :flagged_reviews
+    redirect_to flagged_reviews_path
   end
 
   private
