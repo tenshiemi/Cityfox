@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'verify_relation/:id' => 'admins#verify', :as => :verify_relation
 
   post 'reviews/add_response' => 'reviews#add_response', :as => :add_response
+  post 'reviews/flag_review/:id' => 'reviews#flag_review', :as => :flag_review
   post 'users/change_password' => 'users#change_password', :as => :change_password
 
   resources :user_sessions, only: :create
