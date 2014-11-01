@@ -1,0 +1,50 @@
+@import "common";
+
+.hero {
+  background: url('http://emilychen.co/images/newyork_mobile.jpg') top center no-repeat;
+  @include media($tablet) {
+      background: url('http://emilychen.co/images/newyork_tablet.jpg') top center no-repeat;
+  }
+  @include media($desktop) {
+      background: url('http://emilychen.co/images/newyork.jpg') top center no-repeat;
+      max-width: 18000px;
+  }
+}
+
+.content--hero {
+  @include span-columns(10);
+  @include shift(1);
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: hsla(50, 5%, 22%, .45);
+  text-align: center;
+  position: relative;
+  @include media($tablet) {
+    padding: 34px;
+    margin-top: 50px;
+  }
+  @include media($desktop) {
+    padding: 70px 0 50px 0;
+    margin-top: 100px;
+    margin-bottom: 180px;
+  }
+}
+
+.content--hero h1 {
+  font-size: 3em;
+  color: white;
+  margin: -20px 0 20px 0;
+}
+
+.content--hero h3 {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 20px 0 -10px 0;
+}
+
+a.link--hero {
+  color: white;
+  text-decoration: underline;
+}
