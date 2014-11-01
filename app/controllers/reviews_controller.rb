@@ -29,6 +29,20 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def flag_review
+    @review = Review.find(params[:id])
+    if request.xhr?
+      @review.update(flagged: true)
+      render json: {res: @review.flagged}
+    end
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to flagged_reviews_path
+  end
+
   private
 	def review_params
     params.require(:review).permit(:user_id, :company_id, :title, :description, :rating_payment, :rating_communication, :rating_expectations, :would_work_with, :id, :response)

@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-	# before_action :require_admin, only: [:index]
+	before_action :require_admin, only: [:edit]
 	skip_before_filter :require_login, only: [:index, :show, :get_all]
 
 	def index
@@ -25,6 +25,10 @@ class CompaniesController < ApplicationController
 	end
 
 	def show
+		@company = Company.find(params[:id])
+	end
+
+	def edit
 		@company = Company.find(params[:id])
 	end
 

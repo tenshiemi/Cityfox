@@ -5,8 +5,8 @@ class AdminsController < ApplicationController
 		@owner_relations = UserCompanyRelation.all
 	end
 
-	def companies
-		@companies = Company.all
+	def flagged
+		@flagged = Review.where(flagged: true)
 	end
 
 	def verify
