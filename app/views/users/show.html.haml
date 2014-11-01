@@ -33,7 +33,7 @@
 				- else
 					Unverified
 				- if company.reviews 
-					%ul
+					%ul.profile--reviews
 						- company.reviews.each do |review|
 							%li
 								%article
@@ -51,7 +51,7 @@
 												= f.text_field :response
 												= f.submit "Save"
 		- if @user.reviews 
-			%ul
+			%ul.profile--reviews
 				- @user.reviews.each do |review|
 					%li
 						%article
