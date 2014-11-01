@@ -22,5 +22,9 @@
     %br
     = f.password_field :password_confirmation
     %br
+    .field
+      %p For best results, profile pic should be 150px by 150px
+      = f.label :profile_pic
+      = f.file_field :profile_pic
   .actions
     = f.submit 'Save'

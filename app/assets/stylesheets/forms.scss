@@ -15,7 +15,7 @@ input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]) {
   }
 }
 
-input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]).small {
+input:not([type=file]):not([type=radio]):not([type=search]).small {
   width: 100px;
   margin-bottom: 10px;
   @include media($tablet) {
@@ -54,7 +54,7 @@ input[type=submit] {
   text-shadow: none;
   outline: none;
   border-radius: .3em;
-  margin-top: 10px;
+  margin: 10px 0 10px 0;
   box-shadow: 0px 0px 0px 2pt white;
   @include media($tablet) {
     margin-top: 20px;

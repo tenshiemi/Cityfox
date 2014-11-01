@@ -1,60 +1,62 @@
 = render "layouts/header"
 .container
-	.profile--header
-		%h1= @user.name
-		%p 
-			Email:
-			= @user.email
-		= link_to 'Edit Details', edit_user_path(@user)
-		%p.trigger--password Change Password
-		.form--password-change
-			= form_for @user, url: change_password_path, method: :post, remote: true do |f|
-				= f.hidden_field :id, value: @user.id
-				.field
-					= f.label :password
-					%br
-					= f.password_field :password
-				.field
-					= f.label :password_confirmation
-					%br
-					= f.password_field :password_confirmation
-					%br
-				.actions
-					= f.submit 'Save'
-	.content--center
-		- if is_owner?
-			%h3 My Companies:
-			- @user.companies.each do |company|
-				= link_to company.name, company_path(company.id)
-				%p
-				Status:
-				- if @user.role = :owner
-					Verified
-				- else
-					Unverified
-				- if company.reviews 
+	.content--center--large
+		.profile--left
+			=image_tag @user.profile_pic.url(:thumb)
+			%h1= @user.name
+			%p 
+				Email:
+				= @user.email
+			= link_to 'Edit Details', edit_user_path(@user)
+			%p.trigger--password Change Password
+			.form--password-change
+				= form_for @user, url: change_password_path, method: :post, remote: true do |f|
+					= f.hidden_field :id, value: @user.id
+					.field
+						= f.label :password
+						%br
+						= f.password_field :password, class: "small"
+					.field
+						= f.label :password_confirmation
+						%br
+						= f.password_field :password_confirmation, class: "small"
+						%br
+					.actions
+						= f.submit 'Save', class: "small"
+		.profile--right
+			- if is_owner?
+				%h3 My Companies:
+				- @user.companies.each do |company|
+					= link_to company.name, company_path(company.id)
+					%p
+					Status:
+					- if @user.role = :owner
+						Verified
+					- else
+						Unverified
+					- if company.reviews 
+						%ul.profile--reviews
+							- company.reviews.each do |review|
+								%li
+									%article
+										%h4= "\"#{review.title}\""
+										%p= review.description
+										- if review.response
+											%p.response= review.response
+											%h5.trigger--form Update response
+										- else
+											%h5.trigger--form Write a response
+										.form--response
+											= form_for review, url: add_response_path, method: :post, remote: true do |f|
+												.field
+													= f.hidden_field :id, value: review.id
+													= f.text_field :response
+													= f.submit "Save"
+				- if @user.reviews 
 					%ul.profile--reviews
-						- company.reviews.each do |review|
+						- @user.reviews.each do |review|
 							%li
 								%article
-									%h4= "\"#{review.title}\""
-									%p= review.description
-									- if review.response
-										%p.response= review.response
-										%h5.trigger--form Update response
-									- else
-										%h5.trigger--form Write a response
-									.form--response
-										= form_for review, url: add_response_path, method: :post, remote: true do |f|
-											.field
-												= f.hidden_field :id, value: review.id
-												= f.text_field :response
-												= f.submit "Save"
-		- if @user.reviews 
-			%ul.profile--reviews
-				- @user.reviews.each do |review|
-					%li
-						%article
-						%h3= link_to review.company.name, company_path(review.company.id)
-						%h4= "\"#{review.title}\""
-						= review.description
+								%h3= link_to review.company.name, company_path(review.company.id)
+								%h4= "\"#{review.title}\""
+								= review.description
