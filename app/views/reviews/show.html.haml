@@ -11,3 +11,15 @@
 		%p="Timeliness of payment: #{@review.rating_payment}"
 		%p="Communication: #{@review.rating_communication}"
 		%p="Expectations: #{@review.rating_expectations}"
+		- if is_owner?
+			- if @review.response
+				%p.response= @review.response
+				%h5.trigger--form Update response
+			- else
+				%h5.trigger--form Write a response
+			.form--response
+				= form_for @review, url: add_response_path, method: :post, remote: true do |f|
+					.field
+						= f.hidden_field :id, value: @review.id
+						= f.text_field :response
+						= f.submit "Save"
