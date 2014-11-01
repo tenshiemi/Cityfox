@@ -52,11 +52,13 @@
 													= f.hidden_field :id, value: review.id
 													= f.text_field :response
 													= f.submit "Save"
-				- if @user.reviews 
-					%ul.profile--reviews
-						- @user.reviews.each do |review|
-							%li
-								%article
-								%h3= link_to review.company.name, company_path(review.company.id)
-								%h4= "\"#{review.title}\""
-								= review.description
+			- if @user.reviews.count > 0 
+				%ul.profile--reviews
+					- @user.reviews.each do |review|
+						%li
+							%article
+							%h3= link_to review.company.name, company_path(review.company.id)
+							%h4= "\"#{review.title}\""
+							= review.description
+			- else
+				%h1 You haven't written any reviews yet!
