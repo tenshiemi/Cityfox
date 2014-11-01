@@ -1,8 +1,8 @@
 = render "layouts/header"
 .container
 	.content--center.text-landing
-		%h1=Company.find(@review.company).name
-		%h2=@review.title
+		%h1= link_to "#{Company.find(@review.company).name}", company_path(@review.company.id)
+		%h2="\"#{@review.title}\""
 		%p=@review.description
 		- if @review.would_work_with
 			%h3 I would work with them again

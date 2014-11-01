@@ -48,9 +48,9 @@
 		%i
 	.field
 		%h3 Would you work with them again?
-		= f.label "Yes"
-		= f.radio_button :would_work_with, true
 		= f.label "No"
 		= f.radio_button :would_work_with, false
+		= f.label "Yes"
+		= f.radio_button :would_work_with, true
 	.actions
 		= f.submit "Submit"

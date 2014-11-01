@@ -27,7 +27,7 @@
 			- if is_owner?
 				%h3 My Companies:
 				- @user.companies.each do |company|
-					= link_to company.name, company_path(company.id)
+					%h4= link_to company.name, company_path(company.id)
 					%p
 					Status:
 					- if @user.role = :owner
@@ -35,29 +35,17 @@
 					- else
 						Unverified
 					- if company.reviews 
-						%ul.profile--reviews
+						%ul
 							- company.reviews.each do |review|
 								%li
-									%article
-										%h4= "\"#{review.title}\""
-										%p= review.description
-										- if review.response
-											%p.response= review.response
-											%h5.trigger--form Update response
-										- else
-											%h5.trigger--form Write a response
-										.form--response
-											= form_for review, url: add_response_path, method: :post, remote: true do |f|
-												.field
-													= f.hidden_field :id, value: review.id
-													= f.text_field :response
-													= f.submit "Save"
+									%h4= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
 			- if @user.reviews.count > 0 
+				%h3 My Reviews:
 				%ul.profile--reviews
 					- @user.reviews.each do |review|
 						%li
 							%article
-							%h3= link_to review.company.name, company_path(review.company.id)
+							%h4= link_to review.company.name, company_path(review.company.id)
 							%h4= "\"#{review.title}\""
 							= review.description
 			- else
