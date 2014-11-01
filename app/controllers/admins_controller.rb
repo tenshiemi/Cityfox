@@ -9,6 +9,10 @@ class AdminsController < ApplicationController
 		@companies = Company.all
 	end
 
+	def flagged
+		@flagged = Review.where(flagged: true)
+	end
+
 	def verify
 		@relation = UserCompanyRelation.find(params[:id])
 		@relation.verified = true

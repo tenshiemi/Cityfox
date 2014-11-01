@@ -25,6 +25,8 @@
 									= link_to "Companies", :manage_companies
 									\|
 									= link_to "Owners", :manage_owners
+									\|
+									= link_to "Flagged", :flagged_reviews
 						- else
 							%li
 								= link_to "Register", new_user_path, class: "button--medium"

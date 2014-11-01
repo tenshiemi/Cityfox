@@ -36,6 +36,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    render :flagged_reviews
+  end
+
   private
 	def review_params
     params.require(:review).permit(:user_id, :company_id, :title, :description, :rating_payment, :rating_communication, :rating_expectations, :would_work_with, :id, :response)
