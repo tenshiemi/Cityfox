@@ -16,7 +16,7 @@
 					%tr
 						- cache(owner) do
 							%td= link_to company.name, company_path(company.id)
-							%td= link_to owner.name, owner_path(owner)
+							%td= link_to owner.name, user_path(owner)
 							%td= owner.email
 							%td
 								- if owner.phone
