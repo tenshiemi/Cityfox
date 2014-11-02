@@ -2,10 +2,10 @@
   .field
     = label_tag :email 
     %br
-    = email_field_tag :email
+    = email_field_tag :email, required: true
   .field
     = label_tag :password
     %br
-    = password_field_tag :password
+    = password_field_tag :password, required: true
   .actions
     = submit_tag "Login"

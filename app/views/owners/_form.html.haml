@@ -10,11 +10,11 @@
   .field
     = f.label :name
     %br
-    = f.text_field :name
+    = f.text_field :name, required: true
   .field
     = f.label :email
     %br
-    = f.email_field :email
+    = f.email_field :email, required: true
   .field
     = f.label :phone
     %br
@@ -22,10 +22,10 @@
   .field
     = f.label :password
     %br
-    = f.password_field :password
+    = f.password_field :password, required: true
   .field
     = f.label :password_confirmation
     %br
-    = f.password_field :password_confirmation
+    = f.password_field :password_confirmation, required: true
   .actions
     = f.submit 'Save'

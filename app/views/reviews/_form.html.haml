@@ -5,11 +5,11 @@
 	.field
 		= f.label :title
 		%br
-		= f.text_field :title
+		= f.text_field :title, required: true
 	.field
 		= f.label :description
 		%br
-		= f.text_area :description
+		= f.text_area :description, required: true
 	%h3 Are payments delivered in accordance with the contract?
 	.span.star-rating
 		= f.radio_button :rating_payment, 1, id: "rating_payment_1"

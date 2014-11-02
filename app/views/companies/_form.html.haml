@@ -12,15 +12,15 @@
   .field
     = f.label :industry
     %br
-    = f.text_field :industry
+    = f.text_field :industry, required: true
   .field
     = f.label :country
     %br
-    = f.country_select :country, ["United States", "Spain"]
+    = f.country_select :country, ["United States", "Spain"], required: true
   .field
     = f.label :city
     %br
-    = f.text_field :city
+    = f.text_field :city, required: true
   .field
     .form-inline
       = f.label :state
