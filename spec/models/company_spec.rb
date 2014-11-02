@@ -1,5 +1,5 @@
 # spec/models/user.rb
-# require 'spec_helper'
+require 'rails_helper'
 
 describe Company do
 	it "has a valid factory" do

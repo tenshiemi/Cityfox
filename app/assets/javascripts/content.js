@@ -3,7 +3,7 @@ var contentJS = function() {
 	  $('.trigger--form').click(function() {
 			$('.form--response').css('display', 'block');
 		});
-		$('#edit_review_1').on('submit', function(evt){
+		$('.edit_review').on('submit', function(evt){
 			evt.preventDefault();
 			var valuesToSubmit = $(this).serialize();
 			$.ajax({

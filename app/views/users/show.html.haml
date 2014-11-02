@@ -38,7 +38,8 @@
 						%ul
 							- company.reviews.each do |review|
 								%li
-									%h4= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
+									%span= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
+									%span= link_to "See more...", review_path(review)
 			- if @user.reviews.count > 0 
 				%h3 My Reviews:
 				%ul.profile--reviews
