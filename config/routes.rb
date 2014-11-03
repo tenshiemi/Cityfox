@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   post 'reviews/flag_review/:id' => 'reviews#flag_review', :as => :flag_review
   post 'users/change_password' => 'users#change_password', :as => :change_password
 
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  delete "oauth/:provider" => "oauths#destroy", :as => :delete_oauth
+
   resources :user_sessions, only: :create
   resources :users
   resources :companies

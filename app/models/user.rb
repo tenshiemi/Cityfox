@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
+
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
 
   if Rails.env.development?
     has_attached_file :profile_pic, :styles => {:thumb => '150x150>'}, :default_url => 'default_profile.jpg'
@@ -27,5 +32,9 @@ class User < ActiveRecord::Base
   private
   def default_values
     self.role ||= :normal
+  end
+
+  def has_linked_github?
+    authentications.where(provider: "github").present?
   end
 end
