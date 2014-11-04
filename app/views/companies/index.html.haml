@@ -7,8 +7,10 @@
 				%tr
 					%th Company Name
 					%th Location
-					- if is_admin?
+					- if current_user && is_admin?
 						%th Options
+					- else
+						%th Rating
 			%tbody
 				- @companies.each do |company|
 					%tr
@@ -16,6 +18,8 @@
 							%td
 								= link_to company.name, company_path(company)
 							%td= company.city
-							- if is_admin?
+							- if current_user && is_admin?
 								%td= link_to "Edit", edit_company_path(company)
+							- else
+								%td= company.get_rating
 	
