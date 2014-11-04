@@ -1,17 +1,3 @@
-function handleArrows(e) {
-	switch (e.keyCode) {
-		case 38:
-			break;
-		case 40:
-			break;
-		default:
-			return false;
-	}
-	e.returnValue = false;
-	e.cancelBubble = true;
-	return true;
-}
-
 var pageJS = function() {
 	$(function() {
 		$('#search_term').focus();
