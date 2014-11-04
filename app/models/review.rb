@@ -11,4 +11,10 @@ class Review < ActiveRecord::Base
 	validates :rating_communication, presence: true
 	validates :rating_expectations, presence: true
 
+	before_validation :calculate_rating
+
+	private
+	def calculate_rating
+    self.rating_overall = (self.rating_payment + self.rating_communication + self.rating_expectations) / 3
+  end
 end

@@ -21,5 +21,8 @@
 							- if current_user && is_admin?
 								%td= link_to "Edit", edit_company_path(company)
 							- else
-								%td= ""
+								- if company.reviews.count > 0
+									%td= company.get_rating
+								- else
+									%td No reviews
 	

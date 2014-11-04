@@ -23,4 +23,8 @@ class Company < ActiveRecord::Base
 		positive_ratings = self.reviews.where(would_work_with: true).count
 		(positive_ratings.to_f / rating_count * 100).to_i
 	end
+
+	def get_rating
+  	Review.where(company_id: self.id).average("rating_overall").to_i
+  end
 end
