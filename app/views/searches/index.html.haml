@@ -12,9 +12,15 @@
 								= "#{result.city}, #{result.country}"
 							- if result.reviews.count >= 1
 								- if result.reviews.count > 1
-									%h4= "#{result.reviews.count} reviews"
+									%span= "#{result.reviews.count} reviews"
 								- elsif result.reviews.count == 1
-									= "#{result.reviews.count} review"
+									%span= "#{result.reviews.count} review"
+								%span
+									- result.get_rating.times do
+										%span.icon-yellow &#xe602
+									- (5 - result.get_rating).times do
+										%span.icon-gray &#xe602
+
 								%h4= "#{result.rating}% would work with this company again."
 		- else
 			%h3 There are no results for this search.

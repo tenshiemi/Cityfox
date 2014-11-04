@@ -30,9 +30,24 @@
 							- else
 								%h3 I would not work with this company again.
 							%p= review.description
-							%p= "Communication: #{review.rating_communication}"
-							%p= "Reason: #{review.rating_expectations}"
-							%p= "Payment: #{review.rating_payment}"
+							%p
+								%span= "Communication: "
+								- review.rating_communication.times do
+									%span.icon-yellow &#xe602
+								- (5 - review.rating_communication).times do
+									%span.icon-gray &#xe602
+							%p
+								%span= "Expectations: "
+								- review.rating_expectations.times do
+									%span.icon-yellow &#xe602
+								- (5 - review.rating_expectations).times do
+									%span.icon-gray &#xe602
+							%p
+								%span= "Payment: "
+								- review.rating_payment.times do
+									%span.icon-yellow &#xe602
+								- (5 - review.rating_payment).times do
+									%span.icon-gray &#xe602
 							= link_to "Flag this review", flag_review_path(review), remote: true, method: :post, class: "flag"
 							%p#notice--flag This review has been flagged.
 		- else
