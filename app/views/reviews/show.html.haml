@@ -8,9 +8,24 @@
 			%h3 I would work with them again
 		- else
 			%h3 I would not work with them again
-		%p="Timeliness of payment: #{@review.rating_payment}"
-		%p="Communication: #{@review.rating_communication}"
-		%p="Expectations: #{@review.rating_expectations}"
+		%p
+			%span= "Communication: "
+			- @review.rating_communication.times do
+				%span.icon-yellow &#xe602
+			- (5 - @review.rating_communication).times do
+				%span.icon-gray &#xe602
+		%p
+			%span= "Expectations: "
+			- @review.rating_expectations.times do
+				%span.icon-yellow &#xe602
+			- (5 - @review.rating_expectations).times do
+				%span.icon-gray &#xe602
+		%p
+			%span= "Payment: "
+			- @review.rating_payment.times do
+				%span.icon-yellow &#xe602
+			- (5 - @review.rating_payment).times do
+				%span.icon-gray &#xe602
 		- if is_owner?
 			- if @review.response
 				%p.response= @review.response
