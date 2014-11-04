@@ -154,6 +154,10 @@ td, th {
   left:0;
 }
 
+.center-me {
+  @include center;
+}
+
 .selected {
   background-color: black;
 }

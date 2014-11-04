@@ -25,6 +25,6 @@ class Company < ActiveRecord::Base
 	end
 
 	def get_rating
-  	Review.where(company_id: self.id).average("rating_overall").to_i
-  end
+		Review.where(company_id: self.id).average("rating_overall").to_i
+	end
 end

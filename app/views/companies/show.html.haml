@@ -12,6 +12,13 @@
 				- if @company.country
 					= ", #{@company.country}"
 	.content--center--large
+		.center-me
+			= link_to "Review this company", "/reviews/new?id=#{@company.id}"
+			\|
+			- if current_user
+				= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
+			- else
+				= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
 		- if @company.reviews.count > 0
 			%ul
 				- @company.reviews.each do |review|
@@ -30,9 +37,3 @@
 							%p#notice--flag This review has been flagged.
 		- else
 			%h2 There are no reviews for this company.
-		= link_to "Review this company", "/reviews/new?id=#{@company.id}"
-		\|
-		- if current_user
-			= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
-		- else
-			= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
