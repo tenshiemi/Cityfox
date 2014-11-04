@@ -22,7 +22,11 @@
 								%td= link_to "Edit", edit_company_path(company)
 							- else
 								- if company.reviews.count > 0
-									%td= company.get_rating
+									%td
+										- company.get_rating.times do
+											%span.icon-yellow &#xe602
+										- (5 - company.get_rating).times do
+											%span.icon-gray &#xe602
 								- else
 									%td No reviews
 	

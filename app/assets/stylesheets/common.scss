@@ -41,13 +41,22 @@ $color-font-warning: hsla(40, 56%, 60%, 1);
   }
 }
 
-@-webkit-keyframes slideDown {
-    0%, 100% { -webkit-transform: translateY(-50px); }
-    10%, 90% { -webkit-transform: translateY(0px); }
+@font-face {
+  font-family: 'icomoon';
+  src:url(asset-path('fonts/icomoon.eot'));
+  src:url(asset-path('fonts/icomoon.svg'));
+  src:url(asset-path('fonts/icomoon.ttf'));
+  src:url(asset-path('fonts/icomoon.woff'));
 }
-@-moz-keyframes slideDown {
-    0%, 100% { -moz-transform: translateY(-50px); }
-    10%, 90% { -moz-transform: translateY(0px); }
+
+.icon-yellow {
+  font-family: 'icomoon';
+  color: hsla(44, 100%, 77%, 1);
+}
+
+.icon-gray {
+  font-family: 'icomoon';
+  color: lightgray;
 }
 
 html {

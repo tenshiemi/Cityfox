@@ -1,3 +1,17 @@
+function handleArrows(e) {
+	switch (e.keyCode) {
+		case 38:
+			break;
+		case 40:
+			break;
+		default:
+			return false;
+	}
+	e.returnValue = false;
+	e.cancelBubble = true;
+	return true;
+}
+
 var pageJS = function() {
 	$(function() {
 		$('#search_term').focus();
@@ -11,7 +25,7 @@ var pageJS = function() {
 		}).done(function(json) {
 			company_list = json;
 		});
-		$('#search_term').keyup(function() {
+		$('#search_term').keyup(function(evt) {
 			$('#search_auto').empty();
 			current_search = $(this).val().toLowerCase();
 			var filtered = _.filter(company_list, function(company) {
