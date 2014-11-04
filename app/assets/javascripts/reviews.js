@@ -1,15 +1,13 @@
 var reviewJS = function() {
-	$(function() {
-	  $('.flag').click(function() {
-			$.ajax({
-			  type: "POST",
-			  url: $(this).attr('action'),
-			  data: valuesToSubmit,
-			  dataType: 'JSON'
-			}).done(function(json) {
-				$('.flag').css('display', 'none');
-				$('#notice--flag').css('display', 'block');
-			});
+  $('.flag').click(function() {
+		$.ajax({
+		  type: "POST",
+		  url: $(this).attr('action'),
+		  data: valuesToSubmit,
+		  dataType: 'JSON'
+		}).done(function(json) {
+			$('.flag').css('display', 'none');
+			$('#notice--flag').css('display', 'block');
 		});
 	});
 }
