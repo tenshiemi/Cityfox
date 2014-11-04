@@ -24,7 +24,7 @@
 				- @company.reviews.each do |review|
 					%li
 						%article
-							%h2= review.title
+							%h2= "\"#{review.title}\""
 							- if review.would_work_with
 								%h3 I would work with this company again.
 							- else
