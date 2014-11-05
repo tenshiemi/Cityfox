@@ -8,6 +8,7 @@
   @include media($desktop) {
       background: url('http://emilychen.co/images/newyork.jpg') top center no-repeat;
       max-width: 18000px;
+      min-height: 764px;
   }
 }
 
@@ -32,9 +33,12 @@
 }
 
 .content--hero h1 {
-  font-size: 3em;
+  font-size: 2em;
   color: white;
   margin: -20px 0 20px 0;
+  @include media($tablet) {
+    font-size: 3em;
+  }
 }
 
 .content--hero h3 {

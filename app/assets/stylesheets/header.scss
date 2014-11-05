@@ -66,9 +66,10 @@ nav.nav--site {
 #logo {
   margin: 10px;
   padding-left: 20px;
-  color: white;
+  color: $color-page-primary;
   font-size: 4.5em;
   @include media($tablet) {
+    color: white;
     font-size: 2em;
     text-align: center;
   }
