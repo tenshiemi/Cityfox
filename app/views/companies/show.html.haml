@@ -33,22 +33,27 @@
 							%p
 								%span= "Communication: "
 								- review.rating_communication.times do
-									%span.icon-yellow &#xe602
+									%span.icon-yellow
 								- (5 - review.rating_communication).times do
-									%span.icon-gray &#xe602
+									%span.icon-gray
 							%p
 								%span= "Expectations: "
 								- review.rating_expectations.times do
-									%span.icon-yellow &#xe602
+									%span.icon-yellow
 								- (5 - review.rating_expectations).times do
-									%span.icon-gray &#xe602
+									%span.icon-gray
 							%p
 								%span= "Payment: "
 								- review.rating_payment.times do
-									%span.icon-yellow &#xe602
+									%span.icon-yellow
 								- (5 - review.rating_payment).times do
-									%span.icon-gray &#xe602
-							= link_to "Flag this review", flag_review_path(review), remote: true, method: :post, class: "flag"
-							%p#notice--flag This review has been flagged.
+									%span.icon-gray
+							.reader_options
+								%p
+									Was this review helpful?
+									Yes
+									No
+									=link_to flag_review_path(review), remote: true, method: :post do
+										%span.icon-flag 
 		- else
 			%h2 There are no reviews for this company.

@@ -38,6 +38,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def mark_helpful
+  end
+
+  def mark_unhelpful
+  end
+
   def destroy
     @review = Review.find(params[:id])
     @review.destroy

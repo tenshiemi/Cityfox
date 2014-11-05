@@ -49,14 +49,27 @@ $color-font-warning: hsla(40, 56%, 60%, 1);
   src:url(asset-path('fonts/icomoon.woff'));
 }
 
-.icon-yellow {
+span.icon-yellow:before {
   font-family: 'icomoon';
+  content: '\e602';
+  speak: none;
   color: hsla(44, 100%, 77%, 1);
 }
 
-.icon-gray {
+span.icon-gray:before {
   font-family: 'icomoon';
+  content: '\e602';
+  speak: none;
   color: lightgray;
+}
+
+span.icon-flag:before {
+    content: '\e605';
+    font-family: 'icomoon';
+    color: red;
+    speak: none;
+    padding: 2px;
+    border: 1px solid lightgray;
 }
 
 html {
