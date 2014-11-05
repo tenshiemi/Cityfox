@@ -11,7 +11,7 @@ var pageJS = function() {
 	$('#search_term').keyup(function(evt) {
 		$('#search_auto').empty();
 		current_search = $(this).val().toLowerCase();
-		var filtered = _.filter(company_list, function(company) {
+		var filtered = company_list.filter(function(company) {
 			return company.name.toLowerCase().search(current_search) != -1;
 		});
 		var maxResults = filtered.length > 5 ? 5 : filtered.length;
