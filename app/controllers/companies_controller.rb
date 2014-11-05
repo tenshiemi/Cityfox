@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 	skip_before_filter :require_login, only: [:index, :show, :get_all]
 
 	def index
-		@companies = Company.all.order(created_at: :asc)
+		@companies = Company.all.order(name: :asc)
 	end
 
 	def new
