@@ -1,43 +1,50 @@
-var ratingCleanup = function() {
-	$('.helpful-rating').css('display', 'none');
-	$('.post-helpful-rating').css('display', 'block');
+var ratingCleanup = function(id) {
+	$('.helpful-rating.' + id).css('display', 'none');
+	$('.post-helpful-rating.' + id).css('display', 'inline-block');
+}
+
+var flagCleanup = function(id) {
+	$('.icon-flag.' + id).css('display', 'none');
+	$('.post-flag.' + id).css('display', 'inline-block');
 }
 
 var reviewJS = function() {
-  $('.flag').click(function() {
+  $('.flag').on("click",function() {
+  	var valuesToSubmit = $(this)
 		$.ajax({
 		  type: "POST",
-		  url: $(this).attr('action'),
+		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			$('.flag').css('display', 'none');
-			$('#notice--flag').css('display', 'block');
+			flagCleanup(json.res);
 		});
 	});
 
   $('.helpful').click(function() {
+  	var valuesToSubmit = $(this);
 		$.ajax({
 		  type: "POST",
-		  url: $(this).attr('action'),
+		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			ratingCleanup();
+			ratingCleanup(json.res);
 		});
 	});
 
   $('.unhelpful').click(function() {
+  	var valuesToSubmit = $(this);
 		$.ajax({
 		  type: "POST",
-		  url: $(this).attr('action'),
+		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			ratingCleanup();
+			ratingCleanup(json.res);
 		});
 	});
 }
 
-$(document).ready(contentJS);
+$(document).ready(reviewJS);
 $(document).on('page:load', reviewJS);

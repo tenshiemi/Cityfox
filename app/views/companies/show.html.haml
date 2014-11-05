@@ -64,15 +64,16 @@
 										%span.icon-gray
 								.reader_options
 									%p
-										%span.helpful-rating
+										%span{:class => "helpful-rating #{review.id}"}
 											Was this review helpful?
 											=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
 											or
 											=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
-										%span.post-helpful-rating
+										%span{:class => "post-helpful-rating #{review.id}"}
 											Thank you for your feedback!
 										=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
-											%span.icon-flag
+											%span{:class => "icon-flag #{review.id}"}
+										%span{:class => "post-flag #{review.id}"} This review has been flagged.
 								- if review.response
 									%p.response
 										%span.font--small= "Comment from #{review.company.name}"

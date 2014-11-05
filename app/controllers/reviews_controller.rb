@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if request.xhr?
       @review.update(flagged: true)
-      render json: {res: @review.flagged}
+      render json: {res: @review.id}
     end
   end
 
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if request.xhr?
       @review.increment!(:helpful)
-      render json: {res: @review.helpful}
+      render json: {res: @review.id}
     end
   end
 
@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if request.xhr?
       @review.increment!(:unhelpful)
-      render json: {res: @review.unhelpful}
+      render json: {res: @review.id}
     end
   end
 

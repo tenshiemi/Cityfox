@@ -2,10 +2,52 @@
 
 .post-helpful-rating {
 	display: none;
+  color: hsl(108, 100%, 30%);
 }
 
-.post-helpful-rating a {
-	color: green;
+.post-flag {
+  display: none;
+  color: hsla(3,100%,65%,.9);
+}
+
+span.icon-yellow:before {
+  font-family: 'icomoon';
+  content: '\e602';
+  speak: none;
+  color: hsla(44, 100%, 77%, 1);
+}
+
+span.icon-gray:before {
+  font-family: 'icomoon';
+  content: '\e602';
+  speak: none;
+  color: lightgray;
+}
+
+span.icon-flag {
+  padding-left: 10px;
+}
+
+span.icon-flag:before {
+    content: '\e605';
+    font-family: 'icomoon';
+    color: hsla(3,100%,65%,.9);
+    speak: none;
+    padding: 2px;
+}
+
+span.icon-thumbs-up:before {
+    content: '\e603';
+    font-family: 'icomoon';
+    speak: none;
+    padding: 2px;
+}
+
+span.icon-thumbs-down:before {
+    content: '\e604';
+    font-family: 'icomoon';
+    speak: none;
+    padding: 2px;
 }
 
 .star-rating{
