@@ -112,6 +112,10 @@ td, th {
   border-bottom: 1px solid #dddddd;
 }
 
+tr:last-child > td {
+  border-bottom: none;
+}
+
 .field {
   @include clearfix;
 }
