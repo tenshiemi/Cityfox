@@ -11,11 +11,12 @@
 				- if @company.state
 					= "#{@company.state},"
 				= "#{@company.country}"
-			%h3
+			%p.review-count
 				- @company.get_rating.times do
 					%span.icon-yellow
 				- (5 - @company.get_rating).times do
 					%span.icon-gray
+				= "#{@company.reviews.count} reviews"
 		.info--cta
 			= link_to "Write a Review", "/reviews/new?id=#{@company.id}", class: "button--cta"
 			%span.font--small.center-me
@@ -32,49 +33,51 @@
 			%ul
 				- @company.reviews.order(helpful: :desc).each do |review|
 					%li
-						%article
-							%h2
-								= "\"#{review.title}\""
-								- if review.would_work_with
-									%span.icon-thumbs-up
-								- else
-									%span.icon-thumbs-down
-							%p= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
-							%p= review.description
-							%p
-								%span= "Communication: "
-								- review.rating_communication.times do
-									%span.icon-yellow
-								- (5 - review.rating_communication).times do
-									%span.icon-gray
-							%p
-								%span= "Expectations: "
-								- review.rating_expectations.times do
-									%span.icon-yellow
-								- (5 - review.rating_expectations).times do
-									%span.icon-gray
-							%p
-								%span= "Payment: "
-								- review.rating_payment.times do
-									%span.icon-yellow
-								- (5 - review.rating_payment).times do
-									%span.icon-gray
-							.reader_options
+						.card--review
+							.card--review--header
+								%h2
+									= "\"#{review.title}\""
+									- if review.would_work_with
+										%span.icon-thumbs-up
+									- else
+										%span.icon-thumbs-down
+							.card--review--content
+								%p.font--small= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
+								%p= review.description
 								%p
-									%span.helpful-rating
-										Was this review helpful?
-										=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
-										or
-										=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
-									%span.post-helpful-rating
-										Thank you for your feedback!
-									=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
-										%span.icon-flag
-							- if review.response
-								%p.response
-									%span.small= "Comment from #{review.company.name}"
-									%br
-									%br
-									= review.response
+									%span= "Communication: "
+									- review.rating_communication.times do
+										%span.icon-yellow
+									- (5 - review.rating_communication).times do
+										%span.icon-gray
+								%p
+									%span= "Expectations: "
+									- review.rating_expectations.times do
+										%span.icon-yellow
+									- (5 - review.rating_expectations).times do
+										%span.icon-gray
+								%p
+									%span= "Payment: "
+									- review.rating_payment.times do
+										%span.icon-yellow
+									- (5 - review.rating_payment).times do
+										%span.icon-gray
+								.reader_options
+									%p
+										%span.helpful-rating
+											Was this review helpful?
+											=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
+											or
+											=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
+										%span.post-helpful-rating
+											Thank you for your feedback!
+										=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
+											%span.icon-flag
+								- if review.response
+									%p.response
+										%span.font--small= "Comment from #{review.company.name}"
+										%br
+										%br
+										= review.response
 		- else
 			%h2 There are no reviews for this company.
