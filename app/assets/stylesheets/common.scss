@@ -178,11 +178,13 @@ td, th {
   float: left;
   margin: 10px;
   min-height: 25.6px;
-  min-width: 100px;
+  min-width: 90%;
   background-color: hsla(3,100%,65%,.9);
   padding: 10px;
   text-align: center;
-  box-shadow: 2px 2px 3px hsla(0,0%,0%,.3);
   text-shadow: 1px 1px 2px hsla(0,0%,0%,.3);
-  border-radius: .2em;
+}
+
+a.button--cta, a.button--cta:visited {
+  color: white; 
 }

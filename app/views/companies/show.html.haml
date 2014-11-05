@@ -6,26 +6,29 @@
 		.info--company
 			%h1 
 				= @company.name
-				%span.small
-					- @company.get_rating.times do
-						%span.icon-yellow
-					- (5 - @company.get_rating).times do
-						%span.icon-gray
-
-			.info--location
+			%h2
 				= @company.city
 				- if @company.state
 					= ", #{@company.state}"
 				- if @company.country
 					= ", #{@company.country}"
+			%span.small
+				- @company.get_rating.times do
+					%span.icon-yellow
+				- (5 - @company.get_rating).times do
+					%span.icon-gray
+		.info--cta
+			= link_to "Write a Review", "/reviews/new?id=#{@company.id}", class: "button--cta"
+			%span.small.center-me
+				- if current_user
+					Do you work here?
+					%br
+					= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
+				- else
+					Do you work here?
+					%br
+					= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
 	.content--center--large
-		.center-me
-			= link_to "Review this company", "/reviews/new?id=#{@company.id}"
-			\|
-			- if current_user
-				= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
-			- else
-				= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
 		- if @company.reviews.count > 0
 			%ul
 				- @company.reviews.order(helpful: :desc).each do |review|

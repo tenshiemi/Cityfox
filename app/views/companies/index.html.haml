@@ -1,7 +1,8 @@
 = render "layouts/header"
 .container
+	.content--cta
+		= link_to "Add Company", new_company_path, class: "button--cta"
 	.content--center
-		= link_to "Add Company", new_company_path
 		%table
 			%thead
 				%tr
