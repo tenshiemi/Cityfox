@@ -11,21 +11,21 @@
 		%p
 			%span= "Communication: "
 			- @review.rating_communication.times do
-				%span.icon-yellow &#xe602
+				%span.icon-yellow
 			- (5 - @review.rating_communication).times do
-				%span.icon-gray &#xe602
+				%span.icon-gray
 		%p
 			%span= "Expectations: "
 			- @review.rating_expectations.times do
-				%span.icon-yellow &#xe602
+				%span.icon-yellow
 			- (5 - @review.rating_expectations).times do
-				%span.icon-gray &#xe602
+				%span.icon-gray
 		%p
 			%span= "Payment: "
 			- @review.rating_payment.times do
-				%span.icon-yellow &#xe602
+				%span.icon-yellow
 			- (5 - @review.rating_payment).times do
-				%span.icon-gray &#xe602
+				%span.icon-gray
 		- if is_owner?
 			- if @review.response
 				%p.response= @review.response

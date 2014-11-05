@@ -1,3 +1,8 @@
+var ratingCleanup = function() {
+	$('.helpful-rating').css('display', 'none');
+	$('.post-helpful-rating').css('display', 'block');
+}
+
 var reviewJS = function() {
   $('.flag').click(function() {
 		$.ajax({
@@ -18,8 +23,7 @@ var reviewJS = function() {
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			$('span.helpful-rating').css('display', 'none');
-			$('span.post-helpful-rating').css('display', 'block');
+			ratingCleanup();
 		});
 	});
 
@@ -30,8 +34,7 @@ var reviewJS = function() {
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			$('.helpful-rating').css('display', 'none');
-			$('.post-helpful-rating').css('display', 'block');
+			ratingCleanup();
 		});
 	});
 }
