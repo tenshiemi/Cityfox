@@ -6,8 +6,9 @@ class Review < ActiveRecord::Base
 
   validates :title, presence: true, length: { in: 2..120 }
   validates :description, presence: true, length: { maximum: 500 }
-  validates_presence_of :rating_payment, :rating_communication, :rating_expectations, :would_work_with,
+  validates_presence_of :rating_payment, :rating_communication, :rating_expectations,
                         :user_id, :company_id, :rating_overall
+  validates_inclusion_of :would_work_with, :in => [true, false]
 
   private
   def calculate_rating

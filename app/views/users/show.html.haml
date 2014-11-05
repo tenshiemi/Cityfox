@@ -43,13 +43,13 @@
 					- @user.reviews.each do |review|
 						%li
 							%article
-							%h4
-								= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\""
-								- review.company.get_rating.times do
-									%span.icon-yellow
-								- (5 - review.company.get_rating).times do
-									%span.icon-gray
-							%h4= "\"#{review.title}\""
-							= review.description
+								%h4
+									= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\""
+									- review.company.get_rating.times do
+										%span.icon-yellow
+									- (5 - review.company.get_rating).times do
+										%span.icon-gray
+								%h4= "\"#{review.title}\""
+								= review.description
 			- else
 				%h1 You haven't written any reviews yet!
