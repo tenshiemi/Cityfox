@@ -63,13 +63,16 @@ span.icon-gray:before {
   color: lightgray;
 }
 
+span.icon-flag {
+  padding-left: 10px;
+}
+
 span.icon-flag:before {
     content: '\e605';
     font-family: 'icomoon';
     color: red;
     speak: none;
     padding: 2px;
-    border: 1px solid lightgray;
 }
 
 html {

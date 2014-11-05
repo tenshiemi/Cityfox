@@ -18,8 +18,8 @@ var reviewJS = function() {
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
 		}).done(function(json) {
-			$('.helpful-rating').css('display', 'none');
-			$('.post-helpful-rating').css('display', 'block');
+			$('span.helpful-rating').css('display', 'none');
+			$('span.post-helpful-rating').css('display', 'block');
 		});
 	});
 

@@ -21,7 +21,7 @@
 				= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
 		- if @company.reviews.count > 0
 			%ul
-				- @company.reviews.each do |review|
+				- @company.reviews.order(helpful: :desc).each do |review|
 					%li
 						%article
 							%h2= "\"#{review.title}\""
@@ -29,6 +29,7 @@
 								%h3 I would work with this company again.
 							- else
 								%h3 I would not work with this company again.
+							%p= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
 							%p= review.description
 							%p
 								%span= "Communication: "
