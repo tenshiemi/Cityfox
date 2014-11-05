@@ -23,6 +23,23 @@ li:first-child article{
   }
 }
 
+.content--form {
+  margin-top: 20px;
+  padding: 25px 0 25px 0;
+  @include span-columns(8);
+  @include shift(2);
+  @include media($tablet) {
+    @include span-columns(6);
+    @include shift(3);
+    padding: 34px 0 34px 0;
+    margin-top: 30px;
+  }
+  @include media($desktop) {
+    @include span-columns(4);
+    @include shift(4);
+  }
+}
+
 .content--center--large {
   @include span-columns(10);
   @include shift(1);

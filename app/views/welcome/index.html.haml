@@ -39,8 +39,8 @@
 			.search
 				= form_tag search_path, :method => :post do
 					= search_field_tag :search_term, nil, :placeholder => 'Find a company...', :autocomplete => "off"
-				.search_field
-					%ul#search_auto
+			.search_field
+				%ul#search_auto
 			%h3 Reviews for freelancers, design and development shops, 
 			%h3 and anyone who does client work.
 			%h3= link_to "View All", companies_path, class: "link--hero"
