@@ -1,8 +1,13 @@
 = render "layouts/header"
 .container
+	.content--cta
+		= link_to "Add Company", new_company_path, class: "button--cta"
 	.content--center--large
 		- if @results.size > 0
-			%h3= "Search results for #{@search_term}"
+			%h3
+				= "Search results for \"#{@search_term}\""
+				or
+				=link_to "view all companies...", companies_path
 			%ul
 				- @results.each do |result|
 					%li
@@ -24,7 +29,4 @@
 								%h4= "#{result.rating}% would work with this company again."
 		- else
 			%h3 There are no results for this search.
-		=link_to "Add a company", new_company_path
-		\|
-		=link_to "View all companies", companies_path
 

@@ -52,6 +52,7 @@
 }
 
 .profile--header img {
+  max-width:100%;
   margin: auto;
   border: 1px solid lightgray;
 }
@@ -75,6 +76,7 @@
 }
 
 .info--company h1, h2 {
+  font-size: 2em;
   @include media($tablet) {
     margin-top: 0;
     margin-bottom: 0;

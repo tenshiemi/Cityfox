@@ -11,7 +11,7 @@
 				- if @company.state
 					= "#{@company.state},"
 				= "#{@company.country}"
-			%span.small
+			%h3
 				- @company.get_rating.times do
 					%span.icon-yellow
 				- (5 - @company.get_rating).times do
@@ -27,7 +27,7 @@
 					Do you work here?
 					%br
 					= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
-	.content--center--large
+	.content--center--medium
 		- if @company.reviews.count > 0
 			%ul
 				- @company.reviews.order(helpful: :desc).each do |review|
