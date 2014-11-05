@@ -62,7 +62,29 @@
 }
 
 p.response {
-	border: 1px solid lightgray;
-	margin-left: 20px;
+	border-top: 1px solid lightgray;
+	margin: 0 20px 0 20px;
 	padding: 10px;
+}
+
+.card--review {
+  box-shadow: 0 0 5px darkgray;
+  margin: 15px;
+}
+
+.card--review--header {
+  padding: 10px;
+  background-color: hsla(43, 75%, 88%, 1);
+}
+
+a.card-header, a.card-header:visited {
+  color: white;
+}
+
+.card--review--content {
+  padding: 10px;  
+}
+
+.card--review--content h3 {
+  margin: 10px 0 10px 0;
 }
