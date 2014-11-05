@@ -19,10 +19,11 @@
 									= link_to result.name, company_path(result.id)
 									= "#{result.city}, #{result.country}"
 								- if result.reviews.count >= 1
-									- if result.reviews.count > 1
-										%span= "#{result.reviews.count} reviews"
-									- elsif result.reviews.count == 1
-										%span= "#{result.reviews.count} review"
+									= link_to company_path(result.id) do
+										- if result.reviews.count > 1
+											%span= "#{result.reviews.count} reviews"
+										- elsif result.reviews.count == 1
+											%span= "#{result.reviews.count} review"
 									%span
 										- result.get_rating.times do
 											%span.icon-yellow
