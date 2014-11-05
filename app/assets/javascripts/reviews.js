@@ -10,6 +10,30 @@ var reviewJS = function() {
 			$('#notice--flag').css('display', 'block');
 		});
 	});
+
+  $('.helpful').click(function() {
+		$.ajax({
+		  type: "POST",
+		  url: $(this).attr('action'),
+		  data: valuesToSubmit,
+		  dataType: 'JSON'
+		}).done(function(json) {
+			$('span.helpful-rating').css('display', 'none');
+			$('span.post-helpful-rating').css('display', 'block');
+		});
+	});
+
+  $('.unhelpful').click(function() {
+		$.ajax({
+		  type: "POST",
+		  url: $(this).attr('action'),
+		  data: valuesToSubmit,
+		  dataType: 'JSON'
+		}).done(function(json) {
+			$('.helpful-rating').css('display', 'none');
+			$('.post-helpful-rating').css('display', 'block');
+		});
+	});
 }
 
 $(document).ready(contentJS);

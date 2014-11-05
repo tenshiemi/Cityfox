@@ -38,6 +38,22 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def mark_helpful
+    @review = Review.find(params[:id])
+    if request.xhr?
+      @review.increment!(:helpful)
+      render json: {res: @review.helpful}
+    end
+  end
+
+  def mark_unhelpful
+    @review = Review.find(params[:id])
+    if request.xhr?
+      @review.increment!(:unhelpful)
+      render json: {res: @review.unhelpful}
+    end
+  end
+
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
