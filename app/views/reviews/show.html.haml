@@ -27,7 +27,9 @@
 			- (5 - @review.rating_payment).times do
 				%span.icon-gray
 		- if is_owner?
+			%p.temp-response
 			- if @review.response
+				%p.temp-response
 				%p.response
 					%span.font--small= "Comment from #{@review.company.name}"
 					%br

@@ -13,12 +13,11 @@ input:not([type=submit]):not([type=file]):not([type=radio]):not([type=search]) {
 }
 
 input:not([type=file]):not([type=radio]):not([type=search]).small {
-  width: 60%;
+  width: 70%;
   margin-bottom: 10px;
   @include media($tablet) {
     margin-bottom: 20px;
     height: 40px;
-    width: 130px;
   }
 }
 

@@ -3,7 +3,7 @@ var contentJS = function() {
 		$('.form--response').css('display', 'block');
 	});
 	
-	$('.edit_review').on('submit', function(evt){
+	$('.form--response > form').on('submit', function(evt){
 		evt.preventDefault();
 		var valuesToSubmit = $(this).serialize();
 		$.ajax({
@@ -13,7 +13,7 @@ var contentJS = function() {
 		  dataType: 'JSON'
 		}).done(function(json) {
 			$('.form--response').css('display', 'none');
-			$('p.response').text(json.res);
+			$('p.temp-response').text(json.res);
 		});
 	});
 
