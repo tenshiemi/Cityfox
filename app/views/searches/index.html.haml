@@ -2,7 +2,7 @@
 .container
 	.content--cta
 		= link_to "Add Company", new_company_path, class: "button--cta"
-	.content--center--large
+	.content--center--medium
 		- if @results.size > 0
 			%h3
 				= "Search results for \"#{@search_term}\""

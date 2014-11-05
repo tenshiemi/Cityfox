@@ -44,8 +44,6 @@ li:first-child article{
   @include media($tablet) {
     @include span-columns(6);
     @include shift(3);
-    padding: 34px 0 34px 0;
-    margin-top: 30px;
   }
   @include media($desktop) {
     @include span-columns(4);

@@ -67,10 +67,9 @@ nav.nav--site {
   margin: 10px;
   padding-left: 20px;
   color: $color-page-primary;
-  font-size: 4.5em;
+  font-size: 2em;
   @include media($tablet) {
     color: white;
-    font-size: 2em;
     text-align: center;
   }
 }
