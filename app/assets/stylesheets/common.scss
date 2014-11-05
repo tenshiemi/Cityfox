@@ -41,6 +41,8 @@ $color-font-warning: hsla(40, 56%, 60%, 1);
   }
 }
 
+@include sticky-footer(30px);
+
 @font-face {
   font-family: 'icomoon';
   src:url(asset-path('fonts/icomoon.eot'));
@@ -141,14 +143,6 @@ td, th {
   border-bottom: 1px solid #dddddd;
 }
 
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
 .field {
   @include clearfix;
 }
@@ -172,8 +166,4 @@ td, th {
 
 .center-me {
   @include center;
-}
-
-.selected {
-  background-color: black;
 }
