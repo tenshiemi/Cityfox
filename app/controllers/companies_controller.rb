@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def show
+		@relation = UserCompanyRelation.where(company_id: @company.id, user_id: current_user.id)
 	end
 
 	def edit

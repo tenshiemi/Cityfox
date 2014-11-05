@@ -21,9 +21,12 @@
 			= link_to "Write a Review", "/reviews/new?id=#{@company.id}", class: "button--cta"
 			%span.font--small.center-me
 				- if current_user
-					Do you work here?
-					%br
-					= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
+					- if @relation.count > 0
+						This is your company.
+					- else 
+						Do you work here?
+						%br
+						= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
 				- else
 					Do you work here?
 					%br
