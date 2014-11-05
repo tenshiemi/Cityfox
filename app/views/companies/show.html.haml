@@ -54,6 +54,7 @@
 									%span.helpful-rating
 										Was this review helpful?
 										=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
+										or
 										=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
 									%span.post-helpful-rating
 										Thank you for your feedback!
