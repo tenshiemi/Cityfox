@@ -24,10 +24,10 @@
 			- if is_owner?
 				%h2 My Companies
 				- @user.companies.each do |company|
-					.card--company
-						.card--company--header
+					.card--profile
+						.card--profile--header
 							%h3= link_to company.name, company_path(company.id), class: "card-header"
-						.card--company--content
+						.card--profile--content
 							%h3
 								Status:
 								- relation = UserCompanyRelation.where(company_id: company.id, user_id: @user.id)[0]
@@ -46,10 +46,10 @@
 				%h2 My Reviews
 				%ul.profile--reviews
 					- @user.reviews.each do |review|
-						.card--company
-							.card--company--header
+						.card--profile
+							.card--profile--header
 								%h3= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\"", class: "card-header"
-							.card--company--content
+							.card--profile--content
 								- review.company.get_rating.times do
 									%span.icon-yellow
 								- (5 - review.company.get_rating).times do

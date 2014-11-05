@@ -100,12 +100,12 @@ ul.profile--reviews {
   color: hsla(3,100%,65%,.9);
 }
 
-.card--company {
+.card--profile {
   box-shadow: 0 0 5px darkgray;
   margin: 15px;
 }
 
-.card--company--header {
+.card--profile--header {
   padding: 10px;
   background-color: hsla(10, 96%, 70%, 1);
 }
@@ -114,7 +114,11 @@ a.card-header, a.card-header:visited {
   color: white;
 }
 
-.card--company--content {
+.card--profile--content {
   padding: 10px;  
+}
+
+.card--profile--content h3 {
+  margin: 10px 0 10px 0;
 }
 
