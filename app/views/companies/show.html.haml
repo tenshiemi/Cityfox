@@ -50,10 +50,13 @@
 									%span.icon-gray
 							.reader_options
 								%p
-									Was this review helpful?
-									Yes
-									No
-									=link_to flag_review_path(review), remote: true, method: :post do
+									%span.helpful-rating
+										Was this review helpful?
+										=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
+										=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
+									%span.post-helpful-rating
+										Thank you for your feedback!
+									=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
 										%span.icon-flag 
 		- else
 			%h2 There are no reviews for this company.
