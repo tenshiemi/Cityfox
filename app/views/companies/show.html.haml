@@ -4,7 +4,14 @@
 		.info--logo
 			= image_tag @company.logo.url(:thumb)
 		.info--company
-			%h1= @company.name
+			%h1 
+				= @company.name
+				%span.small
+					- @company.get_rating.times do
+						%span.icon-yellow
+					- (5 - @company.get_rating).times do
+						%span.icon-gray
+
 			.info--location
 				= @company.city
 				- if @company.state
