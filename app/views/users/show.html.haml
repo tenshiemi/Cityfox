@@ -36,11 +36,12 @@
 								- else
 									%span.red Pending verification
 							- if company.reviews 
-								%ul
+								%table
 									- company.reviews.each do |review|
-										%li
-											%span= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
-											%span= link_to "See more...", review_path(review)
+										%tr
+											%td= "#{review.created_at.strftime("%m/%d/%y")}"
+											%td= "\"#{review.title}\""
+											%td= link_to "More...", review_path(review)
 			- if @user.reviews.count > 0 
 				%h2 My Reviews
 				%ul.profile--reviews
