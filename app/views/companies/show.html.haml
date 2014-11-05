@@ -9,7 +9,8 @@
 			%h2
 				= "#{@company.city},"
 				- if @company.state
-					= "#{@company.state},"
+					- if @company.state != ""
+						= "#{@company.state},"
 				= "#{@company.country}"
 			%p.review-count
 				- @company.get_rating.times do

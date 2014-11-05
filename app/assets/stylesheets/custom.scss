@@ -107,3 +107,30 @@ li:first-child article{
 .search {
   margin: auto;
 }
+
+.search--left {
+  @include span-columns(8 of 8);
+    @include media($tablet) {
+    @include span-columns(2 of 8);
+    margin-top: 20px;
+  }
+  @include media($desktop) {
+    @include span-columns(2 of 8);
+  }
+}
+
+.search--left img {
+  max-width:100%;
+  margin: auto;
+  border: 1px solid lightgray;
+}
+
+.left--right {
+  @include span-columns(8 of 8);
+  @include media($tablet) {
+    @include span-columns(6 of 8);
+  }
+  @include media($desktop) {
+    @include span-columns(6 of 8);
+  }
+}
