@@ -41,14 +41,13 @@ input[type=submit] {
 
 textarea {
   height: 50px;
-  width: 200px;
+  width: 90%;
   font-size: 1em;
   border-radius: .3em;
   margin-bottom: 10px;
   border: 2px solid lightgray;
   @include media($tablet) {
     height: 75px;
-    width: 300px;
   }
 }
 
