@@ -58,6 +58,12 @@
 									%span.post-helpful-rating
 										Thank you for your feedback!
 									=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
-										%span.icon-flag 
+										%span.icon-flag
+							- if review.response
+								%p.response
+									%span.small= "Comment from #{review.company.name}"
+									%br
+									%br
+									= review.response
 		- else
 			%h2 There are no reviews for this company.

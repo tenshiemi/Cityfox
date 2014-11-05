@@ -28,7 +28,11 @@
 				%span.icon-gray
 		- if is_owner?
 			- if @review.response
-				%p.response= @review.response
+				%p.response
+					%span.small= "Comment from #{@review.company.name}"
+					%br
+					%br
+					= @review.response
 				%h5.trigger--form Update response
 			- else
 				%h5.trigger--form Write a response

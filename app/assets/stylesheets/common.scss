@@ -147,6 +147,11 @@ td, th {
   @include clearfix;
 }
 
+.small {
+  font-size: .8em;
+  color: darkgray;
+}
+
 #wrapper {
   min-height:100%;
   position:relative;
