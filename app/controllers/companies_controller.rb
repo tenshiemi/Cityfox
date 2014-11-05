@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 	skip_before_filter :require_login, only: [:index, :show, :get_all]
 
 	def index
-		@companies = Company.all
+		@companies = Company.all.order(created_at: :asc)
 	end
 
 	def new
@@ -49,7 +49,7 @@ class CompaniesController < ApplicationController
 
 	private
 	def company_params
-    params.require(:company).permit(:name, :industry, :country, :city, :state, :postalcode, :logo)
+    params.require(:company).permit(:name, :industry, :country, :city, :state, :postal_code, :logo)
   end
 
   def set_company

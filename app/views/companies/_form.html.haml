@@ -25,7 +25,7 @@
     .form-inline
       = f.label :state
       %br
-      = select_tag(:state, options_for_select(us_states), :include_blank => true)
+      = f.select(:state, options_for_select(us_states), :include_blank => true)
     .form-inline
       = f.label :postal_code
       %br
