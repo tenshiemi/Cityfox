@@ -44,6 +44,11 @@
   margin-top: 100px;
 }
 
+.profile--right h3 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
 .info--logo {
   @include span-columns(12);
   @include media($tablet) {
@@ -86,3 +91,12 @@
 ul.profile--reviews {
   padding-left: 0px;
 }
+
+.green {
+  color: hsla(108, 100%, 30%, 1);
+}
+
+.red {
+  color: hsla(3,100%,65%,.9);
+}
+

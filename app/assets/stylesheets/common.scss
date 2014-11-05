@@ -72,7 +72,21 @@ span.icon-flag {
 span.icon-flag:before {
     content: '\e605';
     font-family: 'icomoon';
-    color: red;
+    color: hsla(3,100%,65%,.9);
+    speak: none;
+    padding: 2px;
+}
+
+span.icon-thumbs-up:before {
+    content: '\e603';
+    font-family: 'icomoon';
+    speak: none;
+    padding: 2px;
+}
+
+span.icon-thumbs-down:before {
+    content: '\e604';
+    font-family: 'icomoon';
     speak: none;
     padding: 2px;
 }

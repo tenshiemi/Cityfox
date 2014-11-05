@@ -22,15 +22,16 @@
 						= f.submit 'Save', class: "small"
 		.profile--right
 			- if is_owner?
-				%h3 My Companies:
+				%h2 My Companies
 				- @user.companies.each do |company|
-					%h4= link_to company.name, company_path(company.id)
-					%p
-					Status:
-					- if @user.role = :owner
-						Verified
-					- else
-						Unverified
+					%h3= link_to company.name, company_path(company.id)
+					%h3
+						Status:
+						- relation = UserCompanyRelation.where(company_id: company.id, user_id: @user.id)[0]
+						- if relation.verified == true
+							%span.green Verified
+						- else
+							%span.red Pending verification
 					- if company.reviews 
 						%ul
 							- company.reviews.each do |review|
@@ -38,18 +39,18 @@
 									%span= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
 									%span= link_to "See more...", review_path(review)
 			- if @user.reviews.count > 0 
-				%h3 My Reviews:
+				%h2 My Reviews
 				%ul.profile--reviews
 					- @user.reviews.each do |review|
 						%li
 							%article
-								%h4
+								%h3
 									= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\""
 									- review.company.get_rating.times do
 										%span.icon-yellow
 									- (5 - review.company.get_rating).times do
 										%span.icon-gray
-								%h4= "\"#{review.title}\""
+								%h3= "\"#{review.title}\""
 								= review.description
 			- else
 				%h1 You haven't written any reviews yet!

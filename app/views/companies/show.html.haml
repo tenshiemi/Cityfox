@@ -33,11 +33,12 @@
 				- @company.reviews.order(helpful: :desc).each do |review|
 					%li
 						%article
-							%h2= "\"#{review.title}\""
-							- if review.would_work_with
-								%h3 I would work with this company again.
-							- else
-								%h3 I would not work with this company again.
+							%h2
+								= "\"#{review.title}\""
+								- if review.would_work_with
+									%span.icon-thumbs-up
+								- else
+									%span.icon-thumbs-down
 							%p= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
 							%p= review.description
 							%p
