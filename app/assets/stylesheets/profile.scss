@@ -74,10 +74,10 @@
   font-size: 1.4em;
 }
 
-.info--company h1 {
+.info--company h1, h2 {
   @include media($tablet) {
-    margin-top: .6em;
-    margin-bottom: .6em;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

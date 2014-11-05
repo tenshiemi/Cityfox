@@ -7,11 +7,10 @@
 			%h1 
 				= @company.name
 			%h2
-				= @company.city
+				= "#{@company.city},"
 				- if @company.state
-					= ", #{@company.state}"
-				- if @company.country
-					= ", #{@company.country}"
+					= "#{@company.state},"
+				= "#{@company.country}"
 			%span.small
 				- @company.get_rating.times do
 					%span.icon-yellow

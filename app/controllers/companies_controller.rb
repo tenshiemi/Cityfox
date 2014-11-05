@@ -31,6 +31,18 @@ class CompaniesController < ApplicationController
 	def edit
 	end
 
+	def update
+		respond_to do |format|
+      if @company.update(company_params)
+        format.html { redirect_to @company, notice: 'Business was successfully updated.' }
+        format.json { render :show, status: :created, location: @company }
+      else
+        format.html { render :new }
+        format.json { render json: @company.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
 	def get_all
 		render json: Company.all
 	end
