@@ -24,32 +24,35 @@
 			- if is_owner?
 				%h2 My Companies
 				- @user.companies.each do |company|
-					%h3= link_to company.name, company_path(company.id)
-					%h3
-						Status:
-						- relation = UserCompanyRelation.where(company_id: company.id, user_id: @user.id)[0]
-						- if relation.verified == true
-							%span.green Verified
-						- else
-							%span.red Pending verification
-					- if company.reviews 
-						%ul
-							- company.reviews.each do |review|
-								%li
-									%span= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
-									%span= link_to "See more...", review_path(review)
+					.card--company
+						.card--company--header
+							%h3= link_to company.name, company_path(company.id), class: "card-header"
+						.card--company--content
+							%h3
+								Status:
+								- relation = UserCompanyRelation.where(company_id: company.id, user_id: @user.id)[0]
+								- if relation.verified == true
+									%span.green Verified
+								- else
+									%span.red Pending verification
+							- if company.reviews 
+								%ul
+									- company.reviews.each do |review|
+										%li
+											%span= "#{review.created_at.strftime("%m/%d/%Y")} - \"#{review.title}\""
+											%span= link_to "See more...", review_path(review)
 			- if @user.reviews.count > 0 
 				%h2 My Reviews
 				%ul.profile--reviews
 					- @user.reviews.each do |review|
-						%li
-							%article
-								%h3
-									= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\""
-									- review.company.get_rating.times do
-										%span.icon-yellow
-									- (5 - review.company.get_rating).times do
-										%span.icon-gray
+						.card--company
+							.card--company--header
+								%h3= link_to review.company.name, company_path(review.company.id) + "\"#{review.title}\"", class: "card-header"
+							.card--company--content
+								- review.company.get_rating.times do
+									%span.icon-yellow
+								- (5 - review.company.get_rating).times do
+									%span.icon-gray
 								%h3= "\"#{review.title}\""
 								= review.description
 			- else
