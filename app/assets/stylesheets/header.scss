@@ -41,6 +41,7 @@ nav.nav--site {
 .nav--site ul {
   overflow: hidden;
   margin: auto;
+  padding-left: 0;
   @include media($tablet) {
     float: right;
   }

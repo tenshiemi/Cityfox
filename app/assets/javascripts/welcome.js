@@ -6,6 +6,7 @@ var pageJS = function() {
 
 	var company_list;
 
+	// Gets a list of all the companies in the DB and assigns them to a variable
 	$.ajax({
 	  type: "GET",
 	  url: "/get_all",
