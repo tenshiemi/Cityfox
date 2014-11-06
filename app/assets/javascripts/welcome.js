@@ -1,3 +1,6 @@
+// http://stackoverflow.com/questions/17500704/javascript-set-focus-to-html-form-element
+// http://stackoverflow.com/questions/17810746/use-up-and-down-arrows-for-autocomplete-search
+
 var pageJS = function() {
 	$('#search_term').focus();
 
