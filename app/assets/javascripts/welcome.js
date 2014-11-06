@@ -4,7 +4,7 @@
 var pageJS = function() {
 	$('#search_term').focus();
 
-	var company_list, names;
+	var company_list;
 
 	$.ajax({
 	  type: "GET",
@@ -24,7 +24,7 @@ var pageJS = function() {
 			$('#search_auto').append("<li style=\"height: 1.4em; padding: .2em 0 .2em 0; margin-bottom: .4em;\"><a href=\"/companies/"+ filtered[i].id + "\">" + filtered[i].name + "</a></li>");
 		}
 	});
-	
+
 	$('body').click(function() {
 		$('#search_auto').empty();
 	});
