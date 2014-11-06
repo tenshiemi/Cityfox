@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @relation = UserCompanyRelation.where(company_id: @review.company.id, user_id: current_user.id)
   end
 
   def add_response
