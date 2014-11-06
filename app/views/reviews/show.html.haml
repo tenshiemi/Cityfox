@@ -27,7 +27,6 @@
 			- (5 - @review.rating_payment).times do
 				%span.icon-gray
 		- if @relation.count > 0
-			%p.temp-response
 			- if @review.response
 				%p.response
 					%span.font--small= "Comment from #{@review.company.name}"

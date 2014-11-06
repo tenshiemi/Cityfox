@@ -13,7 +13,7 @@ var contentJS = function() {
 		  dataType: 'JSON'
 		}).done(function(json) {
 			$('.form--response').css('display', 'none');
-			$('p.temp-response').text(json.res);
+			$('p.response').text(json.res);
 		});
 	});
 
