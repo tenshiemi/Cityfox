@@ -10,6 +10,7 @@
       max-width: 18000px;
       min-height: 764px;
   }
+  background-color: hsl(55, 95%, 93%);
 }
 
 .content--hero {
@@ -56,4 +57,53 @@ a.link--hero {
 a.link--hero:visited {
   color: white;
   text-decoration: underline;
+}
+
+span.lock-icon:before {
+  content: '\e607';
+  font-family: 'icomoon';
+  speak: none;
+  padding: 2px;
+  font-size: 6em;
+  @include media($desktop) {
+    font-size: 10em;
+  }
+}
+
+span.users-icon {
+  margin-top: 100px;
+}
+
+span.users-icon:before {
+  content: '\e606';
+  font-family: 'icomoon';
+  speak: none;
+  padding: 2px;
+  font-size: 6em;
+  @include media($desktop) {
+    font-size: 10em;
+  }
+}
+
+.content--welcome--1-3 {
+  @include span-columns(12);
+  @include media($tablet) {
+    @include span-columns(4);
+    padding: 40px;
+  }
+}
+
+.content--welcome--2-3 {
+  @include media($desktop) {
+    @include span-columns(8);
+    padding: 20px;
+  }
+}
+
+.section--welcome--yellow {
+  // background-color: hsl(55, 95%, 93%);
+}
+
+.section--welcome--blue {
+  background-color: hsl(189, 55%, 36%);
 }
