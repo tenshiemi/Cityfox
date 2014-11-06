@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def get_all
-		render json: Company.all
+		render json: Company.all.sort { |a, b| b.reviews.count <=> a.reviews.count }
 	end
 
 	private
