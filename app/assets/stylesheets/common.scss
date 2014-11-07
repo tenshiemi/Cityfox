@@ -3,7 +3,7 @@
 
 $mobile: new-breakpoint(max-width 500px);
 $tablet: new-breakpoint(min-width 500px);
-$desktop: new-breakpoint(min-width 1000px);
+$desktop: new-breakpoint(min-width 800px);
 
 $color-page-primary: hsla(160, 36%, 61%, 1);
 $color-font-primary: hsla(50, 5%, 22%, 1);
