@@ -10,26 +10,21 @@ var flagCleanup = function(json) {
   $('.post-flag.' + id).css('display', 'inline-block');
 };
 
-var feedbackAJAX = function(elem) {
-  return $.ajax({
+var feedbackAJAX = function(elem, cb) {
+  $.ajax({
     type: "POST",
     url: elem.href
-  });
+  }).done(cb);
 };
 
 var reviewJS = function() {
   $('.flag').on("click",function() {
-    feedbackAJAX(this).done(flagCleanup);
+    feedbackAJAX(this, flagCleanup);
     return false;
   });
 
-  $('.helpful').click(function() {
-    feedbackAJAX(this).done(ratingCleanup);
-    return false;
-  });
-
-  $('.unhelpful').click(function() {
-    feedbackAJAX(this).done(ratingCleanup);
+  $('.helpful, .unhelpful').click(function() {
+    feedbackAJAX(this, ratingCleanup);
     return false;
   });
 }
