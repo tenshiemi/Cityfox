@@ -8,6 +8,11 @@
   left: 0;
   right: 0;
   top: 0;
+  &.hidden {
+    height: 0.0em;
+    overflow: hidden;
+    transition: height 0.5s; 
+  }
 }
 
 #notice {

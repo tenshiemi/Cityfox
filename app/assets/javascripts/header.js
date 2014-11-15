@@ -1,5 +1,5 @@
 $(function() {
   setTimeout(function(){
-    $('.messages--flash').slideUp(500);
+    $('.messages--flash').addClass('hidden');
   }, 2000);
 });
