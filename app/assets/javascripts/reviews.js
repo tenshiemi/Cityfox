@@ -1,9 +1,11 @@
-var ratingCleanup = function(id) {
+var ratingCleanup = function(json) {
+	var id = json.res;
 	$('.helpful-rating.' + id).css('display', 'none');
 	$('.post-helpful-rating.' + id).css('display', 'inline-block');
 }
 
-var flagCleanup = function(id) {
+var flagCleanup = function(json) {
+	var id = json.res;
 	$('.icon-flag.' + id).css('display', 'none');
 	$('.post-flag.' + id).css('display', 'inline-block');
 }
@@ -16,9 +18,7 @@ var reviewJS = function() {
 		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
-		}).done(function(json) {
-			flagCleanup(json.res);
-		});
+		}).done(flagCleanup);
 	});
 
   $('.helpful').click(function() {
@@ -28,9 +28,7 @@ var reviewJS = function() {
 		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
-		}).done(function(json) {
-			ratingCleanup(json.res);
-		});
+		}).done(ratingCleanup);
 	});
 
   $('.unhelpful').click(function() {
@@ -40,11 +38,8 @@ var reviewJS = function() {
 		  url: $(this).context.href,
 		  data: valuesToSubmit,
 		  dataType: 'JSON'
-		}).done(function(json) {
-			ratingCleanup(json.res);
-		});
+		}).done(ratingCleanup);
 	});
 }
 
-$(document).ready(reviewJS);
-$(document).on('page:load', reviewJS);
+$(reviewJS);
