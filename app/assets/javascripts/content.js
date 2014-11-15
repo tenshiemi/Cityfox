@@ -2,7 +2,7 @@ var contentJS = function() {
   $('.trigger--form').click(function() {
 		$('.form--response').css('display', 'block');
 	});
-	
+
 	$('.form--response > form').on('submit', function(evt){
 		evt.preventDefault();
 		var valuesToSubmit = $(this).serialize();
@@ -34,5 +34,4 @@ var contentJS = function() {
 	});
 }
 
-$(document).ready(contentJS);
-$(document).on('page:load', contentJS);
+$(contentJS);

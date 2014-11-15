@@ -31,5 +31,4 @@ var pageJS = function() {
   });
 }
 
-$(document).ready(pageJS);
-$(document).on('page:load', pageJS);
+$(pageJS);
