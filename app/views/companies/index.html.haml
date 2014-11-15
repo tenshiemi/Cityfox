@@ -1,33 +1,33 @@
 = render "layouts/header"
 .container
-	.content--cta
-		= link_to "Add Company", new_company_path, class: "button--cta"
-	.content--center
-		%table
-			%thead
-				%tr
-					%th Company Name
-					%th Location
-					- if current_user && is_admin?
-						%th Options
-					- else
-						%th Rating
-			%tbody
-				- @companies.each do |company|
-					%tr
-						- cache(company) do
-							%td
-								= link_to company.name, company_path(company)
-							%td= company.city
-							- if current_user && is_admin?
-								%td= link_to "Edit", edit_company_path(company)
-							- else
-								- if company.reviews.count > 0
-									%td
-										- company.get_rating.times do
-											%span.icon-yellow
-										- (5 - company.get_rating).times do
-											%span.icon-gray
-								- else
-									%td No reviews
-	
+  .content--cta
+    = link_to "Add Company", new_company_path, class: "button--cta"
+  .content--center
+    %table
+      %thead
+        %tr
+          %th Company Name
+          %th Location
+          - if current_user && is_admin?
+            %th Options
+          - else
+            %th Rating
+      %tbody
+        - @companies.each do |company|
+          %tr
+            - cache(company) do
+              %td
+                = link_to company.name, company_path(company)
+              %td= company.city
+              - if current_user && is_admin?
+                %td= link_to "Edit", edit_company_path(company)
+              - else
+                - if company.reviews.count > 0
+                  %td
+                    - company.get_rating.times do
+                      %span.icon-yellow
+                    - (5 - company.get_rating).times do
+                      %span.icon-gray
+                - else
+                  %td No reviews
+

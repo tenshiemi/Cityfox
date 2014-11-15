@@ -17,7 +17,12 @@ var feedbackAJAX = function(elem, cb) {
   }).done(cb);
 };
 
+// var cbFactory = function(cb) {}
+
 var reviewJS = function() {
+  // $('.flag').on('click', cbFactory(flagCleanup));
+  // $('.helpful, .unhelpful').on('click', cbFactory(ratingCleanup))
+
   $('.flag').on("click",function() {
     feedbackAJAX(this, flagCleanup);
     return false;

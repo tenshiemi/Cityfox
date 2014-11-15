@@ -1,22 +1,22 @@
 !!!
 %html
-	%head
-		%title FourthWall
-		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-		= javascript_include_tag 'application', 'data-turbolinks-track' => true
-		= csrf_meta_tags
-		%meta{:content => "initial-scale=1", :name => "viewport"}
-	#wrapper
-		#content
-			= yield
-		.container
-			=render "layouts/footer"
-	%stylesheet_link_tag 'application', 
-		'http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'
-	%stylesheet_link_tag 'application', 
-		'http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet'
-	%stylesheet_link_tag 'application', 
-		'http://fonts.googleapis.com/css?family=Open+Sans:400,300'
-	%stylesheet_link_tag 'application', 
-		'http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet'
-		
+  %head
+    %title FourthWall
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:content => "initial-scale=1", :name => "viewport"}
+  #wrapper
+    #content
+      = yield
+    .container
+      =render "layouts/footer"
+  %stylesheet_link_tag 'application',
+    'http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'
+  %stylesheet_link_tag 'application',
+    'http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet'
+  %stylesheet_link_tag 'application',
+    'http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  %stylesheet_link_tag 'application',
+    'http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet'
+

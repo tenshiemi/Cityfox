@@ -1,37 +1,37 @@
 = render "layouts/header"
 .container
-	.content--cta
-		= link_to "Add Company", new_company_path, class: "button--cta"
-	.content--center--medium
-		- if @results.size > 0
-			%h3
-				= "Search results for \"#{@search_term}\""
-				or
-				=link_to "view all companies...", companies_path
-			%ul
-				- @results.each do |result|
-					%li
-						%article
-							.search--left
-								= image_tag result.logo.url(:thumb)
-							.search--right
-								%h4
-									= link_to result.name, company_path(result.id)
-									= "#{result.city}, #{result.country}"
-								- if result.reviews.count >= 1
-									= link_to company_path(result.id) do
-										- if result.reviews.count > 1
-											%span= "#{result.reviews.count} reviews"
-										- elsif result.reviews.count == 1
-											%span= "#{result.reviews.count} review"
-									%span
-										- result.get_rating.times do
-											%span.icon-yellow
-										- (5 - result.get_rating).times do
-											%span.icon-gray
-									%h4= "#{result.rating}% would work with this company again."
-								- else
-									%span There are no reviews for this company.
-		- else
-			%h3 There are no results for this search.
+  .content--cta
+    = link_to "Add Company", new_company_path, class: "button--cta"
+  .content--center--medium
+    - if @results.size > 0
+      %h3
+        = "Search results for \"#{@search_term}\""
+        or
+        =link_to "view all companies...", companies_path
+      %ul
+        - @results.each do |result|
+          %li
+            %article
+              .search--left
+                = image_tag result.logo.url(:thumb)
+              .search--right
+                %h4
+                  = link_to result.name, company_path(result.id)
+                  = "#{result.city}, #{result.country}"
+                - if result.reviews.count >= 1
+                  = link_to company_path(result.id) do
+                    - if result.reviews.count > 1
+                      %span= "#{result.reviews.count} reviews"
+                    - elsif result.reviews.count == 1
+                      %span= "#{result.reviews.count} review"
+                  %span
+                    - result.get_rating.times do
+                      %span.icon-yellow
+                    - (5 - result.get_rating).times do
+                      %span.icon-gray
+                  %h4= "#{result.rating}% would work with this company again."
+                - else
+                  %span There are no reviews for this company.
+    - else
+      %h3 There are no results for this search.
 

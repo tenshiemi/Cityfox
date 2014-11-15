@@ -1,11 +1,11 @@
 = render "layouts/header"
 .container
-	.content--center
-		- if @flagged.count > 0
-			%ul
-			- @flagged.each do |review|
-				%li
-					%span= link_to "\"#{review.title}\"", review_path(review)
-					%span= link_to "(delete)", review, method: :delete, :confirm => "Are you sure?"
-		- else
-			%h1 There are no reviews pending.
+  .content--center
+    - if @flagged.count > 0
+      %ul
+      - @flagged.each do |review|
+        %li
+          %span= link_to "\"#{review.title}\"", review_path(review)
+          %span= link_to "(delete)", review, method: :delete, :confirm => "Are you sure?"
+    - else
+      %h1 There are no reviews pending.

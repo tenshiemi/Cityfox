@@ -3,13 +3,13 @@ class OwnersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_filter :require_login, only: [:new, :create]
 
-	def new
-		@company = Company.find(params[:id])
-		@user = User.new
-	end
+  def new
+    @company = Company.find(params[:id])
+    @user = User.new
+  end
 
-	def create
-		@user = User.new(owner_params)
+  def create
+    @user = User.new(owner_params)
     @company_id = params[:user][:company_id]
     respond_to do |format|
       if @user.save
@@ -23,7 +23,7 @@ class OwnersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
- 	end
+   end
 
   def claim
     @user = current_user
@@ -42,12 +42,12 @@ class OwnersController < ApplicationController
     end
   end
 
-	private
-	def set_user
+  private
+  def set_user
       @user = User.find(params[:id])
   end
 
-	def owner_params
+  def owner_params
     params.require(:user).permit(:role, :company_id, :name, :email, :phone, :password, :password_confirmation)
   end
 end

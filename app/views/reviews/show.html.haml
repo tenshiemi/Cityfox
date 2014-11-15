@@ -1,44 +1,44 @@
 = render "layouts/header"
 .container
-	.content--center
-		%h1= link_to "#{Company.find(@review.company).name}", company_path(@review.company.id)
-		%h2="\"#{@review.title}\""
-		%p=@review.description
-		- if @review.would_work_with
-			%h3 I would work with them again
-		- else
-			%h3 I would not work with them again
-		%p
-			%span= "Communication: "
-			- @review.rating_communication.times do
-				%span.icon-yellow
-			- (5 - @review.rating_communication).times do
-				%span.icon-gray
-		%p
-			%span= "Expectations: "
-			- @review.rating_expectations.times do
-				%span.icon-yellow
-			- (5 - @review.rating_expectations).times do
-				%span.icon-gray
-		%p
-			%span= "Payment: "
-			- @review.rating_payment.times do
-				%span.icon-yellow
-			- (5 - @review.rating_payment).times do
-				%span.icon-gray
-		- if @relation.count > 0
-			- if @review.response
-				%p.response
-					%span.font--small= "Comment from #{@review.company.name}"
-					%br
-					%br
-					= @review.response
-				%h5.trigger--form Update response
-			- else
-				%h5.trigger--form Write a response
-			.form--response
-				= form_for @review, url: add_response_path, method: :post, remote: true do |f|
-					.field
-						= f.hidden_field :id, value: @review.id
-						= f.text_area :response
-						= f.submit "Save"
+  .content--center
+    %h1= link_to "#{Company.find(@review.company).name}", company_path(@review.company.id)
+    %h2="\"#{@review.title}\""
+    %p=@review.description
+    - if @review.would_work_with
+      %h3 I would work with them again
+    - else
+      %h3 I would not work with them again
+    %p
+      %span= "Communication: "
+      - @review.rating_communication.times do
+        %span.icon-yellow
+      - (5 - @review.rating_communication).times do
+        %span.icon-gray
+    %p
+      %span= "Expectations: "
+      - @review.rating_expectations.times do
+        %span.icon-yellow
+      - (5 - @review.rating_expectations).times do
+        %span.icon-gray
+    %p
+      %span= "Payment: "
+      - @review.rating_payment.times do
+        %span.icon-yellow
+      - (5 - @review.rating_payment).times do
+        %span.icon-gray
+    - if @relation.count > 0
+      - if @review.response
+        %p.response
+          %span.font--small= "Comment from #{@review.company.name}"
+          %br
+          %br
+          = @review.response
+        %h5.trigger--form Update response
+      - else
+        %h5.trigger--form Write a response
+      .form--response
+        = form_for @review, url: add_response_path, method: :post, remote: true do |f|
+          .field
+            = f.hidden_field :id, value: @review.id
+            = f.text_area :response
+            = f.submit "Save"

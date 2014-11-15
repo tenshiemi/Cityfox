@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-  	unless is_admin?
+    unless is_admin?
       redirect_to root_url
     end
   end

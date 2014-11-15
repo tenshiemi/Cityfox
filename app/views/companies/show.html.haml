@@ -1,89 +1,89 @@
 = render "layouts/header"
 .container
-	.profile--header
-		.info--logo
-			= image_tag @company.logo.url(:thumb)
-		.info--company
-			%h1 
-				= @company.name
-			%h2
-				= "#{@company.city},"
-				- if @company.state
-					- if @company.state != ""
-						= "#{@company.state},"
-				= "#{@company.country}"
-			%p.review-count
-				- @company.get_rating.times do
-					%span.icon-yellow
-				- (5 - @company.get_rating).times do
-					%span.icon-gray
-				= "#{@company.reviews.count} reviews"
-		.info--cta
-			= link_to "Write a Review", "/reviews/new?id=#{@company.id}", class: "button--cta"
-			%span.font--small.center-me
-				- if current_user
-					- if @relation.count > 0
-						This is your company.
-					- else 
-						Do you work here?
-						%br
-						= link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
-				- else
-					Do you work here?
-					%br
-					= link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
-	.content--center--medium
-		- if @company.reviews.count > 0
-			%ul
-				- @company.reviews.order(helpful: :desc).each do |review|
-					%li
-						.card--review
-							.card--review--header
-								%h2
-									= "\"#{review.title}\""
-									- if review.would_work_with
-										%span.icon-thumbs-up
-									- else
-										%span.icon-thumbs-down
-							.card--review--content
-								%p.font--small= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
-								%p= review.description
-								%p
-									%span= "Communication: "
-									- review.rating_communication.times do
-										%span.icon-yellow
-									- (5 - review.rating_communication).times do
-										%span.icon-gray
-								%p
-									%span= "Expectations: "
-									- review.rating_expectations.times do
-										%span.icon-yellow
-									- (5 - review.rating_expectations).times do
-										%span.icon-gray
-								%p
-									%span= "Payment: "
-									- review.rating_payment.times do
-										%span.icon-yellow
-									- (5 - review.rating_payment).times do
-										%span.icon-gray
-								.reader_options
-									%p
-										%span{:class => "helpful-rating #{review.id}"}
-											Was this review helpful?
-											=link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
-											or
-											=link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
-										%span{:class => "post-helpful-rating #{review.id}"}
-											Thank you for your feedback!
-										=link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
-											%span{:class => "icon-flag #{review.id}"}
-										%span{:class => "post-flag #{review.id}"} This review has been flagged.
-								- if review.response
-									%p.response
-										%span.font--small= "Comment from #{review.company.name}"
-										%br
-										%br
-										= review.response
-		- else
-			.content--text
-				%h2 There are no reviews for this company.
+  .profile--header
+    .info--logo
+      = image_tag @company.logo.url(:thumb)
+    .info--company
+      %h1
+        = @company.name
+      %h2
+        = "#{@company.city},"
+        - if @company.state
+          - if @company.state != ""
+            = "#{@company.state},"
+        = "#{@company.country}"
+      %p.review-count
+        - @company.get_rating.times do
+          %span.icon-yellow
+        - (5 - @company.get_rating).times do
+          %span.icon-gray
+        = "#{@company.reviews.count} reviews"
+    .info--cta
+      = link_to "Write a Review", "/reviews/new?id=#{@company.id}", class: "button--cta"
+      %span.font--small.center-me
+        - if current_user
+          - if @relation.count > 0
+            This is your company.
+          - else
+            Do you work here?
+            %br
+            = link_to "Claim this company", "/owners/claim_company?id=#{@company.id}"
+        - else
+          Do you work here?
+          %br
+          = link_to "Claim this company", "/owners/new_owner?id=#{@company.id}"
+  .content--center--medium
+    - if @company.reviews.count > 0
+      %ul
+        - @company.reviews.order(helpful: :desc).each do |review|
+          %li
+            .card--review
+              .card--review--header
+                %h2
+                  = "\"#{review.title}\""
+                  - if review.would_work_with
+                    %span.icon-thumbs-up
+                  - else
+                    %span.icon-thumbs-down
+              .card--review--content
+                %p.font--small= "#{review.helpful} out of #{review.helpful + review.unhelpful} people found this review helpful."
+                %p= review.description
+                %p
+                  %span= "Communication: "
+                  - review.rating_communication.times do
+                    %span.icon-yellow
+                  - (5 - review.rating_communication).times do
+                    %span.icon-gray
+                %p
+                  %span= "Expectations: "
+                  - review.rating_expectations.times do
+                    %span.icon-yellow
+                  - (5 - review.rating_expectations).times do
+                    %span.icon-gray
+                %p
+                  %span= "Payment: "
+                  - review.rating_payment.times do
+                    %span.icon-yellow
+                  - (5 - review.rating_payment).times do
+                    %span.icon-gray
+                .reader_options
+                  %p
+                    %span{:class => "helpful-rating #{review.id}"}
+                      Was this review helpful?
+                      =link_to "Yes", mark_helpful_path(review), remote: true, method: :post, class: "helpful"
+                      or
+                      =link_to "No", mark_unhelpful_path(review), remote: true, method: :post, class: "unhelpful"
+                    %span{:class => "post-helpful-rating #{review.id}"}
+                      Thank you for your feedback!
+                    =link_to flag_review_path(review), remote: true, method: :post, class: "flag" do
+                      %span{:class => "icon-flag #{review.id}"}
+                    %span{:class => "post-flag #{review.id}"} This review has been flagged.
+                - if review.response
+                  %p.response
+                    %span.font--small= "Comment from #{review.company.name}"
+                    %br
+                    %br
+                    = review.response
+    - else
+      .content--text
+        %h2 There are no reviews for this company.
