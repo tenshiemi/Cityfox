@@ -7,6 +7,7 @@
   }
   @include media($desktop) {
       background: url('http://emilychen.co/images/newyork.jpg') top center no-repeat;
+      background-size: cover;
       max-width: 18000px;
       min-height: 764px;
   }
