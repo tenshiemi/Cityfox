@@ -5,11 +5,11 @@ var contentJS = function() {
 
   $('.form--response > form').on('submit', function(evt){
     evt.preventDefault();
-    var valuesToSubmit = $(this).serialize();
+    var $valuesToSubmit = $(this).serialize();
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
-      data: valuesToSubmit,
+      data: $valuesToSubmit,
       dataType: 'JSON'
     }).done(function(json) {
       $('.form--response').css('display', 'none');
@@ -22,11 +22,11 @@ var contentJS = function() {
   });
   $('.form--password-change > form').on('submit', function(evt){
     evt.preventDefault();
-    var valuesToSubmit = $(this).serialize();
+    var $valuesToSubmit = $(this).serialize();
     $.ajax({
       type: "POST",
       url: $(this).attr('action'),
-      data: valuesToSubmit,
+      data: $valuesToSubmit,
       dataType: 'JSON'
     }).done(function(json) {
       $('.form--password-change').css('display', 'none');
