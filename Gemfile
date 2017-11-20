@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.4.2'
 
 # Primary gems
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.10'
 gem 'pg'
 gem 'sorcery'
 
@@ -25,7 +25,7 @@ gem 'country_select', github: 'stefanpenner/country_select'
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 end
 
 gem 'pry'
