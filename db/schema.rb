@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141105093844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: true do |t|
+  create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
     t.string   "city"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141105093844) do
     t.datetime "logo_updated_at"
   end
 
-  create_table "reviews", force: true do |t|
+  create_table "reviews", force: :cascade do |t|
     t.boolean  "would_work_with"
     t.text     "description"
     t.text     "response"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20141105093844) do
     t.integer  "unhelpful",            default: 0
   end
 
-  create_table "user_company_relations", force: true do |t|
+  create_table "user_company_relations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "company_id"
     t.datetime "created_at"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141105093844) do
     t.boolean  "verified",   default: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                      null: false
     t.string   "crypted_password",           null: false
     t.string   "salt",                       null: false

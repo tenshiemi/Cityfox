@@ -1,6 +1,6 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :company do
     name                   { Faker::Company.name } # Why using lamdba here?
     city                   { Faker::Address.city }
